@@ -1,0 +1,1 @@
+C:\Users\fredv\Desktop\GitFiles\MyApp\MyApp\MyApp.csproj;x64
