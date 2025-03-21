@@ -5,7 +5,7 @@
              xmlns:model="clr-namespace:MyApp.Model" 
              x:Class="MyApp.View.DetailsView"             
              x:DataType="viewmodel:DetailsViewModel"
-             Title="DetailsView">
+             Title="Add Fruit or vegetable">
     
     <VerticalStackLayout>
         <HorizontalStackLayout Padding="10" Spacing="10">
