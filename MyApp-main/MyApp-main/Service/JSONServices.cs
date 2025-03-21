@@ -9,9 +9,9 @@ namespace MyApp.Service;
 
 public class JSONServices
 {
-    internal async Task<List<StrangeAnimal>> GetStrangeAnimals()
+    internal async Task<List<Product>> GetProducts()
     {
-        List<StrangeAnimal> MyList = new();
+        List<Product> MyList = new();
 
         string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MyAnimals.json");
         
@@ -21,25 +21,25 @@ public class JSONServices
 
             using var reader = new StreamReader(stream);
             var contents = await reader.ReadToEndAsync();
-            MyList = JsonSerializer.Deserialize<List<StrangeAnimal>>(contents) ?? new List<StrangeAnimal>();
+            MyList = JsonSerializer.Deserialize<List<Product>>(contents) ?? new List<Product>();
         }
         catch (Exception ex) 
         {
             
         }
         
-        return MyList ?? new List<StrangeAnimal>();
+        return MyList ?? new List<Product>();
     }
 
-    internal async Task SetStrangeAnimals()
+    internal async Task SetProduct()
     {
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MyAnimals.json");
+        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MyProduct.json");
         
         try
         {
             using FileStream fileStream = File.Create(filePath);
 
-            JsonSerializer.Serialize(fileStream, Globals.MyStrangeAnimals);
+            JsonSerializer.Serialize(fileStream, Globals.MyProducts);
             fileStream.Dispose();
         }
         catch (Exception ex)

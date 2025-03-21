@@ -12,7 +12,7 @@ namespace MyApp.ViewModel;
 
 public partial class MainViewModel : BaseViewModel
 {
-    public ObservableCollection<StrangeAnimal> MyObservableList { get; } = [];
+    public ObservableCollection<Product> MyObservableList { get; } = [];
     JSONServices MyJSONService;
     CSVServices MyCSVServices;
 
@@ -48,7 +48,7 @@ public partial class MainViewModel : BaseViewModel
     {
         IsBusy = true;
 
-        await MyCSVServices.PrintData(Globals.MyStrangeAnimals);
+        await MyCSVServices.PrintData(Globals.MyProducts);
 
         IsBusy = false;
     }
@@ -57,7 +57,7 @@ public partial class MainViewModel : BaseViewModel
     {
         IsBusy = true;
 
-        Globals.MyStrangeAnimals = await MyCSVServices.LoadData();
+        Globals.MyProducts = await MyCSVServices.LoadData();
 
         IsBusy = false;
     }
@@ -66,9 +66,9 @@ public partial class MainViewModel : BaseViewModel
     {
         MyObservableList.Clear ();
 
-        if(Globals.MyStrangeAnimals.Count == 0) Globals.MyStrangeAnimals = await MyJSONService.GetStrangeAnimals();
+        if(Globals.MyProducts.Count == 0) Globals.MyProducts = await MyJSONService.GetProducts();
 
-        foreach (var item in Globals.MyStrangeAnimals)
+        foreach (var item in Globals.MyProducts)
         {
             MyObservableList.Add(item);
         }

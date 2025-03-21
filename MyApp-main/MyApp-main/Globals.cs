@@ -15,5 +15,7 @@ global using CommunityToolkit.Maui;
 
 public class Globals
 {
-    public static List<StrangeAnimal> MyStrangeAnimals = new();
+
+    public static List<Product> MyProducts = new();
+
 }

@@ -52,7 +52,7 @@
                                         VerticalItemSpacing="10" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate  x:DataType="model:StrangeAnimal">
+                    <DataTemplate  x:DataType="model:Product">
                         <Border     StrokeThickness="4"
                             StrokeShape="RoundRectangle 10,10,10,10"
                             Padding="10">

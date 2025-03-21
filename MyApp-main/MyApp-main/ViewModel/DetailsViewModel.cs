@@ -57,7 +57,7 @@ public partial class DetailsViewModel: ObservableObject
     }
     internal void RefreshPage()
     {
-        foreach (var item in Globals.MyStrangeAnimals)
+        foreach (var item in Globals.MyProducts)
         {
             if (Id == item.Id)
             {
@@ -78,7 +78,7 @@ public partial class DetailsViewModel: ObservableObject
     [RelayCommand]
     internal void ChangeObjectParameters()
     {
-        foreach (var item in Globals.MyStrangeAnimals)
+        foreach (var item in Globals.MyProducts)
         {
             if (item.Id == Id)
             {

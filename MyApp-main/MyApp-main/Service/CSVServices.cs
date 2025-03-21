@@ -10,9 +10,9 @@ namespace MyApp.Service;
 
 public class CSVServices
 {
-    public async Task<List<StrangeAnimal>> LoadData()
+    public async Task<List<Product>> LoadData()
     {
-        List<StrangeAnimal> list = [];
+        List<Product> list = [];
 
         var result = await FilePicker.PickAsync(new PickOptions
         {
@@ -24,11 +24,11 @@ public class CSVServices
             var lines = await File.ReadAllLinesAsync(result.FullPath, Encoding.UTF8);
 
             var headers = lines[0].Split(';');
-            var properties = typeof(StrangeAnimal).GetProperties();
+            var properties = typeof(Product).GetProperties();
 
             for (int i = 1; i < lines.Length; i++)
             {
-                StrangeAnimal obj = new();
+                Product obj = new();
 
                 var values = lines[i].Split(';');
 
