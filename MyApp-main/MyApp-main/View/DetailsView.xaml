@@ -5,16 +5,9 @@
              xmlns:model="clr-namespace:MyApp.Model" 
              x:Class="MyApp.View.DetailsView"             
              x:DataType="viewmodel:DetailsViewModel"
-             Title="Add Fruit or vegetable">
-    
+             Title="Product Details">
+
     <VerticalStackLayout>
-        <HorizontalStackLayout Padding="10" Spacing="10">
-            <Label Text="Emulator : " VerticalOptions="Center"/>
-            <Switch OnColor="{StaticResource Primary}"
-                    ThumbColor="{StaticResource Primary}" 
-                    IsToggled="{Binding EmulatorON_OFF}"
-                    VerticalOptions="Center"/>            
-        </HorizontalStackLayout>
         <Grid ColumnDefinitions="0.1*,0.3*,*" RowDefinitions="*,*,*,*,*" Padding="20" RowSpacing="20">
             <Label  Grid.Column="0" Grid.Row="0" Text="Id:" VerticalOptions="Center"/>
             <Entry  Grid.Column="1" Grid.Row="0"  
@@ -28,33 +21,34 @@
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" 
                     WidthRequest="300" />
-            <Label  Grid.Column="0" Grid.Row="2" Text="Description:" VerticalOptions="Center"/>
+            <Label  Grid.Column="0" Grid.Row="2" Text="Groupe:" VerticalOptions="Center"/>
             <Entry  Grid.Column="1" Grid.Row="2"
-                    Text="{Binding Description}"
+                    Text="{Binding Group}"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" 
                     WidthRequest="300" />
-            <Label  Grid.Column="0" Grid.Row="3" Text="Image:" VerticalOptions="Center"/>
+            <Label  Grid.Column="0" Grid.Row="3" Text="Stock:" VerticalOptions="Center"/>
             <Entry  Grid.Column="1" Grid.Row="3" 
-                    Text="{Binding Picture}"
+                    Text="{Binding Stock}" 
+                    Keyboard="Numeric"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" 
+                    WidthRequest="300" />
+            <Label  Grid.Column="0" Grid.Row="4" Text="Prix:" VerticalOptions="Center"/>
+            <Entry  Grid.Column="1" Grid.Row="4" 
+                    Text="{Binding Price}" 
+                    Keyboard="Numeric"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" 
                     WidthRequest="300" />
             <Button x:Name="MyAnimatedButton"
                     Grid.Column="1"
-                    Grid.Row="4"
+                    Grid.Row="5"
                     WidthRequest="100" 
                     HorizontalOptions="Center"
                     Text="Valider"
                     Command="{Binding ChangeObjectParametersCommand}"
-                    Clicked="MyAnimatedButton_Clicked"
-                    IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BaseViewModel}}, Path= IsNotBusy}"/>
-            
+                    Clicked="MyAnimatedButton_Clicked"/>
         </Grid>
-        <HorizontalStackLayout Spacing="20">
-            <Label Text="Serial Data: "></Label>
-            <Label Text="{Binding SerialBufferContent}" TextColor="Red"></Label>
-        </HorizontalStackLayout>
-
     </VerticalStackLayout>
 </ContentPage>
