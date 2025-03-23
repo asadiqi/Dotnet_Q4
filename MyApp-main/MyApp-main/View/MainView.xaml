@@ -5,89 +5,103 @@
              xmlns:model="clr-namespace:MyApp.Model"             
              x:Class="MyApp.View.MainView"
              x:DataType="viewmodel:MainViewModel">
-    <ScrollView>
-     
-        <VerticalStackLayout Spacing="20" Padding="20">
-            <Button     Text="Add object"
-                        Grid.Column="0"
-                        HorizontalOptions="Start"
-                        HeightRequest="50"
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToDetailsCommand}"
-                        CommandParameter="0"
-                        IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=IsNotBusy}">
-            </Button>
-            <HorizontalStackLayout Spacing="10">
-                <Button     Text="Export to CSV"
-                            Grid.Column="0"
-                            HorizontalOptions="Start"
-                            HeightRequest="50"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=PrintToCSVCommand}"
-                            CommandParameter="0"
-                            IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=IsNotBusy}">
-                </Button>
-                <Button     Text="Load from CSV"
-                            Grid.Column="0"
-                            HorizontalOptions="Start"
-                            HeightRequest="50"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=LoadFromCSVCommand}"
-                            CommandParameter="0"
-                            IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=IsNotBusy}">
-                </Button>
-                <Button     Text="Graph"
-                            Grid.Column="0"
-                            HorizontalOptions="Start"
-                            HeightRequest="50"
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToGraphCommand}"
-                            CommandParameter="0"
-                            IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=IsNotBusy}">
-                </Button>
-            </HorizontalStackLayout>
 
-            <CollectionView ItemsSource="{Binding MyObservableList}"
-                            SelectionMode="None">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout    Orientation="Vertical"
-                                        Span="2"  
-                                        HorizontalItemSpacing="10"
-                                        VerticalItemSpacing="10" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate  x:DataType="model:Product">
-                        <Border     StrokeThickness="4"
-                            StrokeShape="RoundRectangle 10,10,10,10"
-                            Padding="10">
-                            <Grid HeightRequest="100" ColumnDefinitions="0.5*,*">
-                                <ImageButton  Grid.Column="0"
-                                Source="{Binding Picture}"
-                                HorizontalOptions="Start"
-                                Aspect="AspectFit"
-                                HeightRequest="100"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToDetailsCommand}"
-                                CommandParameter="{Binding Id}"
-                                IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=IsNotBusy}">
-                                </ImageButton>
-                                <VerticalStackLayout Grid.Column="1">
-                                    <Label  Text="{Binding Path=Id,StringFormat='ID: {0:S2}'}"
-                                    Style="{StaticResource SubHeadline}"
-                                    FontSize="15"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center"/>
-                                    <Label  Text="{Binding Path=Name,StringFormat='Name: {0:S10}'}"
-                                    Style="{StaticResource SubHeadline}"
-                                    FontSize="15"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center"/>
-                                    <Label  Text="{Binding Path=Description,StringFormat='Description: {0:S10}'}"
-                                    Style="{StaticResource SubHeadline}"
-                                    FontSize="15"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center"/>
-                                </VerticalStackLayout>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>   
+    <Grid>
+
+        <!-- Image d'arrière-plan -->
+        <Image Source="backgrond.png"
+               Aspect="AspectFill"
+               Opacity="0.5"                              
+               AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+
+        <!-- Contenu principal avec défilement -->
+        <ScrollView>
+            <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="CenterAndExpand">
+                <Button Text="Add object"
+                        WidthRequest="250" 
+                        HeightRequest="50"
+                        Command="{Binding GoToDetailsCommand}"
+                        CommandParameter="0"
+                        IsEnabled="{Binding IsNotBusy}" />
+
+               
+                    <Button Text="Export to CSV"
+                             WidthRequest="250"
+                            HeightRequest="50"
+                            Command="{Binding PrintToCSVCommand}"
+                            CommandParameter="0"
+                            IsEnabled="{Binding IsNotBusy}" />
+
+                    <Button Text="Load from CSV"
+                             WidthRequest="250"
+                            HeightRequest="50"
+                            Command="{Binding LoadFromCSVCommand}"
+                            CommandParameter="0"
+                            IsEnabled="{Binding IsNotBusy}" />
+
+                    <Button Text="Graph"
+                            WidthRequest="250"
+                            HeightRequest="50"
+                            Command="{Binding GoToGraphCommand}"
+                            CommandParameter="0"
+                            IsEnabled="{Binding IsNotBusy}" />
+
+                <CollectionView ItemsSource="{Binding MyObservableList}"
+                                SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="2"
+                                         HorizontalItemSpacing="10"
+                                         VerticalItemSpacing="10" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Product">
+                            <Border StrokeThickness="4"
+                                    StrokeShape="RoundRectangle 10,10,10,10"
+                                    Padding="10">
+                                <Grid HeightRequest="100" ColumnDefinitions="0.5*,*">
+                                    <ImageButton Grid.Column="0"
+                                                 Source="{Binding Picture}"
+                                                 HorizontalOptions="Start"
+                                                 Aspect="AspectFit"
+                                                 HeightRequest="100"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToDetailsCommand}"
+                                                 CommandParameter="{Binding Id}"
+                                                 IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=IsNotBusy}" />
+
+                                    <VerticalStackLayout Grid.Column="1">
+                                        <Label Text="{Binding Path=Id, StringFormat='ID: {0:S2}'}"
+                                               Style="{StaticResource SubHeadline}"
+                                               FontSize="15"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"/>
+                                        <Label Text="{Binding Path=Name, StringFormat='Name: {0:S10}'}"
+                                               Style="{StaticResource SubHeadline}"
+                                               FontSize="15"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"/>
+                                        <Label Text="{Binding Path=Description, StringFormat='Description: {0:S10}'}"
+                                               Style="{StaticResource SubHeadline}"
+                                               FontSize="15"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"/>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Label version en bas à droite -->
+        <Label Text="Version 1"
+               HorizontalOptions="End"
+               VerticalOptions="End"
+               Margin="10"
+               FontSize="12"
+               TextColor="Gray"/>
+    </Grid>
+
 </ContentPage>
