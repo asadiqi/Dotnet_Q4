@@ -7,8 +7,19 @@
              x:DataType="viewmodel:DetailsViewModel"
              Title="Product Details">
 
+    <AbsoluteLayout>
+        <!-- Image de fond -->
+        <Image Source="background.png"
+               Aspect="AspectFill"
+               Opacity="0.5"                               
+               AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds="0,0,1,1"/>
     <VerticalStackLayout>
         <Grid ColumnDefinitions="0.1*,0.3*,*" RowDefinitions="*,*,*,*,*" Padding="20" RowSpacing="20">
+           
+
+            
+            
             <Label  Grid.Column="0" Grid.Row="0" Text="Id:" VerticalOptions="Center"/>
             <Entry  Grid.Column="1" Grid.Row="0"  
                     Text="{Binding Id}"
@@ -51,4 +62,5 @@
                     Clicked="MyAnimatedButton_Clicked"/>
         </Grid>
     </VerticalStackLayout>
+    </AbsoluteLayout>
 </ContentPage>

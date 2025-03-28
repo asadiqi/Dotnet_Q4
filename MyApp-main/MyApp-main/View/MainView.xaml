@@ -9,7 +9,7 @@
     <Grid>
 
         <!-- Image d'arrière-plan -->
-        <Image Source="backgrond.png"
+        <Image Source="background.png"
                Aspect="AspectFill"
                Opacity="0.5"                              
                AbsoluteLayout.LayoutFlags="All"
@@ -18,7 +18,7 @@
         <!-- Contenu principal avec défilement -->
         <ScrollView>
             <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="CenterAndExpand">
-                <Button Text="Add object"
+                <Button Text="Products"
                         WidthRequest="250" 
                         HeightRequest="50"
                         Command="{Binding GoToDetailsCommand}"
