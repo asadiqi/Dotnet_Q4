@@ -31,7 +31,12 @@ public partial class DetailsView : ContentPage
         await MyAnimatedButton.ScaleTo(1.1, 100);
         await MyAnimatedButton.ScaleTo(1.0, 100);
 
-        viewModel.ChangeObjectParametersCommand.Execute(null);
-        await Shell.Current.GoToAsync(".."); // retour à la page main apres ajouter la liste 
+
+        // Ne navigue que si la validation a réussi (c'est-à-dire que les champs sont remplis)
+        if (viewModel.IsValid())
+        {
+            await Shell.Current.GoToAsync(".."); // Retour à la page main
+        }
     }
+
 }

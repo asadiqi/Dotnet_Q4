@@ -35,23 +35,24 @@
 
                 <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="5">
                     <!-- Id -->
-                    <Label Text="Id :" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Label Text="Id* :" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+
                     <Entry Text="{Binding Id}" Grid.Column="1" Grid.Row="0" WidthRequest="250" Margin="0,0,0,5"/>
 
                     <!-- Nom -->
-                    <Label Text="Nom :" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Label Text="Nom* :" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Name}" Grid.Column="1" Grid.Row="1" WidthRequest="250" Margin="0,0,0,5"/>
 
                     <!-- Groupe -->
-                    <Label Text="Groupe :" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Label Text="Groupe* :" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Group}" Grid.Column="1" Grid.Row="2" WidthRequest="250" Margin="0,0,0,5"/>
 
                     <!-- Stock -->
-                    <Label Text="Stock :" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Label Text="Stock* :" Grid.Row="3" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Stock}" Grid.Column="1" Grid.Row="3" Keyboard="Numeric" WidthRequest="250" Margin="0,0,0,5"/>
 
                     <!-- Prix -->
-                    <Label Text="Prix :" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Label Text="Prix* :" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Price}" Grid.Column="1" Grid.Row="4" Keyboard="Numeric" WidthRequest="250" Margin="0,0,0,5"/>
                 </Grid>
 

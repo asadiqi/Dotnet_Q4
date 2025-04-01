@@ -67,16 +67,22 @@ public partial class DetailsViewModel : ObservableObject
         MyScanner.SerialBuffer.Changed -= OnSerialDataReception;
         MyScanner.ClosePort();
     }
-
     [RelayCommand]
-    internal void ChangeObjectParameters()
+    internal async Task ChangeObjectParameters()
     {
+        if (!IsValid())
+        {
+            await Application.Current.MainPage.DisplayAlert(
+                "Erreur",
+                "Tous les champs doivent être remplis et les valeurs numériques doivent être supérieures à 0.",
+                "OK"
+            );
+            return;
+        }
 
-
-        var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id); 
+        var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
 
         if (existingProduct != null)
-
         {
             existingProduct.Name = Name ?? string.Empty;
             existingProduct.Group = Group ?? string.Empty;
@@ -85,22 +91,28 @@ public partial class DetailsViewModel : ObservableObject
         }
         else
         {
-            Globals.MyProducts.Add(new Product    // ajout d'un nouveau produit dans la liste de MyProducts qui est dans fichier Globals
+            Globals.MyProducts.Add(new Product
             {
                 Id = Id ?? Guid.NewGuid().ToString(),
                 Name = Name ?? string.Empty,
                 Group = Group ?? string.Empty,
                 Stock = Stock,
                 Price = Price
-
-
             });
-
         }
 
-        Task.Run(async () => await new JSONServices().SetProduct()); // enregistre apres modification
-
-
+        await new JSONServices().SetProduct();
     }
+
+
+    public bool IsValid()
+    {
+        return !string.IsNullOrWhiteSpace(Id) &&
+               !string.IsNullOrWhiteSpace(Name) &&
+               !string.IsNullOrWhiteSpace(Group) &&
+               Stock > 0 &&
+               Price > 0;
+    }
+
 
 }
