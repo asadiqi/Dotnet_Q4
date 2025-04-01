@@ -58,6 +58,8 @@ public partial class MainViewModel : BaseViewModel
         IsBusy = true;
 
         Globals.MyProducts = await MyCSVServices.LoadData();
+       
+        await RefreshPage();
 
         IsBusy = false;
     }
