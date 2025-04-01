@@ -38,8 +38,8 @@ public class JSONServices
         try
         {
             
-            var json = JsonSerializer.Serialize(Globals.MyProducts, new JsonSerializerOptions { WriteIndented = true });
-            await File.WriteAllTextAsync(filePath, json);
+            var json = JsonSerializer.Serialize(Globals.MyProducts, new JsonSerializerOptions { WriteIndented = true }); // donc 
+            await File.WriteAllTextAsync(filePath, json); //ecrit le json dans un fichier en mode asynchrone
         }
         catch (Exception ex)
         {

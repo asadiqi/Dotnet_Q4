@@ -73,7 +73,7 @@ public partial class DetailsViewModel : ObservableObject
     {
 
 
-        var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
+        var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id); 
 
         if (existingProduct != null)
 
@@ -85,7 +85,7 @@ public partial class DetailsViewModel : ObservableObject
         }
         else
         {
-            Globals.MyProducts.Add(new Product
+            Globals.MyProducts.Add(new Product    // ajout d'un nouveau produit dans la liste de MyProducts qui est dans fichier Globals
             {
                 Id = Id ?? Guid.NewGuid().ToString(),
                 Name = Name ?? string.Empty,
@@ -98,7 +98,7 @@ public partial class DetailsViewModel : ObservableObject
 
         }
 
-        Task.Run(async () => await new JSONServices().SetProduct());
+        Task.Run(async () => await new JSONServices().SetProduct()); // enregistre apres modification
 
 
     }

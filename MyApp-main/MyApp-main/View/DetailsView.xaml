@@ -4,7 +4,7 @@
              xmlns:model="clr-namespace:MyApp.Model" 
              x:Class="MyApp.View.DetailsView"             
              x:DataType="viewmodel:DetailsViewModel"
-             Title="Product Details">
+             Title="Product Management">
 
     <Grid>
         <!-- Définition des lignes pour organiser l'affichage -->
@@ -28,7 +28,7 @@
                                  HeightRequest="500"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                <Label Text="Add product"
+                <Label Text="Product Details"
                        FontSize="24"
                        FontAttributes="Bold"
                        HorizontalOptions="Center"/>

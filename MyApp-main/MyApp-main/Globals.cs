@@ -13,6 +13,9 @@ global using CommunityToolkit.Mvvm;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Maui;
 
+// dans cette classe on met toutes les vars listes etc
+// ce sont des varibales qui sont utiliser dans tous le projet
+ 
 public class Globals
 {
 

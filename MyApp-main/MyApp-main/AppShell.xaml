@@ -8,7 +8,7 @@
     Title="MyApp">
 
     <ShellContent
-        Title="Home"
+        Title="Amir's Shop"
         ContentTemplate="{DataTemplate local:MainView}"
         Route="MainView" />
 
