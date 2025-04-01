@@ -30,5 +30,8 @@ public partial class DetailsView : ContentPage
     {
         await MyAnimatedButton.ScaleTo(1.1, 100);
         await MyAnimatedButton.ScaleTo(1.0, 100);
+
+        viewModel.ChangeObjectParametersCommand.Execute(null);
+        await Shell.Current.GoToAsync(".."); // retour à la liste 
     }
 }

@@ -71,15 +71,36 @@ public partial class DetailsViewModel : ObservableObject
     [RelayCommand]
     internal void ChangeObjectParameters()
     {
-        foreach (var item in Globals.MyProducts)
+
+
+        var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
+
+        if (existingProduct != null)
+
         {
-            if (item.Id == Id)
-            {
-                item.Name = Name ?? string.Empty;
-                item.Group = Group ?? string.Empty;
-                item.Stock = Stock;
-                item.Price = Price;
-            }
+            existingProduct.Name = Name ?? string.Empty;
+            existingProduct.Group = Group ?? string.Empty;
+            existingProduct.Stock = Stock;
+            existingProduct.Price = Price;
         }
+        else
+        {
+            Globals.MyProducts.Add(new Product
+            {
+                Id = Id ?? Guid.NewGuid().ToString(),
+                Name = Name ?? string.Empty,
+                Group = Group ?? string.Empty,
+                Stock = Stock,
+                Price = Price
+
+
+            });
+
+        }
+
+        Task.Run(async () => await new JSONServices().SetProduct());
+
+
     }
+
 }

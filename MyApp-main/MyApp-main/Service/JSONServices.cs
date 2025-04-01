@@ -37,14 +37,13 @@ public class JSONServices
         
         try
         {
-            using FileStream fileStream = File.Create(filePath);
-
-            JsonSerializer.Serialize(fileStream, Globals.MyProducts);
-            fileStream.Dispose();
+            
+            var json = JsonSerializer.Serialize(Globals.MyProducts, new JsonSerializerOptions { WriteIndented = true });
+            await File.WriteAllTextAsync(filePath, json);
         }
         catch (Exception ex)
         {
-            
+            Console.WriteLine($"Erreur lors de la sauvegarde :{ex.Message}");
         }
     }
 }
