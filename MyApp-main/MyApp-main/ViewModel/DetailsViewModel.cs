@@ -74,9 +74,17 @@ public partial class DetailsViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(Id))
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "The ID field cannot be empty.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Error", "The ID field cannot be empty or contain letters, it must contain only digits.", "OK");
             return;
         }
+
+
+        if (!Id.All(char.IsDigit))
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", "The ID field must contain only digits.", "OK");
+            return;
+        }
+
 
         if (string.IsNullOrWhiteSpace(Name))
         {
@@ -92,13 +100,14 @@ public partial class DetailsViewModel : ObservableObject
 
         if (Stock <= 0)
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "Stock must be greater than 0.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Error", "Stock must be greater than 0 and it must contain only digits.", "OK");
             return;
         }
 
+
         if (Price <= 0)
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "Price must be greater than 0.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Error", "Price must be greater than 0 and it must contain only digits.", "OK");
             return;
         }
 
@@ -130,12 +139,14 @@ public partial class DetailsViewModel : ObservableObject
 
     public bool IsValid()
     {
-        return !string.IsNullOrWhiteSpace(Id) &&
-               !string.IsNullOrWhiteSpace(Name) &&
-               !string.IsNullOrWhiteSpace(Group) &&
-               Stock > 0 &&
-               Price > 0;
+        return !string.IsNullOrWhiteSpace(Id) &&          // Vérifie que l'ID n'est pas vide
+               Id.All(char.IsDigit) &&                   // Vérifie que l'ID contient uniquement des chiffres
+               !string.IsNullOrWhiteSpace(Name) &&       // Vérifie que le nom n'est pas vide
+               !string.IsNullOrWhiteSpace(Group) &&      // Vérifie que le groupe n'est pas vide
+               Stock > 0 &&                               // Vérifie que le stock est supérieur à 0
+               Price > 0;                                // Vérifie que le prix est supérieur à 0
     }
+
 
 
 }
