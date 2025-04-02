@@ -67,16 +67,38 @@ public partial class DetailsViewModel : ObservableObject
         MyScanner.SerialBuffer.Changed -= OnSerialDataReception;
         MyScanner.ClosePort();
     }
+
+
     [RelayCommand]
     internal async Task ChangeObjectParameters()
     {
-        if (!IsValid())
+        if (string.IsNullOrWhiteSpace(Id))
         {
-            await Application.Current.MainPage.DisplayAlert(
-                "Erreur",
-                "Tous les champs doivent être remplis et les valeurs numériques doivent être supérieures à 0.",
-                "OK"
-            );
+            await Application.Current.MainPage.DisplayAlert("Error", "The ID field cannot be empty.", "OK");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(Name))
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", "The Name field cannot be empty.", "OK");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(Group))
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", "The Group field cannot be empty.", "OK");
+            return;
+        }
+
+        if (Stock <= 0)
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", "Stock must be greater than 0.", "OK");
+            return;
+        }
+
+        if (Price <= 0)
+        {
+            await Application.Current.MainPage.DisplayAlert("Error", "Price must be greater than 0.", "OK");
             return;
         }
 
@@ -103,6 +125,7 @@ public partial class DetailsViewModel : ObservableObject
 
         await new JSONServices().SetProduct();
     }
+
 
 
     public bool IsValid()
