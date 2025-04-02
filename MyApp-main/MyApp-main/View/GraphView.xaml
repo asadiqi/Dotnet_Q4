@@ -5,6 +5,6 @@
              x:Class="MyApp.View.GraphView"
              Title="GraphView">
     <Grid>
-        <micro:ChartView Chart="{Binding MyObservableChart}"/>
+        <micro:ChartView Chart="{Binding MyObservableChart}" />
     </Grid>
 </ContentPage>
