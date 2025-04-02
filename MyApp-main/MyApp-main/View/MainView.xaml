@@ -81,11 +81,22 @@
                                                FontSize="15"
                                                HorizontalOptions="Start"
                                                VerticalOptions="Center"/>
-                                        <Label Text="{Binding Path=Description, StringFormat='Description: {0:S10}'}"
+                                        <Label Text="{Binding Path=Group, StringFormat='Group: {0:S10}'}"
                                                Style="{StaticResource SubHeadline}"
                                                FontSize="15"
                                                HorizontalOptions="Start"
                                                VerticalOptions="Center"/>
+                                        <Label Text="{Binding Path=Stock, StringFormat='Stock: {0} piece'}"
+                                               Style="{StaticResource SubHeadline}"
+                                               FontSize="15"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"/>
+
+                                        <Label Text="{Binding Path=Price, StringFormat='Price: {0} €'}"
+                                               Style="{StaticResource SubHeadline}"
+                                               FontSize="15"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"/>               
                                     </VerticalStackLayout>
                                 </Grid>
                             </Border>
