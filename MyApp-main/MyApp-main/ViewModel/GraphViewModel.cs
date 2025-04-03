@@ -1,41 +1,54 @@
 ﻿using Microcharts;
-using Microsoft.Maui.Graphics;
 using SkiaSharp;
-using MyApp.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MyApp.ViewModel;
 
 public partial class GraphViewModel : ObservableObject
 {
-    [ObservableProperty]
-    public partial Chart MyObservableChart { get; set; } = new BarChart(); // Utilisation d'un BarChart pour les diagrammes en bâtonnets
-
-    // Cette méthode est utilisée pour mettre à jour les données du graphique.
-    public void UpdateChart(List<Product> products)
-    {
-        var entries = products.Select(p => new ChartEntry(p.Stock)
-        {
-            Label = p.Name,
-            ValueLabel = p.Stock.ToString(),
-            Color = SKColor.Parse("#b455b6")
-        }).ToArray();
-
-        MyObservableChart = new BarChart { Entries = entries };
-    }
+    public Chart ProductChart { get; }
+    public Chart StockChart { get; } // Ajout du graphique pour le stock
 
     public GraphViewModel()
     {
-        // Initialisation avec des produits fictifs si nécessaire
-        UpdateChart(Globals.MyProducts); // Chargement des produits actuels
+        ProductChart = GeneratePriceChart();
+        StockChart = GenerateStockChart(); // Création du deuxième graphique
     }
 
-    internal void RefreshPage()
+    private Chart GeneratePriceChart()
     {
-        UpdateChart(Globals.MyProducts); // Rafraîchir avec les produits actuels
+        var entries = Globals.MyProducts.Select(product => new ChartEntry(product.Price)
+        {
+            Label = product.Name,
+            ValueLabel = $"Prix: {product.Price} €",
+            Color = SKColor.Parse(product.Group == "Fruit" ? "#FFA500" : "#2ECC71") // Orange pour fruits, Vert pour légumes
+        }).ToList();
+        return new BarChart
+        {
+            Entries = entries,
+            LabelTextSize = 15,
+            MaxValue = Globals.MyProducts.Max(p => p.Price) + 50,
+        };
     }
+
+    private Chart GenerateStockChart()
+    {
+        var entries = Globals.MyProducts.Select(product => new ChartEntry(product.Stock)
+        {
+            Label = product.Name,
+            ValueLabel = $"{product.Stock} unités",
+            Color = SKColor.Parse(product.Group == "Fruit" ? "#FFA500" : "#2ECC71") // Orange pour fruits, Vert pour légumes
+        }).ToList();
+
+        return new BarChart
+        {
+            Entries = entries,
+            LabelTextSize = 15,
+            MaxValue = Globals.MyProducts.Max(p => p.Stock) + 10,
+        };
+    }
+
+
 }

@@ -15,7 +15,6 @@ public partial class GraphView : ContentPage
     {
         base.OnNavigatedTo(args);
         BindingContext = null;
-        viewModel.RefreshPage();
         BindingContext = viewModel;
     }
 }

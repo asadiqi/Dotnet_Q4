@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
-             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="MyApp.View.GraphView"
-             Title="GraphView">
-    <Grid>
-        <micro:ChartView Chart="{Binding MyObservableChart}" />
-    </Grid>
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20">
+        <Label Text="Comparaison de Prix et Stock des Produits" 
+                FontSize="24" 
+               HorizontalOptions="Center" 
+               Margin="10"/>
+
+        <!-- Utilisation d'une grille pour afficher les graphiques côte à côte -->
+        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="20">
+
+            <!-- Label du graphique Prix -->
+            <Label Text="Prix des Produits" Grid.Row="0" Grid.Column="0"
+                   FontSize="18" HorizontalOptions="Center" Margin="10"/>
+
+            <!-- Graphique Prix avec un fond -->
+            <Frame Grid.Row="1" Grid.Column="0"
+                BackgroundColor="#E0F7FA" Padding="10" CornerRadius="10"
+                   Margin="10">
+                
+                
+                <microcharts:ChartView Chart="{Binding ProductChart}"
+                                       HeightRequest="400"
+                                       WidthRequest="300"/>
+            </Frame>
+
+            <!-- Label du graphique Stock -->
+            <Label Text="Stock des Produits" Grid.Row="0" Grid.Column="1"
+                   FontSize="18" HorizontalOptions="Center" Margin="10"/>
+
+            <!-- Graphique Stock avec un fond -->
+            <Frame Grid.Row="1" Grid.Column="1"
+                   BackgroundColor="#F3E5F5" Padding="10" CornerRadius="10"
+                   Margin="10">
+                <microcharts:ChartView Chart="{Binding StockChart}"
+                                       HeightRequest="400"
+                                       WidthRequest="300"/>
+            </Frame>
+
+        </Grid>
+    </VerticalStackLayout>
 </ContentPage>
