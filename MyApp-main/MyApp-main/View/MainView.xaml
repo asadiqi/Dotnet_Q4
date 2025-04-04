@@ -18,7 +18,7 @@
         <!-- Contenu principal avec défilement -->
         <ScrollView>
             <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="CenterAndExpand">
-                <Button Text="Products"
+                <Button Text="Add Product"
                         WidthRequest="250" 
                         HeightRequest="50"
                         Command="{Binding GoToDetailsCommand}"
