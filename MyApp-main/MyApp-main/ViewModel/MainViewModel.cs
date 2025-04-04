@@ -91,13 +91,17 @@ public partial class MainViewModel : BaseViewModel
 
             if (success)
             {
-                await Application.Current.MainPage.DisplayAlert("✅ Succès", "Les données ont été enregistrées avec succès sur le serveur.", "OK");
-                await CheckServerData();  // Vérifier les données après l'envoi
+                var serverProducts = await MyJSONService.GetProducts();
+
+                string message =  $"{serverProducts.Count} produits ont bien été enregistrés sur le serveur.";
+
+                await Application.Current.MainPage.DisplayAlert("✅ Succès", message, "OK");
             }
             else
             {
                 await Application.Current.MainPage.DisplayAlert("❌ Erreur", "L'enregistrement des données a échoué.", "OK");
             }
+        
         }
         catch (Exception ex)
         {
@@ -107,24 +111,7 @@ public partial class MainViewModel : BaseViewModel
         IsBusy = false;
     }
 
-    internal async Task CheckServerData()
-    {
-        IsBusy = true;
-
-        var serverProducts = await MyJSONService.GetProducts();
-
-        if (serverProducts.Count > 0)
-        {
-            await Application.Current.MainPage.DisplayAlert("🔍 Vérification", $"{serverProducts.Count} produits ont bien été enregistrés sur le serveur.", "OK");
-        }
-        else
-        {
-            await Application.Current.MainPage.DisplayAlert("⚠️ Attent<ion", "Aucune donnée trouvée sur le serveur après l'envoi. Vérifiez votre connexion.", "OK");
-        }
-
-        IsBusy = false;
-    }
-
+   
 
     internal async Task RefreshPage()
     {
