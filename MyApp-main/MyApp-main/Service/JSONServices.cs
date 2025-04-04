@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -9,41 +9,84 @@ namespace MyApp.Service;
 
 public class JSONServices
 {
+    private const string BaseUrl = "https://185.157.245.38:5000/json";
+    private const string FileName = "MyProducts.json";
+
     internal async Task<List<Product>> GetProducts()
     {
+        var url = $"{BaseUrl}?FileName={FileName}";
         List<Product> MyList = new();
 
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MyAnimals.json");
-        
+        var handler = new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+        };
+
+        using HttpClient _httpClient = new(handler);
+
         try
         {
-            using var stream = File.Open(filePath, FileMode.Open);
+            var response = await _httpClient.GetAsync(url);
 
-            using var reader = new StreamReader(stream);
-            var contents = await reader.ReadToEndAsync();
-            MyList = JsonSerializer.Deserialize<List<Product>>(contents) ?? new List<Product>();
-        }
-        catch (Exception ex) 
-        {
-            
-        }
-        
-        return MyList ?? new List<Product>();
-    }
-
-    internal async Task SetProduct()
-    {
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "MyProduct.json");
-        
-        try
-        {
-            
-            var json = JsonSerializer.Serialize(Globals.MyProducts, new JsonSerializerOptions { WriteIndented = true }); // donc 
-            await File.WriteAllTextAsync(filePath, json); //ecrit le json dans un fichier en mode asynchrone
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStreamAsync();
+                MyList = JsonSerializer.Deserialize<List<Product>>(content) ?? new List<Product>();
+                Console.WriteLine("✅ Données récupérées du serveur : " + MyList.Count + " produits.");
+            }
+            else
+            {
+                Console.WriteLine($"❌ Erreur lors de la récupération des données : {response.StatusCode}");
+            }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erreur lors de la sauvegarde :{ex.Message}");
+            Console.WriteLine($"❌ Exception lors de la récupération des données : {ex.Message}");
+        }
+
+        return MyList;
+    }
+
+    internal async Task<bool> SetProducts()
+    {
+        var url = BaseUrl;
+        MemoryStream mystream = new();
+
+        var handler = new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+        };
+
+        using HttpClient _httpClient = new(handler);
+
+        try
+        {
+            JsonSerializer.Serialize(mystream, Globals.MyProducts, new JsonSerializerOptions { WriteIndented = true });
+            mystream.Position = 0;
+
+            var fileContent = new ByteArrayContent(mystream.ToArray());
+            var content = new MultipartFormDataContent
+            {
+                { fileContent, "file", FileName }
+            };
+
+            var response = await _httpClient.PostAsync(url, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("✅ Fichier JSON envoyé avec succès !");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("❌ Erreur lors de l'envoi du fichier JSON : " + response.StatusCode);
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("❌ Exception lors de l'envoi du fichier JSON : " + ex.Message);
+            return false;
         }
     }
 }

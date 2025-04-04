@@ -132,7 +132,7 @@ public partial class DetailsViewModel : ObservableObject
             });
         }
 
-        await new JSONServices().SetProduct();
+        await new JSONServices().SetProducts();
     }
 
 

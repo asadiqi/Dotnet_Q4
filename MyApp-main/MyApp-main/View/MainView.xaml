@@ -47,6 +47,14 @@
                             CommandParameter="0"
                             IsEnabled="{Binding IsNotBusy}" />
 
+
+                <Button Text="Upload JSON"
+                            WidthRequest="250"
+                            HeightRequest="50"
+                            Command="{Binding UploadJsonCommand}"
+                            CommandParameter="0"
+                            IsEnabled="{Binding IsNotBusy}" />
+
                 <CollectionView ItemsSource="{Binding MyObservableList}"
                                 SelectionMode="None">
                     <CollectionView.ItemsLayout>
@@ -107,7 +115,7 @@
         </ScrollView>
 
         <!-- Label version en bas à droite -->
-        <Label Text="Version 1"
+        <Label Text="Version 1.0"
                HorizontalOptions="End"
                VerticalOptions="End"
                Margin="10"

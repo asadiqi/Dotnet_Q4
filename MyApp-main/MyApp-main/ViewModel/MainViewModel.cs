@@ -63,7 +63,53 @@ public partial class MainViewModel : BaseViewModel
 
         IsBusy = false;
     }
-    
+
+    [RelayCommand]
+    internal async Task UploadJson()
+    {
+        IsBusy = true;
+
+        try
+        {
+            bool success = await MyJSONService.SetProducts();
+
+            if (success)
+            {
+                await Application.Current.MainPage.DisplayAlert("✅ Succès", "Les données ont été enregistrées avec succès sur le serveur.", "OK");
+                await CheckServerData();  // Vérifier les données après l'envoi
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("❌ Erreur", "L'enregistrement des données a échoué.", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await Application.Current.MainPage.DisplayAlert("❌ Erreur", $"Erreur lors de l'enregistrement des données sur le serveur : {ex.Message}", "OK");
+        }
+
+        IsBusy = false;
+    }
+
+    internal async Task CheckServerData()
+    {
+        IsBusy = true;
+
+        var serverProducts = await MyJSONService.GetProducts();
+
+        if (serverProducts.Count > 0)
+        {
+            await Application.Current.MainPage.DisplayAlert("🔍 Vérification", $"{serverProducts.Count} produits ont bien été enregistrés sur le serveur.", "OK");
+        }
+        else
+        {
+            await Application.Current.MainPage.DisplayAlert("⚠️ Attention", "Aucune donnée trouvée sur le serveur après l'envoi. Vérifiez votre connexion.", "OK");
+        }
+
+        IsBusy = false;
+    }
+
+
     internal async Task RefreshPage()
     {
         MyObservableList.Clear ();
