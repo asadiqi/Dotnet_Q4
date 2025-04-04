@@ -50,6 +50,17 @@ public partial class MainViewModel : BaseViewModel
 
         IsBusy = false;
     }
+
+    [RelayCommand]
+    internal async Task GoToAllProducts()
+    {
+        // Utilisation de la route complète pour accéder à la page AllProductsView
+        await Shell.Current.GoToAsync("///AllProductsView");
+    }
+
+
+
+
     [RelayCommand]
     internal async Task GoToGraph()
     {

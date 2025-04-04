@@ -51,6 +51,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.Resources.Styles.Sty
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/AllProductsView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.AllProductsView.xaml
+build_metadata.AdditionalFiles.TargetPath = View\AllProductsView.xaml
+build_metadata.AdditionalFiles.RelativePath = View\AllProductsView.xaml
+
 [C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/DetailsView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.DetailsView.xaml

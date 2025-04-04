@@ -12,5 +12,10 @@
         ContentTemplate="{DataTemplate local:MainView}"
         Route="MainView" />
 
+    <ShellContent 
+        Title="AllProducts" 
+        Route="AllProductsView" 
+        ContentTemplate="{DataTemplate local:AllProductsView}" />
+
 
 </Shell>

@@ -25,8 +25,14 @@
                         CommandParameter="0"
                         IsEnabled="{Binding IsNotBusy}" />
 
-               
-                    <Button Text="Export to CSV"
+                <Button Text="See All Products"
+                         WidthRequest="250" 
+                         HeightRequest="50"
+                         Command="{Binding GoToAllProductsCommand}"
+                         CommandParameter="0"
+                         IsEnabled="{Binding IsNotBusy}" />     
+
+                <Button Text="Export to CSV"
                              WidthRequest="250"
                             HeightRequest="50"
                             Command="{Binding PrintToCSVCommand}"
