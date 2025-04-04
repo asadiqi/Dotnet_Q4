@@ -4,7 +4,9 @@
              xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
              xmlns:model="clr-namespace:MyApp.Model"
              x:Class="MyApp.View.AllProductsView"
-             x:DataType="viewmodel:MainViewModel">
+             x:DataType="viewmodel:MainViewModel"
+             Title="All Products">
+ 
 
     <ScrollView>
         <StackLayout Padding="20">
