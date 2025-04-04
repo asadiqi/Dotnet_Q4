@@ -35,7 +35,7 @@ public partial class DetailsView : ContentPage
         // Ne navigue que si la validation a réussi (c'est-à-dire que les champs sont remplis)
         if (viewModel.IsValid())
         {
-            await Shell.Current.GoToAsync(".."); // Retour à la page main
+            await Shell.Current.GoToAsync(nameof(AllProductsView)); // va vers la page AllProduct apres ajout d'un produit 
         }
     }
 
