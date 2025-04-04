@@ -98,6 +98,8 @@ public partial class MainViewModel : BaseViewModel
 
         try
         {
+
+
             bool success = await MyJSONService.SetProducts();
 
             if (success)

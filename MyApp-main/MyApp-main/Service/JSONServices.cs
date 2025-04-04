@@ -89,4 +89,7 @@ public class JSONServices
             return false;
         }
     }
+
+    // le données sont accessible via https://185.157.245.38:5000/json?FileName=MyProducts.json
+
 }

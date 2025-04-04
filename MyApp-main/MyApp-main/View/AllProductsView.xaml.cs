@@ -15,6 +15,13 @@ namespace MyApp.View
             _ = ((MainViewModel)BindingContext).RefreshPage();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await (BindingContext as MainViewModel)?.RefreshPage();
+        }
+
+
         // Méthode pour revenir à la page principale
         private async void OnBackButtonClicked(object sender, EventArgs e)
         {
