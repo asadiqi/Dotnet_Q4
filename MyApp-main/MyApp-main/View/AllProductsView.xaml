@@ -58,6 +58,15 @@
                                         CornerRadius="5"
                                         Clicked="OnDeleteButtonClicked"
                                         CommandParameter="{Binding Id}" />
+
+                                        <Button Text="Modify"
+                                        FontSize="13"
+                                        BackgroundColor="#4CAF50"
+                                        TextColor="White"
+                                        CornerRadius="5"
+                                        Clicked="OnModifyButtonClicked"
+                                        CommandParameter="{Binding Id}" />              
+
                                         <Label Text="{Binding Path=Id, StringFormat='ID: {0:S2}'}"
                                        FontSize="15" />
                                         <Label Text="{Binding Path=Name, StringFormat='Name: {0:S10}'}"

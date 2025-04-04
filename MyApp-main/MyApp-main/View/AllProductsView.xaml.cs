@@ -47,4 +47,25 @@ public partial class AllProductsView : ContentPage
         var viewModel = (AllProductsViewModel)BindingContext;
         viewModel.SetSearchText(e.NewTextValue);
     }
+
+
+    private async void OnModifyButtonClicked(object sender, EventArgs e)
+    {
+        var button = (Button)sender;
+        var productId = (string)button.CommandParameter;
+
+        // Récupérer le produit à partir de son Id
+        var product = Globals.MyProducts.FirstOrDefault(p => p.Id == productId);
+
+        if (product != null)
+        {
+            // Navigation vers la page de détails avec les données du produit
+            var parameters = new Dictionary<string, object>
+        {
+            { "selectedProduct", productId }
+        };
+
+            await Shell.Current.GoToAsync("DetailsView", parameters);
+        }
+    }
 }
