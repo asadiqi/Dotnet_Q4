@@ -30,7 +30,7 @@
                          HeightRequest="50"
                          Command="{Binding GoToAllProductsCommand}"
                          CommandParameter="0"
-                         IsEnabled="{Binding IsNotBusy}" />     
+                         IsEnabled="{Binding IsNotBusy}" />
 
                 <Button Text="Export to CSV"
                              WidthRequest="250"
@@ -39,14 +39,14 @@
                             CommandParameter="0"
                             IsEnabled="{Binding IsNotBusy}" />
 
-                    <Button Text="Load from CSV"
+                <Button Text="Load from CSV"
                              WidthRequest="250"
                             HeightRequest="50"
                             Command="{Binding LoadFromCSVCommand}"
                             CommandParameter="0"
                             IsEnabled="{Binding IsNotBusy}" />
 
-                    <Button Text="Graph"
+                <Button Text="Graph"
                             WidthRequest="250"
                             HeightRequest="50"
                             Command="{Binding GoToGraphCommand}"
@@ -60,63 +60,6 @@
                             Command="{Binding UploadJsonCommand}"
                             CommandParameter="0"
                             IsEnabled="{Binding IsNotBusy}" />
-
-                <CollectionView ItemsSource="{Binding MyObservableList}"
-                                SelectionMode="None">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical"
-                                         Span="2"
-                                         HorizontalItemSpacing="10"
-                                         VerticalItemSpacing="10" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Product">
-                            <Border StrokeThickness="4"
-                                    StrokeShape="RoundRectangle 10,10,10,10"
-                                    Padding="10">
-                                <Grid HeightRequest="100" ColumnDefinitions="0.5*,*">
-                                    <ImageButton Grid.Column="0"
-                                                 Source="{Binding Picture}"
-                                                 HorizontalOptions="Start"
-                                                 Aspect="AspectFit"
-                                                 HeightRequest="100"
-                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToDetailsCommand}"
-                                                 CommandParameter="{Binding Id}"
-                                                 IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=IsNotBusy}" />
-
-                                    <VerticalStackLayout Grid.Column="1">
-                                        <Label Text="{Binding Path=Id, StringFormat='ID: {0:S2}'}"
-                                               Style="{StaticResource SubHeadline}"
-                                               FontSize="15"
-                                               HorizontalOptions="Start"
-                                               VerticalOptions="Center"/>
-                                        <Label Text="{Binding Path=Name, StringFormat='Name: {0:S10}'}"
-                                               Style="{StaticResource SubHeadline}"
-                                               FontSize="15"
-                                               HorizontalOptions="Start"
-                                               VerticalOptions="Center"/>
-                                        <Label Text="{Binding Path=Group, StringFormat='Group: {0:S10}'}"
-                                               Style="{StaticResource SubHeadline}"
-                                               FontSize="15"
-                                               HorizontalOptions="Start"
-                                               VerticalOptions="Center"/>
-                                        <Label Text="{Binding Path=Stock, StringFormat='Stock: {0} piece'}"
-                                               Style="{StaticResource SubHeadline}"
-                                               FontSize="15"
-                                               HorizontalOptions="Start"
-                                               VerticalOptions="Center"/>
-
-                                        <Label Text="{Binding Path=Price, StringFormat='Price: {0} €'}"
-                                               Style="{StaticResource SubHeadline}"
-                                               FontSize="15"
-                                               HorizontalOptions="Start"
-                                               VerticalOptions="Center"/>               
-                                    </VerticalStackLayout>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
             </VerticalStackLayout>
         </ScrollView>
 

@@ -14,5 +14,12 @@ namespace MyApp.View
             // Rafraîchir la liste des produits au démarrage
             _ = ((MainViewModel)BindingContext).RefreshPage();
         }
+
+        // Méthode pour revenir à la page principale
+        private async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            // Utilisation de la route pour revenir à la page MainView
+            await Shell.Current.GoToAsync("//MainView");
+        }
     }
 }
