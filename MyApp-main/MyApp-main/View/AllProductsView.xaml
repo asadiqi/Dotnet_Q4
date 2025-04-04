@@ -16,54 +16,58 @@
 
         <ScrollView>
             <VerticalStackLayout Padding="20" Spacing="15">
+                <!-- Une seule barre de recherche pour le nom et le groupe -->
+                <SearchBar Placeholder="Rechercher par nom ou groupe"
+                   TextChanged="OnSearchTextChanged"
+                   HorizontalOptions="FillAndExpand" />
+
                 <Label Text="Liste des produits"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center" />
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
 
                 <!-- CollectionView avec mise en page stylée -->
-                <CollectionView ItemsSource="{Binding Products}"
-                                SelectionMode="None">
+                <CollectionView ItemsSource="{Binding FilteredProducts}"
+                        SelectionMode="None">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical"
-                                         Span="2"
-                                         HorizontalItemSpacing="10"
-                                         VerticalItemSpacing="10" />
+                                 Span="2"
+                                 HorizontalItemSpacing="10"
+                                 VerticalItemSpacing="10" />
                     </CollectionView.ItemsLayout>
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Product">
                             <Border StrokeThickness="4"
-                                    StrokeShape="RoundRectangle 10,10,10,10"
-                                    Padding="10">
+                            StrokeShape="RoundRectangle 10,10,10,10"
+                            Padding="10">
                                 <Grid HeightRequest="100" ColumnDefinitions="0.5*,*">
                                     <ImageButton Grid.Column="0"
-                                                 Source="{Binding Picture}"
-                                                 HorizontalOptions="Start"
-                                                 Aspect="AspectFit"
-                                                 HeightRequest="100"
-                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllProductsViewModel}}, Path=GoToDetailsCommand}"
-                                                 CommandParameter="{Binding Id}"
-                                                 IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllProductsViewModel}}, Path=IsNotBusy}" />
-
+                                         Source="{Binding Picture}"
+                                         HorizontalOptions="Start"
+                                         Aspect="AspectFit"
+                                         HeightRequest="100"
+                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllProductsViewModel}}, Path=GoToDetailsCommand}"
+                                         CommandParameter="{Binding Id}"
+                                         IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllProductsViewModel}}, Path=IsNotBusy}" />
                                     <VerticalStackLayout Grid.Column="1">
                                         <Button Text="Delete"
-                                               FontSize="13"
-                                               BackgroundColor="#F44336"
-                                               TextColor="White"
-                                               CornerRadius="5"
-                                               Clicked="OnDeleteButtonClicked"
-                                               CommandParameter="{Binding Id}" />     
+                                        FontSize="13"
+                                        BackgroundColor="#F44336"
+                                        TextColor="White"
+                                        CornerRadius="5"
+                                        Clicked="OnDeleteButtonClicked"
+                                        CommandParameter="{Binding Id}" />
                                         <Label Text="{Binding Path=Id, StringFormat='ID: {0:S2}'}"
-                                               FontSize="15" />
+                                       FontSize="15" />
                                         <Label Text="{Binding Path=Name, StringFormat='Name: {0:S10}'}"
-                                               FontSize="15" />
+                                       FontSize="15" />
                                         <Label Text="{Binding Path=Group, StringFormat='Group: {0:S10}'}"
-                                               FontSize="15" />
+                                       FontSize="15" />
                                         <Label Text="{Binding Path=Stock, StringFormat='Stock: {0} piece'}"
-                                               FontSize="15" />
+                                       FontSize="15" />
                                         <Label Text="{Binding Path=Price, StringFormat='Price: {0} €'}"
-                                               FontSize="15" />
+                                       FontSize="15" />
                                     </VerticalStackLayout>
                                 </Grid>
                             </Border>

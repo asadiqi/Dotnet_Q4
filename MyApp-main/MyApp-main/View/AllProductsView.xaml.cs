@@ -1,5 +1,6 @@
 using MyApp.ViewModel;
 using Microsoft.Maui.Controls;
+using System;
 
 namespace MyApp.View;
 
@@ -38,5 +39,12 @@ public partial class AllProductsView : ContentPage
 
         // Affiche la confirmation avant de supprimer
         await ShowDeleteConfirmationDialog(productId);
+    }
+
+    // Gestion du changement de texte dans la barre de recherche
+    private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+    {
+        var viewModel = (AllProductsViewModel)BindingContext;
+        viewModel.SetSearchText(e.NewTextValue);
     }
 }
