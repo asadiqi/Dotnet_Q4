@@ -20,8 +20,24 @@ public partial class MainViewModel : BaseViewModel
     {
         this.MyJSONService = MyJSONService;
         this.MyCSVServices = MyCSVServices;
+
+        // Charger les produits dès l'ouverture de l'application
+        _ = LoadProductsOnStartup();
     }
- 
+
+    private async Task LoadProductsOnStartup()
+    {
+        IsBusy = true;
+
+        // Charger les produits depuis le serveur
+        Globals.MyProducts = await MyJSONService.GetProducts();
+
+        // Mettre à jour la liste affichée
+        await RefreshPage();
+
+        IsBusy = false;
+    }
+
     [RelayCommand]
     internal async Task GoToDetails(string id)
     {
@@ -103,7 +119,7 @@ public partial class MainViewModel : BaseViewModel
         }
         else
         {
-            await Application.Current.MainPage.DisplayAlert("⚠️ Attention", "Aucune donnée trouvée sur le serveur après l'envoi. Vérifiez votre connexion.", "OK");
+            await Application.Current.MainPage.DisplayAlert("⚠️ Attent<ion", "Aucune donnée trouvée sur le serveur après l'envoi. Vérifiez votre connexion.", "OK");
         }
 
         IsBusy = false;
@@ -112,13 +128,18 @@ public partial class MainViewModel : BaseViewModel
 
     internal async Task RefreshPage()
     {
-        MyObservableList.Clear ();
+        MyObservableList.Clear();
 
-        if(Globals.MyProducts.Count == 0) Globals.MyProducts = await MyJSONService.GetProducts();
+        if (Globals.MyProducts == null || Globals.MyProducts.Count == 0)
+        {
+            // Récupérer les produits si la liste est vide
+            Globals.MyProducts = await MyJSONService.GetProducts();
+        }
 
         foreach (var item in Globals.MyProducts)
         {
             MyObservableList.Add(item);
         }
     }
+
 }
