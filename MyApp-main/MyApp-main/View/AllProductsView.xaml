@@ -47,6 +47,13 @@
                                                  IsEnabled="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllProductsViewModel}}, Path=IsNotBusy}" />
 
                                     <VerticalStackLayout Grid.Column="1">
+                                        <Button Text="Delete"
+                                               FontSize="13"
+                                               BackgroundColor="#F44336"
+                                               TextColor="White"
+                                               CornerRadius="5"
+                                               Clicked="OnDeleteButtonClicked"
+                                               CommandParameter="{Binding Id}" />     
                                         <Label Text="{Binding Path=Id, StringFormat='ID: {0:S2}'}"
                                                FontSize="15" />
                                         <Label Text="{Binding Path=Name, StringFormat='Name: {0:S10}'}"
