@@ -18,13 +18,7 @@ global using CommunityToolkit.Maui;
 
 public class Globals
 {
-    public static List<Product> MyProducts = new()
-    {
-        new Product { Id = "1", Name = "Orange", Group="Fruit", Stock = 10, Price = 100 },
-        new Product { Id = "2", Name = "Pomme",Group="Fruit", Stock = 20, Price = 150 },
-        new Product { Id = "3", Name = "Tomate",Group="légume", Stock = 5, Price = 200 },
-        new Product { Id = "4", Name = "Concombre", Group = "légume", Stock = 50, Price = 250 },
-        new Product { Id = "5", Name = "Fraise", Group="Fruit" ,Stock = 30, Price = 300 },
-    };
+    public static List<Product> MyProducts = new();
+    
 }
 
