@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-04T21:34:04.529</Modified>
+      <Modified>2025-04-04T22:26:26.443</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-04-04T18:00:23.925</Modified>
+      <Modified>2025-04-04T22:09:47.519</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\MyApp.runtimeconfig.json">
       <PackagePath>MyApp.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\MyApp.dll">
       <PackagePath>MyApp.dll</PackagePath>
-      <Modified>2025-04-04T21:34:03.823</Modified>
+      <Modified>2025-04-04T22:26:24.390</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MyApp.exe</PackagePath>
-      <Modified>2025-04-04T21:34:03.836</Modified>
+      <Modified>2025-04-04T22:26:24.501</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -664,7 +664,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\MyApp.deps.json">
       <PackagePath>MyApp.deps.json</PackagePath>
-      <Modified>2025-04-04T18:00:23.576</Modified>
+      <Modified>2025-04-04T22:09:46.850</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\microsoft.maui.controls.compatibility\9.0.40\lib\net9.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

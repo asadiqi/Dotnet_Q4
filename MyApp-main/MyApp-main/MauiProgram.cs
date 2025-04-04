@@ -30,6 +30,9 @@ namespace MyApp
             builder.Services.AddTransient<DetailsView>();
             builder.Services.AddTransient<DetailsViewModel>();
 
+            builder.Services.AddTransient<AllProductsView>();
+            builder.Services.AddTransient<AllProductsViewModel>();
+
             builder.Services.AddTransient<GraphView>();
             builder.Services.AddTransient<GraphViewModel>();
 
