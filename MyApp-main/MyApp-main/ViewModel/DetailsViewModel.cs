@@ -79,53 +79,60 @@ public partial class DetailsViewModel : ObservableObject
         MyScanner.ClosePort();
     }
 
-
     [RelayCommand]
-    internal async Task ChangeObjectParameters()
+    internal async Task<bool> ChangeObjectParameters()
     {
         if (string.IsNullOrWhiteSpace(Id))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The ID field cannot be empty or contain letters, it must contain only digits.", "OK");
-            return;
+            return false;
         }
-
 
         if (!Id.All(char.IsDigit))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The ID field must contain only digits.", "OK");
-            return;
+            return false;
         }
-
 
         if (string.IsNullOrWhiteSpace(Name))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The Name field cannot be empty.", "OK");
-            return;
+            return false;
         }
 
         if (string.IsNullOrWhiteSpace(Group))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The Group field cannot be empty.", "OK");
-            return;
+            return false;
         }
 
         if (Stock <= 0)
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "Stock must be greater than 0 and it must contain only digits.", "OK");
-            return;
+            return false;
         }
-
 
         if (Price <= 0)
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "Price must be greater than 0 and it must contain only digits.", "OK");
-            return;
+            return false;
         }
 
         var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
 
         if (existingProduct != null)
         {
+            bool answer = await Application.Current.MainPage.DisplayAlert(
+                "Product Already Exists",
+                $"Are you sure you want to update the product with ID {Id}?",
+                "Yes",
+                "No, I will change the ID");
+
+            if (!answer)
+            {
+                return false; // 🚫 Annulé par l'utilisateur
+            }
+
             existingProduct.Name = Name ?? string.Empty;
             existingProduct.Group = Group ?? string.Empty;
             existingProduct.Stock = Stock;
@@ -143,11 +150,9 @@ public partial class DetailsViewModel : ObservableObject
             });
         }
 
-
-
-      await new JSONServices().SetProducts(); //envoie les données vers serveur automatique 
+        await new JSONServices().SetProducts();
+        return true; // ✅ Modification réussie
     }
-
 
 
     public bool IsValid()
