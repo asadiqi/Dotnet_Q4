@@ -22,9 +22,9 @@
                    HorizontalOptions="FillAndExpand" />
 
                 <Label Text="Liste des produits"
-               FontSize="24"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />    
 
                 <!-- CollectionView avec mise en page stylée -->
                 <CollectionView ItemsSource="{Binding FilteredProducts}"
