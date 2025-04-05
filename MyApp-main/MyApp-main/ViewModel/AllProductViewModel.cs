@@ -35,6 +35,9 @@ public partial class AllProductsViewModel : ObservableObject
         }
     }
 
+
+
+
     // Méthode pour filtrer les produits par nom et groupe
     public void FilterProducts()
     {
