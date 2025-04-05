@@ -74,8 +74,17 @@ public partial class MainViewModel : BaseViewModel
     {
         IsBusy = true;
 
-        await Shell.Current.GoToAsync("GraphView", true);
-
+        // Vérifier si la liste de produits est vide
+        if (Globals.MyProducts == null || Globals.MyProducts.Count == 0)
+        {
+            // Afficher un pop-up si la liste est vide
+            await Application.Current.MainPage.DisplayAlert("⚠️ Alert", "Product list is empty, there is no graphe available.", "OK");
+        }
+        else
+        {
+            // Naviguer vers la page GraphView si des produits existent
+            await Shell.Current.GoToAsync("GraphView", true);
+        }
         IsBusy = false;
     }
     [RelayCommand]
@@ -106,35 +115,37 @@ public partial class MainViewModel : BaseViewModel
     {
         IsBusy = true;
 
-        try
+        // Vérifier si la liste des produits est vide
+        if (Globals.MyProducts == null || Globals.MyProducts.Count == 0)
         {
-
-
-            bool success = await MyJSONService.SetProducts();
-
-            if (success)
-            {
-                var serverProducts = await MyJSONService.GetProducts();
-
-                string message =  $"{serverProducts.Count} produits ont bien été enregistrés sur le serveur.";
-
-                await Application.Current.MainPage.DisplayAlert("✅ Success", message, "OK");
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("❌ Error", "Data saving failed.", "OK");
-            }
-
+            // Afficher un message d'erreur si la liste est vide
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "There are no products to upload.", "OK");
         }
-        catch (Exception ex)
+        else
         {
-            await Application.Current.MainPage.DisplayAlert("❌ Error", $"Error saving data to the server: {ex.Message}", "OK");
+            try
+            {
+                bool success = await MyJSONService.SetProducts();
+
+                if (success)
+                {
+                    var serverProducts = await MyJSONService.GetProducts();
+                    string message = $"{serverProducts.Count} produits ont bien été enregistrés sur le serveur.";
+                    await Application.Current.MainPage.DisplayAlert("✅ Success", message, "OK");
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("❌ Error", "Data saving failed.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("❌ Error", $"Error saving data to the server: {ex.Message}", "OK");
+            }
         }
 
         IsBusy = false;
     }
-
-   
 
     internal async Task RefreshPage()
     {
