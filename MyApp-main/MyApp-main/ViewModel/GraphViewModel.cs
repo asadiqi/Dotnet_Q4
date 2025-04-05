@@ -22,7 +22,7 @@ public partial class GraphViewModel : ObservableObject
         var entries = Globals.MyProducts.Select(product => new ChartEntry(product.Price)
         {
             Label = product.Name,
-            ValueLabel = $"Prix: {product.Price} €",
+            ValueLabel = $"Price: {product.Price} €",
             Color = GetProductColor(product.Group) // Détermination de la couleur en fonction du groupe
         }).ToList();
         return new BarChart
@@ -38,7 +38,7 @@ public partial class GraphViewModel : ObservableObject
         var entries = Globals.MyProducts.Select(product => new ChartEntry(product.Stock)
         {
             Label = product.Name,
-            ValueLabel = $"{product.Stock} unités",
+            ValueLabel = $"{product.Stock} units",
             Color = GetProductColor(product.Group) // Détermination de la couleur en fonction du groupe
         }).ToList();
 

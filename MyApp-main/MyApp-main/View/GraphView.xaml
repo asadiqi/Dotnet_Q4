@@ -6,6 +6,23 @@
              BackgroundColor="White">
 
     <VerticalStackLayout Padding="20">
+       
+        <!-- Légende des couleurs -->
+        <HorizontalStackLayout Spacing="15" VerticalOptions="Start" HorizontalOptions="Start">
+            <StackLayout Orientation="Horizontal" Spacing="5">
+                <BoxView WidthRequest="20" HeightRequest="20" Color="#FFA500" CornerRadius="4"/>
+                <Label Text="Fruit" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="5">
+                <BoxView WidthRequest="20" HeightRequest="20" Color="#2ECC71" CornerRadius="4"/>
+                <Label Text="Vegetabl" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="5">
+                <BoxView WidthRequest="20" HeightRequest="20" Color="#5c1f0a" CornerRadius="4"/>
+                <Label Text="Other" VerticalOptions="Center"/>
+            </StackLayout>
+        </HorizontalStackLayout>
+
         <Label Text="Product Price and Stock Comparison" 
                 FontSize="24" 
                 HorizontalOptions="Center" 
