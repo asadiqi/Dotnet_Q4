@@ -46,6 +46,7 @@ public partial class AllProductsViewModel : ObservableObject
         if (!string.IsNullOrEmpty(searchText))
         {
             filtered = filtered.Where(p =>
+                p.Id.ToLower().Contains(searchText.ToLower()) ||
                 p.Name.ToLower().Contains(searchText.ToLower()) ||
                 p.Group.ToLower().Contains(searchText.ToLower())
             );

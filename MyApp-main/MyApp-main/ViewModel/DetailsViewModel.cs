@@ -19,7 +19,7 @@ public partial class DetailsViewModel : ObservableObject
     [ObservableProperty]
     public partial int Price { get; set; }
 
-    readonly DeviceOrientationService MyScanner;
+    public DeviceOrientationService MyScanner;
     IDispatcherTimer emulator = Application.Current.Dispatcher.CreateTimer();
 
     public DetailsViewModel(DeviceOrientationService myScanner)
@@ -34,18 +34,29 @@ public partial class DetailsViewModel : ObservableObject
 
     private void AddCode()
     {
-        MyScanner.SerialBuffer.Enqueue("B");
+    MyScanner.SerialBuffer.Enqueue("1234567890"); // tout le code-barres
     }
 
     private void OnSerialDataReception(object sender, EventArgs arg)
     {
-        DeviceOrientationService.QueueBuffer MyLocalBuffer = (DeviceOrientationService.QueueBuffer)sender;
-
-        if (MyLocalBuffer.Count > 0)
+        if (sender is DeviceOrientationService.QueueBuffer MyLocalBuffer && MyLocalBuffer.Count > 0)
         {
-            // Traitement des données reçues
+            var sb = new StringBuilder();
+
+            while (MyLocalBuffer.Count > 0)
+            {
+                var data = MyLocalBuffer.Dequeue()?.ToString();
+                if (data != null)
+                    sb.Append(data);
+            }
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Id = sb.ToString();
+            });
         }
     }
+
 
     internal void RefreshPage()
     {

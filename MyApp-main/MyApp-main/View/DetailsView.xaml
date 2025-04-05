@@ -34,6 +34,14 @@
                        HorizontalOptions="Center"/>
 
                 <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="5">
+
+                    <Button Text="Simuler scan"
+                            Clicked="OnSimulateScanClicked"
+                            BackgroundColor="DarkOliveGreen"
+                            TextColor="White"
+                            WidthRequest="150"
+                            HorizontalOptions="Center"/>    
+
                     <!-- Id -->
                     <Label Text="Id * :" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Id}" Grid.Column="1" Grid.Row="0" WidthRequest="250" Margin="0,0,0,5"/>

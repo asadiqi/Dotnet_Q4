@@ -38,5 +38,12 @@ public partial class DetailsView : ContentPage
             await Shell.Current.GoToAsync(nameof(AllProductsView)); // va vers la page AllProduct apres ajout d'un produit 
         }
     }
+    private void OnSimulateScanClicked(object sender, EventArgs e)
+    {
+        // Simule la réception d'un code-barres
+        viewModel.MyScanner.SerialBuffer.Enqueue("987654321");
+    }
+
+
 
 }
