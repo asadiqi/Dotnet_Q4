@@ -68,4 +68,11 @@ public partial class AllProductsView : ContentPage
             await Shell.Current.GoToAsync("DetailsView", parameters);
         }
     }
+
+    private async void OnDeleteAllButtonClicked(object sender, EventArgs e)
+    {
+        var viewModel = (AllProductsViewModel)BindingContext;
+        await viewModel.DeleteAllProducts();
+    }
+
 }

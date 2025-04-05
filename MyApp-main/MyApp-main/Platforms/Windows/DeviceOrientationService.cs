@@ -72,7 +72,7 @@ public partial class DeviceOrientationService
                 }
                 catch (Exception ex)
                 {
-                    Shell.Current.DisplayAlert("Error!", ex.ToString(), "OK");
+                    Shell.Current.DisplayAlert("❌ Error!", ex.ToString(), "OK");
                 }
             }
         }

@@ -58,7 +58,7 @@ public partial class MainViewModel : BaseViewModel
         if (Globals.MyProducts == null || Globals.MyProducts.Count == 0)
         {
             // Afficher un popup informant l'utilisateur qu'il n'y a pas de produits
-            await Application.Current.MainPage.DisplayAlert("Alerte", "Il n'y a pas de produit disponible.", "OK");
+            await Application.Current.MainPage.DisplayAlert("⚠️ Alerte", "Il n'y a pas de produit disponible.", "OK");
         }
         else
         {
@@ -87,6 +87,8 @@ public partial class MainViewModel : BaseViewModel
 
         IsBusy = false;
     }
+    
+    
     [RelayCommand]
     internal async Task LoadFromCSV()
     {

@@ -74,40 +74,40 @@ public partial class DetailsViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(Id))
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "The ID field cannot be empty or contain letters, it must contain only digits.", "OK");
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "The ID field cannot be empty or contain letters, it must contain only digits.", "OK");
             return;
         }
 
 
         if (!Id.All(char.IsDigit))
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "The ID field must contain only digits.", "OK");
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "The ID field must contain only digits.", "OK");
             return;
         }
 
 
         if (string.IsNullOrWhiteSpace(Name))
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "The Name field cannot be empty.", "OK");
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "The Name field cannot be empty.", "OK");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(Group))
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "The Group field cannot be empty.", "OK");
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "The Group field cannot be empty.", "OK");
             return;
         }
 
         if (Stock <= 0)
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "Stock must be greater than 0 and it must contain only digits.", "OK");
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "Stock must be greater than 0 and it must contain only digits.", "OK");
             return;
         }
 
 
         if (Price <= 0)
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "Price must be greater than 0 and it must contain only digits.", "OK");
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "Price must be greater than 0 and it must contain only digits.", "OK");
             return;
         }
 

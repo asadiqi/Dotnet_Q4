@@ -30,6 +30,14 @@
                        HorizontalOptions="Center"
                        TextColor="#333" />
 
+                <Button Text="Supprimer tous les produits"
+                        FontSize="14"
+                        BackgroundColor="#F44336"
+                        TextColor="White"
+                        CornerRadius="5"
+                        HorizontalOptions="Center"
+                        Clicked="OnDeleteAllButtonClicked" />
+
                 <CollectionView ItemsSource="{Binding FilteredProducts}"
                                 SelectionMode="None">
                     <CollectionView.ItemsLayout>

@@ -60,4 +60,30 @@ public partial class AllProductsViewModel : ObservableObject
         searchText = text;
         FilterProducts();
     }
+
+    [RelayCommand]
+    public async Task DeleteAllProducts()
+    {
+        var confirmation = await Application.Current.MainPage.
+            (
+            "Confirmation",
+            "Êtes-vous sûr de vouloir supprimer tous les produits ?",
+            "Oui",
+            "Non");
+
+        if (confirmation)
+        {
+            // Vider la liste des produits
+            Globals.MyProducts.Clear();
+            Products.Clear();
+            FilteredProducts.Clear();
+
+            // Sauvegarder les changements sur le serveur
+            await new JSONServices().SetProducts();
+
+            // Vous pouvez également afficher un message de succès ou rafraîchir la vue
+            await Application.Current.MainPage.DisplayAlert("✅ Succès", "Tous les produits ont été supprimés.", "OK");
+        }
+    }
+
 }
