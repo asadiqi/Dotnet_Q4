@@ -51,11 +51,20 @@ public partial class MainViewModel : BaseViewModel
         IsBusy = false;
     }
 
-
     [RelayCommand]
     async Task GoToAllProducts()
     {
-        await Shell.Current.GoToAsync(nameof(AllProductsView));
+        // Vérifier si la liste des produits est vide
+        if (Globals.MyProducts == null || Globals.MyProducts.Count == 0)
+        {
+            // Afficher un popup informant l'utilisateur qu'il n'y a pas de produits
+            await Application.Current.MainPage.DisplayAlert("Alerte", "Il n'y a pas de produit disponible.", "OK");
+        }
+        else
+        {
+            // Continuer avec l'action prévue (par exemple, naviguer vers la page des produits)
+            await Shell.Current.GoToAsync(nameof(AllProductsView));
+        }
     }
 
 
