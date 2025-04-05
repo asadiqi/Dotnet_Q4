@@ -58,7 +58,7 @@ public partial class MainViewModel : BaseViewModel
         if (Globals.MyProducts == null || Globals.MyProducts.Count == 0)
         {
             // Afficher un popup informant l'utilisateur qu'il n'y a pas de produits
-            await Application.Current.MainPage.DisplayAlert("⚠️ Alerte", "Il n'y a pas de produit disponible.", "OK");
+            await Application.Current.MainPage.DisplayAlert("⚠️ Alert", "There are no products available.", "OK");
         }
         else
         {
@@ -118,17 +118,17 @@ public partial class MainViewModel : BaseViewModel
 
                 string message =  $"{serverProducts.Count} produits ont bien été enregistrés sur le serveur.";
 
-                await Application.Current.MainPage.DisplayAlert("✅ Succès", message, "OK");
+                await Application.Current.MainPage.DisplayAlert("✅ Success", message, "OK");
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("❌ Erreur", "L'enregistrement des données a échoué.", "OK");
+                await Application.Current.MainPage.DisplayAlert("❌ Error", "Data saving failed.", "OK");
             }
-        
+
         }
         catch (Exception ex)
         {
-            await Application.Current.MainPage.DisplayAlert("❌ Erreur", $"Erreur lors de l'enregistrement des données sur le serveur : {ex.Message}", "OK");
+            await Application.Current.MainPage.DisplayAlert("❌ Error", $"Error saving data to the server: {ex.Message}", "OK");
         }
 
         IsBusy = false;

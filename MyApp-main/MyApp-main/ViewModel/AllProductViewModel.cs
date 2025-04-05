@@ -64,12 +64,13 @@ public partial class AllProductsViewModel : ObservableObject
     [RelayCommand]
     public async Task DeleteAllProducts()
     {
-        var confirmation = await Application.Current.MainPage.
-            (
-            "Confirmation",
-            "Êtes-vous sûr de vouloir supprimer tous les produits ?",
-            "Oui",
-            "Non");
+        var confirmation = await Application.Current.MainPage.DisplayAlert
+ (
+             "Confirmation",
+             "Are you sure you want to delete all products?",
+             "Yes",
+             "No");
+
 
         if (confirmation)
         {
@@ -82,7 +83,7 @@ public partial class AllProductsViewModel : ObservableObject
             await new JSONServices().SetProducts();
 
             // Vous pouvez également afficher un message de succès ou rafraîchir la vue
-            await Application.Current.MainPage.DisplayAlert("✅ Succès", "Tous les produits ont été supprimés.", "OK");
+            await Application.Current.MainPage.DisplayAlert("✅ Success", "All products have been deleted.", "OK");
         }
     }
 

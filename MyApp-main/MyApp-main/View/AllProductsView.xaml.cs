@@ -21,7 +21,7 @@ public partial class AllProductsView : ContentPage
     // Méthode pour afficher le popup de confirmation
     public async Task ShowDeleteConfirmationDialog(string productId)
     {
-        bool isConfirmed = await DisplayAlert("Confirmation", "Êtes-vous sûr de vouloir supprimer ce produit ?", "Oui", "Non");
+        bool isConfirmed = await DisplayAlert("Confirmation", "Are you sure you want to delete this product?", "Yes", "No");
 
         if (isConfirmed)
         {
