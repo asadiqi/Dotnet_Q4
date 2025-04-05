@@ -34,7 +34,7 @@ public partial class DetailsViewModel : ObservableObject
 
     private void AddCode()
     {
-    MyScanner.SerialBuffer.Enqueue("1234567890"); // tout le code-barres
+        MyScanner.SerialBuffer.Enqueue("1234567890"); // tout le code-barres
     }
 
     private void OnSerialDataReception(object sender, EventArgs arg)
@@ -79,60 +79,53 @@ public partial class DetailsViewModel : ObservableObject
         MyScanner.ClosePort();
     }
 
+
     [RelayCommand]
-    internal async Task<bool> ChangeObjectParameters()
+    internal async Task ChangeObjectParameters()
     {
         if (string.IsNullOrWhiteSpace(Id))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The ID field cannot be empty or contain letters, it must contain only digits.", "OK");
-            return false;
+            return;
         }
+
 
         if (!Id.All(char.IsDigit))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The ID field must contain only digits.", "OK");
-            return false;
+            return;
         }
+
 
         if (string.IsNullOrWhiteSpace(Name))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The Name field cannot be empty.", "OK");
-            return false;
+            return;
         }
 
         if (string.IsNullOrWhiteSpace(Group))
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "The Group field cannot be empty.", "OK");
-            return false;
+            return;
         }
 
         if (Stock <= 0)
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "Stock must be greater than 0 and it must contain only digits.", "OK");
-            return false;
+            return;
         }
+
 
         if (Price <= 0)
         {
             await Application.Current.MainPage.DisplayAlert("❌ Error", "Price must be greater than 0 and it must contain only digits.", "OK");
-            return false;
+            return;
         }
 
         var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
 
         if (existingProduct != null)
         {
-            bool answer = await Application.Current.MainPage.DisplayAlert(
-                "Product Already Exists",
-                $"Are you sure you want to update the product with ID {Id}?",
-                "Yes",
-                "No, I will change the ID");
-
-            if (!answer)
-            {
-                return false; // 🚫 Annulé par l'utilisateur
-            }
-
             existingProduct.Name = Name ?? string.Empty;
             existingProduct.Group = Group ?? string.Empty;
             existingProduct.Stock = Stock;
@@ -150,9 +143,11 @@ public partial class DetailsViewModel : ObservableObject
             });
         }
 
-        await new JSONServices().SetProducts();
-        return true; // ✅ Modification réussie
+
+
+        await new JSONServices().SetProducts(); //envoie les données vers serveur automatique 
     }
+
 
 
     public bool IsValid()

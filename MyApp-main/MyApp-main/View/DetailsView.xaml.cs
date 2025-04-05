@@ -1,15 +1,15 @@
-using MyApp.ViewModel;
+ï»¿using MyApp.ViewModel;
 
 namespace MyApp.View;
 
 public partial class DetailsView : ContentPage
 {
     readonly DetailsViewModel viewModel;
-	public DetailsView(DetailsViewModel viewModel)
-	{
-		this.viewModel = viewModel;
-		InitializeComponent();
-		BindingContext = viewModel;
+    public DetailsView(DetailsViewModel viewModel)
+    {
+        this.viewModel = viewModel;
+        InitializeComponent();
+        BindingContext = viewModel;
     }
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
@@ -17,7 +17,7 @@ public partial class DetailsView : ContentPage
         base.OnNavigatedTo(args);
 
         BindingContext = null;
-        viewModel.RefreshPage();    // Réinitialise la observablecollection
+        viewModel.RefreshPage();    // RÃ©initialise la observablecollection
         BindingContext = viewModel;
     }
     protected override void OnDisappearing()
@@ -32,7 +32,7 @@ public partial class DetailsView : ContentPage
         await MyAnimatedButton.ScaleTo(1.0, 100);
 
 
-        // Ne navigue que si la validation a réussi (c'est-à-dire que les champs sont remplis)
+        // Ne navigue que si la validation a rÃ©ussi (c'est-Ã -dire que les champs sont remplis)
         if (viewModel.IsValid())
         {
             await Shell.Current.GoToAsync(nameof(AllProductsView)); // va vers la page AllProduct apres ajout d'un produit 
@@ -40,7 +40,7 @@ public partial class DetailsView : ContentPage
     }
     private void OnSimulateScanClicked(object sender, EventArgs e)
     {
-        // Simule la réception d'un code-barres
+        // Simule la rÃ©ception d'un code-barres
         viewModel.MyScanner.SerialBuffer.Enqueue("987654321");
     }
 

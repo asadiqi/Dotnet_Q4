@@ -6,16 +6,16 @@
              BackgroundColor="White">
 
     <VerticalStackLayout Padding="20">
-        <Label Text="Comparaison de Prix et Stock des Produits" 
+        <Label Text="Product Price and Stock Comparison" 
                 FontSize="24" 
-               HorizontalOptions="Center" 
-               Margin="10"/>
+                HorizontalOptions="Center" 
+                Margin="10"/>
 
         <!-- Utilisation d'une grille pour afficher les graphiques côte à côte -->
         <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="20">
 
             <!-- Label du graphique Prix -->
-            <Label Text="Prix des Produits" Grid.Row="0" Grid.Column="0"
+            <Label Text="Product Price" Grid.Row="0" Grid.Column="0"
                    FontSize="18" HorizontalOptions="Center" Margin="10"/>
 
             <!-- Graphique Prix avec un fond -->
@@ -30,7 +30,7 @@
             </Frame>
 
             <!-- Label du graphique Stock -->
-            <Label Text="Stock des Produits" Grid.Row="0" Grid.Column="1"
+            <Label Text="Product Stock" Grid.Row="0" Grid.Column="1"
                    FontSize="18" HorizontalOptions="Center" Margin="10"/>
 
             <!-- Graphique Stock avec un fond -->

@@ -17,4 +17,6 @@ public partial class GraphView : ContentPage
         BindingContext = null;
         BindingContext = viewModel;
     }
+
+
 }
