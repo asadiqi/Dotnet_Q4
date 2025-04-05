@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\graphviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\graphviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\graphview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\graphview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\detailsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\detailsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\allproductsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\allproductsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -18,11 +30,50 @@
       "DocumentGroups": [
         {
           "DockedHeight": 53,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GraphViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\GraphViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\GraphViewModel.cs",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\GraphViewModel.cs",
+              "RelativeToolTip": "ViewModel\\GraphViewModel.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowDoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T15:14:22.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "GraphView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\GraphView.xaml",
+              "RelativeDocumentMoniker": "View\\GraphView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\GraphView.xaml",
+              "RelativeToolTip": "View\\GraphView.xaml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-05T15:13:49.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DetailsView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\DetailsView.xaml",
+              "RelativeDocumentMoniker": "View\\DetailsView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\DetailsView.xaml",
+              "RelativeToolTip": "View\\DetailsView.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-05T15:10:10.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AllProductsView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml.cs",
               "RelativeDocumentMoniker": "View\\AllProductsView.xaml.cs",
@@ -30,18 +81,17 @@
               "RelativeToolTip": "View\\AllProductsView.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T14:47:42.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T14:47:42.647Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AllProductsView.xaml",
               "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
               "RelativeDocumentMoniker": "View\\AllProductsView.xaml",
               "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
               "RelativeToolTip": "View\\AllProductsView.xaml",
-              "ViewState": "AgIAACkAAAAAAAAAAADgvzoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-04-05T13:41:21.316Z",
               "EditorCaption": ""

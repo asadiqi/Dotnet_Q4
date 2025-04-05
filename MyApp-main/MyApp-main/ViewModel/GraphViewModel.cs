@@ -23,7 +23,7 @@ public partial class GraphViewModel : ObservableObject
         {
             Label = product.Name,
             ValueLabel = $"Prix: {product.Price} €",
-            Color = SKColor.Parse(product.Group == "Fruit" ? "#FFA500" : "#2ECC71") // Orange pour fruits, Vert pour légumes
+            Color = GetProductColor(product.Group) // Détermination de la couleur en fonction du groupe
         }).ToList();
         return new BarChart
         {
@@ -39,7 +39,7 @@ public partial class GraphViewModel : ObservableObject
         {
             Label = product.Name,
             ValueLabel = $"{product.Stock} unités",
-            Color = SKColor.Parse(product.Group == "Fruit" ? "#FFA500" : "#2ECC71") // Orange pour fruits, Vert pour légumes
+            Color = GetProductColor(product.Group) // Détermination de la couleur en fonction du groupe
         }).ToList();
 
         return new BarChart
@@ -50,5 +50,16 @@ public partial class GraphViewModel : ObservableObject
         };
     }
 
+    private SKColor GetProductColor(string group)
+    {
+        var normalizedGroup = group?.Trim().ToLower();
 
+        // Déterminer la couleur en fonction du groupe du produit
+        return normalizedGroup switch
+        {
+            "fruit" => SKColor.Parse("#FFA500"), // Orange pour fruits
+            "légume" => SKColor.Parse("#2ECC71"), // Vert pour légumes
+            _ => SKColor.Parse("#5c1f0a"), //  pour les autres
+        };
+    }
 }
