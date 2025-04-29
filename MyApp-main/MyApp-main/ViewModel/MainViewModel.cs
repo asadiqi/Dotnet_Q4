@@ -169,6 +169,14 @@ public partial class MainViewModel : BaseViewModel
 
         await RefreshPage(); // Rafraîchir la vue avec la liste mise à jour
 
+        // Sauvegarder les changements sur le serveur
+        bool success = await MyJSONService.SetProducts();
+        if (!success)
+        {
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "Failed to upload updated product list to server.", "OK");
+        }
+
+
         IsBusy = false;
     }
 
