@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace MyApp.ViewModel;
 
@@ -15,10 +17,12 @@ public partial class AllProductsViewModel : ObservableObject
 
     private string searchText = string.Empty;
 
+
+    [RelayCommand]
     public void LoadProducts()
     {
         Products = new ObservableCollection<Product>(Globals.MyProducts);
-        FilteredProducts = Products; // Par défaut, afficher tous les produits
+        FilteredProducts = Products;
     }
 
     // Commande pour supprimer un produit
@@ -87,5 +91,31 @@ public partial class AllProductsViewModel : ObservableObject
             await Application.Current.MainPage.DisplayAlert("✅ Success", "All products have been deleted.", "OK");
         }
     }
+
+
+    [RelayCommand]
+    public async Task ConfirmAndDeleteProduct(string productId)
+    {
+        bool confirm = await Application.Current.MainPage.DisplayAlert("Confirmation", "Are you sure you want to delete this product?", "Yes", "No");
+
+        if (confirm)
+        {
+            await DeleteProduct(productId);
+        }
+    }
+
+    [RelayCommand]
+    public async Task NavigateToEdit(string productId)
+    {
+        var parameters = new Dictionary<string, object>
+    {
+        { "selectedProduct", productId }
+    };
+
+        await Shell.Current.GoToAsync("DetailsView", parameters);
+    }
+
+
+
 
 }

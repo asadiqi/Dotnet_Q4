@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
              xmlns:model="clr-namespace:MyApp.Model"
+             xmlns:view="clr-namespace:MyApp.View"
              x:Class="MyApp.View.AllProductsView"
              x:DataType="viewmodel:AllProductsViewModel"
              Title="All Products"
              BackgroundColor="#F5F5F5">
+
 
     <Grid>
         <Image Source="background.png"
@@ -30,13 +32,13 @@
                        HorizontalOptions="Center"
                        TextColor="#333" />
 
-                <Button Text="Supprimer tous les produits"
+                <Button Text="Delete All Products"
                         FontSize="14"
                         BackgroundColor="#F44336"
                         TextColor="White"
                         CornerRadius="5"
                         HorizontalOptions="Center"
-                        Clicked="OnDeleteAllButtonClicked" />
+                        Command="{Binding DeleteAllProductsCommand}" />
 
                 <CollectionView ItemsSource="{Binding FilteredProducts}"
                                 SelectionMode="None">
@@ -113,7 +115,7 @@
                                                     Margin="0,10,10,0"
                                                     HorizontalOptions="Center"  
                                                     VerticalOptions="Center"
-                                                    Clicked="OnDeleteButtonClicked"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.ConfirmAndDeleteProductCommand}"
                                                     CommandParameter="{Binding Id}" />
 
                                             <Button Text="Modify"
@@ -126,7 +128,7 @@
                                                     Margin="0,10,10,0"
                                                     HorizontalOptions="Center"  
                                                     VerticalOptions="Center"
-                                                    Clicked="OnModifyButtonClicked"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.NavigateToEditCommand}"
                                                     CommandParameter="{Binding Id}" />  
                                         </StackLayout>
 
