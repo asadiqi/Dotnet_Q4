@@ -96,7 +96,7 @@ namespace MyApp.Service
                 }
 
                 // Affichage d'un popup de succès lorsque le chargement des produits est réussi
-                await Application.Current.MainPage.DisplayAlert("✅ Success", "The products have been successfully loaded from the CSV file.", "OK");
+               // await Application.Current.MainPage.DisplayAlert("✅ Success", "The product (s) have been successfully loaded from the CSV file.", "OK");
 
                 return list;
             }

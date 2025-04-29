@@ -103,22 +103,76 @@ public partial class MainViewModel : BaseViewModel
     {
         IsBusy = true;
 
-        // Charge les nouveaux produits depuis le CSV
+        // Charger les nouveaux produits depuis le fichier CSV
         var newProducts = await MyCSVServices.LoadData();
 
-        // Ajouter les nouveaux produits à la collection existante sans les écraser
+        // Liste pour les produits avec un ID déjà existant
+        var duplicateProducts = new List<Product>();
+
+        // Parcours de la liste des nouveaux produits
         foreach (var product in newProducts)
         {
-            if (!Globals.MyProducts.Any(p => p.Id == product.Id))
+            // Vérifier si un produit avec le même ID existe déjà dans la liste
+            var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == product.Id);
+
+            if (existingProduct != null)
             {
+                // Ajouter à la liste des produits en doublon
+                duplicateProducts.Add(product);
+            }
+            else
+            {
+                // Si le produit n'existe pas, on l'ajoute à la liste
                 Globals.MyProducts.Add(product);
             }
         }
 
-        await RefreshPage(); // Rafraîchir la vue avec la nouvelle liste
+        if (duplicateProducts.Any())
+        {
+            var duplicateInfo = new StringBuilder();
+            foreach (var product in duplicateProducts)
+            {
+                duplicateInfo.AppendLine($"ID: {product.Id}, Name: {product.Name}");
+            }
+
+            bool replace = await Application.Current.MainPage.DisplayAlert(
+                "⚠️ Duplicate Product IDs Detected",
+                $"The following product(s) already exist in the collection with the same ID, but their attributes (Name, Price, Stock) may differ from the new products:\n{duplicateInfo.ToString()}\nDo you want to replace the existing products with the new data?",
+                "Replace",
+                "Ignore");
+
+            if (replace)
+            {
+                foreach (var duplicateProduct in duplicateProducts)
+                {
+                    var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == duplicateProduct.Id);
+                    if (existingProduct != null)
+                    {
+                        existingProduct.Name = duplicateProduct.Name;
+                        existingProduct.Group = duplicateProduct.Group;
+                        existingProduct.Stock = duplicateProduct.Stock;
+                        existingProduct.Price = duplicateProduct.Price;
+                    }
+                }
+
+                await Application.Current.MainPage.DisplayAlert("✅ Success", "The product(s) have been successfully replaced.", "OK");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("ℹ️ Info", "The duplicate product(s) were ignored.", "OK");
+            }
+        }
+        else
+        {
+            await Application.Current.MainPage.DisplayAlert("✅ Success", "The product(s) have been successfully loaded from the CSV file.", "OK");
+        }
+
+        await RefreshPage(); // Rafraîchir la vue avec la liste mise à jour
 
         IsBusy = false;
     }
+
+
 
 
     [RelayCommand]
