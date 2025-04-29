@@ -84,9 +84,11 @@
                     CornerRadius="25"
                     FontSize="16"
                     Margin="0,10"
-                    Grid.Row="2" Grid.Column="0"/>
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Center"/>
 
-          
         </Grid>
 
         <Label Text="Version 2.0"
