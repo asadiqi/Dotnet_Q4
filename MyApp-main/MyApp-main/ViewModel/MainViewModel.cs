@@ -96,19 +96,30 @@ public partial class MainViewModel : BaseViewModel
 
         IsBusy = false;
     }
-    
-    
+
+
     [RelayCommand]
     internal async Task LoadFromCSV()
     {
         IsBusy = true;
 
-        Globals.MyProducts = await MyCSVServices.LoadData();
-       
-        await RefreshPage();
+        // Charge les nouveaux produits depuis le CSV
+        var newProducts = await MyCSVServices.LoadData();
+
+        // Ajouter les nouveaux produits à la collection existante sans les écraser
+        foreach (var product in newProducts)
+        {
+            if (!Globals.MyProducts.Any(p => p.Id == product.Id))
+            {
+                Globals.MyProducts.Add(product);
+            }
+        }
+
+        await RefreshPage(); // Rafraîchir la vue avec la nouvelle liste
 
         IsBusy = false;
     }
+
 
     [RelayCommand]
     internal async Task UploadJson()
