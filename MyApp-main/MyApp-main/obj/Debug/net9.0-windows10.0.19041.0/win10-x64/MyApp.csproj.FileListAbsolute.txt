@@ -796,3 +796,10 @@ C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\n
 C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MyApp.sourcelink.json
 C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\background.scale-100.png
+C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\BCrypt.Net-Next.dll
+C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\DnsClient.dll
+C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\MongoDB.Bson.dll
+C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\MongoDB.Driver.dll
+C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\SharpCompress.dll
+C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\Snappier.dll
+C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\ZstdSharp.dll

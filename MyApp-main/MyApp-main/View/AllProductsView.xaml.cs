@@ -73,6 +73,8 @@ public partial class AllProductsView : ContentPage
     {
         var viewModel = (AllProductsViewModel)BindingContext;
         await viewModel.DeleteAllProducts();
+
+        // utilisation de relaycommand
     }
 
 }

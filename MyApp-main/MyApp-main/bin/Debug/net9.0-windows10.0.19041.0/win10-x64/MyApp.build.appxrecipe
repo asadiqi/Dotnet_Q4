@@ -211,6 +211,9 @@
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\WinRT.Runtime.dll">
       <PackagePath>WinRT.Runtime.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\bcrypt.net-next\4.0.3\lib\net6.0\BCrypt.Net-Next.dll">
+      <PackagePath>BCrypt.Net-Next.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\communitytoolkit.maui\11.1.0\lib\net9.0-windows10.0.19041\CommunityToolkit.Maui.dll">
       <PackagePath>CommunityToolkit.Maui.dll</PackagePath>
     </AppxPackagedFile>
@@ -219,6 +222,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\communitytoolkit.mvvm\8.4.0\lib\net8.0-windows10.0.17763\CommunityToolkit.Mvvm.dll">
       <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\dnsclient\1.6.1\lib\net5.0\DnsClient.dll">
+      <PackagePath>DnsClient.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\microcharts.maui\1.0.0\lib\net6.0-windows10.0.19041\Microcharts.Maui.dll">
       <PackagePath>Microcharts.Maui.dll</PackagePath>
@@ -325,6 +331,15 @@
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\microsoft.windowsappsdk\1.6.250108002\lib\net6.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\mongodb.bson\3.3.0\lib\net6.0\MongoDB.Bson.dll">
+      <PackagePath>MongoDB.Bson.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\mongodb.driver\3.3.0\lib\net6.0\MongoDB.Driver.dll">
+      <PackagePath>MongoDB.Driver.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\sharpcompress\0.30.1\lib\net5.0\SharpCompress.dll">
+      <PackagePath>SharpCompress.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\skiasharp\2.88.3\lib\net6.0\SkiaSharp.dll">
       <PackagePath>SkiaSharp.dll</PackagePath>
     </AppxPackagedFile>
@@ -337,6 +352,9 @@
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\skiasharp.views.winui\2.88.3\lib\net6.0-windows10.0.19041.0\SkiaSharp.Views.Windows.dll">
       <PackagePath>SkiaSharp.Views.Windows.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\snappier\1.0.0\lib\net5.0\Snappier.dll">
+      <PackagePath>Snappier.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\system.codedom\10.0.0-preview.1.25080.5\lib\net9.0\System.CodeDom.dll">
       <PackagePath>System.CodeDom.dll</PackagePath>
     </AppxPackagedFile>
@@ -348,6 +366,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\system.speech\9.0.0\runtimes\win\lib\net9.0\System.Speech.dll">
       <PackagePath>System.Speech.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\zstdsharp.port\0.7.3\lib\net7.0\ZstdSharp.dll">
+      <PackagePath>ZstdSharp.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\.nuget\packages\microsoft.maui.controls.core\9.0.40\lib\net9.0-windows10.0.19041\ar\Microsoft.Maui.Controls.resources.dll">
       <PackagePath>ar\Microsoft.Maui.Controls.resources.dll</PackagePath>

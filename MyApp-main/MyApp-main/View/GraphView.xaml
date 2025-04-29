@@ -36,28 +36,24 @@
                    FontSize="18" HorizontalOptions="Center" Margin="10"/>
 
             <!-- Graphique Prix avec un fond -->
-            <Frame Grid.Row="1" Grid.Column="0"
-                BackgroundColor="#E0F7FA" Padding="10" CornerRadius="10"
-                   Margin="10">
-                
-                
-                <microcharts:ChartView Chart="{Binding ProductChart}"
+            <Border Grid.Row="1" Grid.Column="0"
+                    Background="#E0F7FA" StrokeThickness="0"
+                    Margin="10" Padding="10"
+                    StrokeShape="RoundRectangle 10">
+                        <microcharts:ChartView Chart="{Binding ProductChart}"
                                        HeightRequest="400"
-                                       WidthRequest="300"/>
-            </Frame>
-
-            <!-- Label du graphique Stock -->
-            <Label Text="Product Stock" Grid.Row="0" Grid.Column="1"
-                   FontSize="18" HorizontalOptions="Center" Margin="10"/>
+                                       WidthRequest="300"/> 
+            </Border>
 
             <!-- Graphique Stock avec un fond -->
-            <Frame Grid.Row="1" Grid.Column="1"
-                   BackgroundColor="#F3E5F5" Padding="10" CornerRadius="10"
-                   Margin="10">
-                <microcharts:ChartView Chart="{Binding StockChart}"
+            <Border Grid.Row="1" Grid.Column="1"
+                    Background="#F3E5F5" StrokeThickness="0"
+                    Margin="10" Padding="10"
+                    StrokeShape="RoundRectangle 10">
+                        <microcharts:ChartView Chart="{Binding StockChart}"
                                        HeightRequest="400"
-                                       WidthRequest="300"/>
-            </Frame>
+                                       WidthRequest="300"/> 
+            </Border>
 
         </Grid>
     </VerticalStackLayout>

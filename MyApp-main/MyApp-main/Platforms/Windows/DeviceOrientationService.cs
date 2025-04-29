@@ -9,6 +9,8 @@ using System.Management;
 namespace MyApp.Service;
 public partial class DeviceOrientationService
 {
+
+    // quand utilisateur se connecte et que il va dans la page de AddProduct et que le scanner n'est pas branché il doit voir un pop up 
     SerialPort? mySerialPort;
     string? portDetected = null;
     public partial void OpenPort()
