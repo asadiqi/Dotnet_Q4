@@ -180,46 +180,6 @@ public partial class MainViewModel : BaseViewModel
         IsBusy = false;
     }
 
-
-
-
-    [RelayCommand]
-    internal async Task UploadJson()
-    {
-        IsBusy = true;
-
-        // Vérifier si la liste des produits est vide
-        if (Globals.MyProducts == null || Globals.MyProducts.Count == 0)
-        {
-            // Afficher un message d'erreur si la liste est vide
-            await Application.Current.MainPage.DisplayAlert("❌ Error", "There are no products to upload.", "OK");
-        }
-        else
-        {
-            try
-            {
-                bool success = await MyJSONService.SetProducts();
-
-                if (success)
-                {
-                    var serverProducts = await MyJSONService.GetProducts();
-                    string message = $"{serverProducts.Count} produits ont bien été enregistrés sur le serveur.";
-                    await Application.Current.MainPage.DisplayAlert("✅ Success", message, "OK");
-                }
-                else
-                {
-                    await Application.Current.MainPage.DisplayAlert("❌ Error", "Data saving failed.", "OK");
-                }
-            }
-            catch (Exception ex)
-            {
-                await Application.Current.MainPage.DisplayAlert("❌ Error", $"Error saving data to the server: {ex.Message}", "OK");
-            }
-        }
-
-        IsBusy = false;
-    }
-
     internal async Task RefreshPage()
     {
         MyObservableList.Clear();
