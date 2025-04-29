@@ -100,7 +100,7 @@
                     Grid.Row="2" Grid.Column="1"/>
         </Grid>
 
-        <Label Text="Version 1.0"
+        <Label Text="Version 2.0"
                HorizontalOptions="End"
                VerticalOptions="End"
                Margin="10"
