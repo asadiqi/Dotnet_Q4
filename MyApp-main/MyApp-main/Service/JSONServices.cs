@@ -32,16 +32,12 @@ public class JSONServices
             {
                 var content = await response.Content.ReadAsStreamAsync();
                 MyList = JsonSerializer.Deserialize<List<Product>>(content) ?? new List<Product>();
-                Console.WriteLine("✅ Données récupérées du serveur : " + MyList.Count + " produits.");
             }
-            else
-            {
-                Console.WriteLine($"❌ Erreur lors de la récupération des données : {response.StatusCode}");
-            }
+           
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"❌ Exception lors de la récupération des données : {ex.Message}");
+            await Shell.Current.DisplayAlert("❌ Error!", $"Exception occurred while retrieving data: {ex.Message}", "OK");
         }
 
         return MyList;
@@ -74,18 +70,16 @@ public class JSONServices
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("✅ Fichier JSON envoyé avec succès !");
                 return true;
             }
             else
             {
-                Console.WriteLine("❌ Erreur lors de l'envoi du fichier JSON : " + response.StatusCode);
                 return false;
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("❌ Exception lors de l'envoi du fichier JSON : " + ex.Message);
+            await Shell.Current.DisplayAlert("❌ Error!", $"Exception occurred while uploading the JSON file: {ex.Message}", "OK");
             return false;
         }
     }
