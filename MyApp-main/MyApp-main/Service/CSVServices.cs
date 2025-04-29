@@ -80,7 +80,6 @@ namespace MyApp.Service
                             catch (Exception ex)
                             {
                                 // Si une erreur se produit pour une propriété, on affiche un message d'erreur pour cette propriété
-                                Console.WriteLine($"Erreur de conversion pour la propriété {headers[j]} : {ex.Message}");
                                 await Application.Current.MainPage.DisplayAlert("❌ Conversion Error", $"Unable to convert the value for the property {headers[j]}.", "OK");
                             }
                         }
@@ -90,7 +89,6 @@ namespace MyApp.Service
                     catch (Exception ex)
                     {
                         // Si une erreur se produit pour une ligne, on l'affiche mais on continue avec les autres lignes
-                        Console.WriteLine($"Erreur lors du traitement de la ligne {i}: {ex.Message}");
                         await Application.Current.MainPage.DisplayAlert("❌ Line Error", $"Error processing line {i}: {ex.Message}", "OK");
                     }
                 }
