@@ -21,7 +21,7 @@
                Grid.RowSpan="2"/>
 
         <Button Text="Simulate scan"
-                Clicked="OnSimulateScanClicked"
+                Command="{Binding SimulateScanCommand}"
                 BackgroundColor="DarkOliveGreen"
                 TextColor="White"
                 WidthRequest="150"
@@ -67,13 +67,12 @@
 
 
                 <Button x:Name="MyAnimatedButton"
-                        Text="Valider"
-                        Command="{Binding ChangeObjectParametersCommand}"
+                        Text="Submit"
+                        Command="{Binding SubmitProductCommand}"
                         BackgroundColor="#6200EE"
                         TextColor="White"
                         WidthRequest="120"
-                        HorizontalOptions="Center"
-                        Clicked="MyAnimatedButton_Clicked"/>
+                        HorizontalOptions="Center"/>
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

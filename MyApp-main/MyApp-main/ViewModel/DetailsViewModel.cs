@@ -160,6 +160,49 @@ public partial class DetailsViewModel : ObservableObject
                Price > 0;                                // Vérifie que le prix est supérieur à 0
     }
 
+    [RelayCommand]
+    public void SimulateScan()
+    {
+        MyScanner.SerialBuffer.Enqueue("987654321");
+    }
+
+    [RelayCommand]
+    public async Task SubmitProduct()
+    {
+        if (!IsValid())
+        {
+            await Application.Current.MainPage.DisplayAlert("Erreur", "Merci de remplir correctement tous les champs.", "OK");
+            return;
+        }
+
+        var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
+
+        if (existingProduct != null)
+        {
+            existingProduct.Name = Name ?? string.Empty;
+            existingProduct.Group = Group ?? string.Empty;
+            existingProduct.Stock = Stock;
+            existingProduct.Price = Price;
+        }
+        else
+        {
+            Globals.MyProducts.Add(new Product
+            {
+                Id = Id ?? Guid.NewGuid().ToString(),
+                Name = Name ?? string.Empty,
+                Group = Group ?? string.Empty,
+                Stock = Stock,
+                Price = Price
+            });
+        }
+
+        await new JSONServices().SetProducts();
+
+        // Navigation vers AllProductsView 
+        await Shell.Current.GoToAsync(nameof(AllProductsView));
+    }
+
+
 
 
 }
