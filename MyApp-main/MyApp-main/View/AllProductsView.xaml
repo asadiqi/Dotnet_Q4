@@ -9,7 +9,6 @@
              Title="All Products"
              BackgroundColor="#F5F5F5">
 
-
     <Grid>
         <Image Source="background.png"
                Aspect="AspectFill"
@@ -55,9 +54,11 @@
                                     StrokeShape="RoundRectangle 15,15,15,15"
                                     Padding="12"
                                     BackgroundColor="#fff7c9"
-                                    Margin="5">
-                                <Grid HeightRequest="200">
+                                    Margin="10"
+                                    HeightRequest="350">
+                                <Grid>
                                     <VerticalStackLayout Grid.Column="1" Spacing="8" Padding="0,5">
+                                        <!-- ID du produit -->
                                         <Label>
                                             <Label.FormattedText>
                                                 <FormattedString>
@@ -67,6 +68,7 @@
                                             </Label.FormattedText>
                                         </Label>
 
+                                        <!-- Nom du produit -->
                                         <Label>
                                             <Label.FormattedText>
                                                 <FormattedString>
@@ -76,6 +78,7 @@
                                             </Label.FormattedText>
                                         </Label>
 
+                                        <!-- Groupe du produit -->
                                         <Label>
                                             <Label.FormattedText>
                                                 <FormattedString>
@@ -85,6 +88,7 @@
                                             </Label.FormattedText>
                                         </Label>
 
+                                        <!-- Stock du produit -->
                                         <Label>
                                             <Label.FormattedText>
                                                 <FormattedString>
@@ -94,6 +98,7 @@
                                             </Label.FormattedText>
                                         </Label>
 
+                                        <!-- Prix du produit -->
                                         <Label>
                                             <Label.FormattedText>
                                                 <FormattedString>
@@ -103,15 +108,26 @@
                                             </Label.FormattedText>
                                         </Label>
 
+                                        <!-- Border autour de l'image -->
+                                        <Border Grid.Row="5" Grid.Column="1" WidthRequest="200" HeightRequest="100" Stroke="Black" StrokeThickness="1" Background="White" Margin="0, 10" StrokeShape="RoundRectangle 10">
+                                            <!-- Image non cliquable -->
+                                            <Image Source="{Binding Picture}"
+                                                   Aspect="AspectFill" 
+                                                   HorizontalOptions="FillAndExpand"
+                                                   VerticalOptions="FillAndExpand"/>        
+                                        </Border>
 
-                                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+
+                                        <!-- Boutons pour modifier et supprimer le produit -->
+                                        <StackLayout Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                                             <Button Text="Delete"
-                                                    FontSize="14"
+                                                    FontSize="16"
                                                     BackgroundColor="#F44336"
                                                     TextColor="White"
                                                     CornerRadius="5"
-                                                    WidthRequest="80"
-                                                    HeightRequest="10" 
+                                                    WidthRequest="100"
+                                                    HeightRequest="40"
                                                     Margin="0,10,10,0"
                                                     HorizontalOptions="Center"  
                                                     VerticalOptions="Center"
@@ -119,19 +135,18 @@
                                                     CommandParameter="{Binding Id}" />
 
                                             <Button Text="Modify"
-                                                    FontSize="14"
+                                                    FontSize="16"
                                                     BackgroundColor="#4CAF50"
                                                     TextColor="White"
                                                     CornerRadius="5"
-                                                    WidthRequest="80"
-                                                    HeightRequest="10" 
+                                                    WidthRequest="100"
+                                                    HeightRequest="40"
                                                     Margin="0,10,10,0"
                                                     HorizontalOptions="Center"  
                                                     VerticalOptions="Center"
                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.NavigateToEditCommand}"
-                                                    CommandParameter="{Binding Id}" />  
+                                                    CommandParameter="{Binding Id}" />
                                         </StackLayout>
-
                                     </VerticalStackLayout>
                                 </Grid>
                             </Border>

@@ -192,6 +192,7 @@ public partial class DetailsViewModel : ObservableObject
             existingProduct.Group = Group ?? string.Empty;
             existingProduct.Stock = Stock;
             existingProduct.Price = Price;
+            existingProduct.Picture = Picture;
         }
         else
         {
@@ -201,7 +202,8 @@ public partial class DetailsViewModel : ObservableObject
                 Name = Name ?? string.Empty,
                 Group = Group ?? string.Empty,
                 Stock = Stock,
-                Price = Price
+                Price = Price,
+                Picture = Picture
             });
         }
 
