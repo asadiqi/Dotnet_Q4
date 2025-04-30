@@ -11,6 +11,4 @@ public partial class DetailsView : ContentPage
         InitializeComponent();
         BindingContext = viewModel;
     }
-
-   
 }

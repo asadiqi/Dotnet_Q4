@@ -161,17 +161,11 @@ public partial class DetailsViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public void SimulateScan()
-    {
-        MyScanner.SerialBuffer.Enqueue("987654321");
-    }
-
-    [RelayCommand]
-    public async Task SubmitProduct()
+    internal async Task SubmitProduct()
     {
         if (!IsValid())
         {
-            await Application.Current.MainPage.DisplayAlert("Erreur", "Merci de remplir correctement tous les champs.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Error", "Please fill in all fields correctly.", "OK");
             return;
         }
 
@@ -179,6 +173,17 @@ public partial class DetailsViewModel : ObservableObject
 
         if (existingProduct != null)
         {
+            bool replace = await Application.Current.MainPage.DisplayAlert(
+                "⚠️ Duplicate Product",
+                $"A product with the ID {Id} already exists:\n\nName: {existingProduct.Name}\nGroup: {existingProduct.Group}\nPrice: {existingProduct.Price} €\nStock: {existingProduct.Stock}\n\nDo you want to replace it with the new data?",
+                "Yes, replace",
+                "No, cancel");
+
+            if (!replace)
+            {
+                return;
+            }
+
             existingProduct.Name = Name ?? string.Empty;
             existingProduct.Group = Group ?? string.Empty;
             existingProduct.Stock = Stock;
@@ -198,7 +203,6 @@ public partial class DetailsViewModel : ObservableObject
 
         await new JSONServices().SetProducts();
 
-        // Navigation vers AllProductsView 
         await Shell.Current.GoToAsync(nameof(AllProductsView));
     }
 
