@@ -9,6 +9,7 @@ namespace MyApp.ViewModel;
 
 public partial class AllProductsViewModel : ObservableObject
 {
+
     [ObservableProperty]
     private ObservableCollection<Product> products = new();
 

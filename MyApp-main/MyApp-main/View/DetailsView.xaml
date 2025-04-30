@@ -55,7 +55,7 @@
                     <Entry Text="{Binding Price}" Grid.Column="1" Grid.Row="4" Keyboard="Numeric" WidthRequest="250" Margin="0,0,0,5"/>
 
                     <!-- Label Image (déjà existant) -->
-                    <Label Text="Image:" Grid.Row="5" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Label Text="Clickable Image:" Grid.Row="5" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
 
                     <!-- Border cliquable autour de l'image -->
                     <Border Grid.Row="5" Grid.Column="1" WidthRequest="200" HeightRequest="100" Stroke="Black" StrokeThickness="1" Background="White" Margin="0,0,0,20" HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 10">

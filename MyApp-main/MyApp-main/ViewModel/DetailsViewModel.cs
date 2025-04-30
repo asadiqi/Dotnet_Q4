@@ -19,9 +19,31 @@ public partial class DetailsViewModel : ObservableObject
     [ObservableProperty]
     public partial int Price { get; set; }
 
+    private string? _picture;
 
-    [ObservableProperty]
-    private string? picture;
+    public string? Picture
+    {
+        get => string.IsNullOrEmpty(_picture) ? GetDefaultImage() : _picture;
+        set => SetProperty(ref _picture, value);
+    }
+
+
+    private string GetDefaultImage()
+    {
+        if (string.IsNullOrEmpty(Group))
+            return "outher.png";
+
+        var groupLower = Group.ToLower();
+
+        if (groupLower.Contains("fruit"))
+            return "fruit.png";
+        else if (groupLower.Contains("légume") || groupLower.Contains("legume"))
+            return "vegetable.png";
+        else
+            return "other.png";
+    }
+
+
 
     public DeviceOrientationService MyScanner;
     IDispatcherTimer emulator = Application.Current.Dispatcher.CreateTimer();
