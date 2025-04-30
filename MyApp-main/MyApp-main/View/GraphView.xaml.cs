@@ -11,12 +11,7 @@ public partial class GraphView : ContentPage
         BindingContext = viewModel;
     }
 
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        base.OnNavigatedTo(args);
-        BindingContext = null;
-        BindingContext = viewModel;
-    }
+    
 
 
 }
