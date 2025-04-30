@@ -11,7 +11,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <!-- Formulaire prend le reste de l'écran -->
         </Grid.RowDefinitions>
 
         <!-- Image de fond -->
@@ -20,30 +19,21 @@
                Opacity="0.3"
                Grid.RowSpan="2"/>
 
-        <Button Text="Simulate scan"
-                Command="{Binding SimulateScanCommand}"
-                BackgroundColor="DarkOliveGreen"
-                TextColor="White"
-                WidthRequest="150"
-                HorizontalOptions="Start"
-                Margin="10,0,0,0"/>
-
-
-
         <!-- Conteneur principal -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="30" Spacing="15"
                                  BackgroundColor="#F0F0F0" Opacity="0.9"
                                  WidthRequest="500"
-                                 HeightRequest="500"
+                                 HeightRequest="700"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
+
                 <Label Text="Product Details"
                        FontSize="24"
                        FontAttributes="Bold"
                        HorizontalOptions="Center"/>
 
-                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="5">
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="5">
                     <!-- Id -->
                     <Label Text="Id * :" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Id}" Grid.Column="1" Grid.Row="0" WidthRequest="250" Margin="0,0,0,5"/>
@@ -63,18 +53,31 @@
                     <!-- Prix -->
                     <Label Text="Price * :" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Price}" Grid.Column="1" Grid.Row="4" Keyboard="Numeric" WidthRequest="250" Margin="0,0,0,5"/>
+
+                    <!-- Label Image (déjà existant) -->
+                    <Label Text="Image:" Grid.Row="5" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+
+                    <!-- Border cliquable autour de l'image -->
+                    <Border Grid.Row="5" Grid.Column="1" WidthRequest="200" HeightRequest="100" Stroke="Black" StrokeThickness="1" Background="White" Margin="0,0,0,20" HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 10">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SelectImageCommand}" />
+                        </Border.GestureRecognizers>
+                        <Image Source="{Binding Picture}" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    </Border>
                 </Grid>
 
-
+                <!-- Bouton de soumission -->
                 <Button x:Name="MyAnimatedButton"
                         Text="Submit"
                         Command="{Binding SubmitProductCommand}"
                         BackgroundColor="#6200EE"
                         TextColor="White"
                         WidthRequest="120"
-                        HorizontalOptions="Center"/>
+                        HorizontalOptions="Center"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        FontSize="16"/>
             </VerticalStackLayout>
         </ScrollView>
     </Grid>
-
 </ContentPage>

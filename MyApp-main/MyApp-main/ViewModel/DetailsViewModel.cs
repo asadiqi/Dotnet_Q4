@@ -19,6 +19,10 @@ public partial class DetailsViewModel : ObservableObject
     [ObservableProperty]
     public partial int Price { get; set; }
 
+
+    [ObservableProperty]
+    private string? picture;
+
     public DeviceOrientationService MyScanner;
     IDispatcherTimer emulator = Application.Current.Dispatcher.CreateTimer();
 
@@ -206,6 +210,26 @@ public partial class DetailsViewModel : ObservableObject
         await Shell.Current.GoToAsync(nameof(AllProductsView));
     }
 
+    [RelayCommand]
+    internal async Task SelectImage()
+    {
+        try
+        {
+            // Demander à l'utilisateur de choisir une image
+            var result = await MediaPicker.PickPhotoAsync();
+
+            if (result != null)
+            {
+                // Si une image a été sélectionnée, mettre à jour la propriété Picture
+                Picture = result.FullPath; // Ou utiliser result.FileName si vous préférez
+            }
+        }
+        catch (Exception ex)
+        {
+            // Gérer les erreurs ici, si l'utilisateur annule ou autre problème
+            await Application.Current.MainPage.DisplayAlert("Error", "An error occurred while selecting the image: " + ex.Message, "OK");
+        }
+    }
 
 
 
