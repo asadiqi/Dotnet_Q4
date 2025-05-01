@@ -73,7 +73,7 @@ namespace MyApp.ViewModel
 
         private async Task OnNavigateToSignup()
         {
-            await Shell.Current.GoToAsync("//signup");
+await Shell.Current.GoToAsync("SignupPage");
         }
 
         private void OnPropertyChanged([CallerMemberName] string name = null)

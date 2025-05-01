@@ -98,7 +98,7 @@ namespace MyApp.ViewModel
             if (success)
             {
                 // Si l'utilisateur est enregistré avec succès, redirection vers la page de connexion
-                await Shell.Current.GoToAsync("//LoginPage"); // Change ce chemin si nécessaire
+                await Shell.Current.GoToAsync("..");
             }
             else
             {
