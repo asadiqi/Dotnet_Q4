@@ -16,7 +16,7 @@ public partial class App : Application
     protected override void OnStart()
     {
         base.OnStart();
-        CheckIfUserIsLoggedIn(); // Appel ici après l'initialisation du Shell
+        CheckIfUserIsLoggedIn(); 
     }
 
     private async void CheckIfUserIsLoggedIn()
