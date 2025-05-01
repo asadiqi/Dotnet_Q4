@@ -37,19 +37,27 @@ public partial class MainViewModel : BaseViewModel
 
         IsBusy = false;
     }
-
     [RelayCommand]
     internal async Task GoToDetails(string id)
     {
         IsBusy = true;
 
-        await Shell.Current.GoToAsync("DetailsView", true, new Dictionary<string,object>
+        // 🔐 Vérifie si l'utilisateur est admin
+        if (Globals.CurrentUser?.Role?.ToLower() != "admin")
         {
-            {"selectedAnimal",id}
-        });
+            await Application.Current.MainPage.DisplayAlert("🚫 Access Denied", "This section is reserved for admins only.", "OK");
+            IsBusy = false;
+            return;
+        }
+
+        await Shell.Current.GoToAsync("DetailsView", true, new Dictionary<string, object>
+    {
+        { "selectedAnimal", id }
+    });
 
         IsBusy = false;
     }
+
 
     [RelayCommand]
     async Task GoToAllProducts()
@@ -201,6 +209,17 @@ public partial class MainViewModel : BaseViewModel
     {
         Preferences.Remove("IsLoggedIn");
         await Shell.Current.GoToAsync("//LoginPage");
+    }
+
+    private async void CheckIfAdmin()
+    {
+        if (Globals.CurrentUser?.Role?.ToLower() != "admin")
+        {
+            await Application.Current.MainPage.DisplayAlert("🚫 Access Denied", "This section is reserved for admins only.", "OK");
+
+            // Rediriger vers la page de login ou une autre page publique
+            await Shell.Current.GoToAsync("//LoginPage");
+        }
     }
 
 }

@@ -63,6 +63,7 @@ namespace MyApp.ViewModel
             if (user != null)
             {
                 Preferences.Set("IsLoggedIn", true);
+                Globals.CurrentUser = user;
                 await Shell.Current.GoToAsync("//MainView");
             }
             else
