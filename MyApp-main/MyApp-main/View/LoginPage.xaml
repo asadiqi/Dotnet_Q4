@@ -1,0 +1,73 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
+             xmlns:converters="clr-namespace:MyApp.Converters"
+             x:Class="MyApp.View.LoginPage"
+             x:DataType="viewmodel:LoginViewModel"
+             BackgroundColor="#f0f0f0">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringNotEmptyConverter x:Key="StringNotEmptyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                             Padding="30"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+
+            <Label Text="Login"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333"/>
+
+            <Border Stroke="#ddd"
+        StrokeThickness="1"
+        BackgroundColor="White"
+        WidthRequest="320"
+        StrokeShape="RoundRectangle 20">
+
+                <VerticalStackLayout Spacing="15" Padding="20">
+                    <!-- Email -->
+                    <Entry Placeholder="Email"
+               Text="{Binding Email}"
+               Keyboard="Email"
+               BackgroundColor="#f9f9f9"
+               HeightRequest="45"
+               Margin="0,0,0,5"
+               TextColor="#333" />
+
+                    <!-- Password -->
+                    <Entry Placeholder="Password"
+               Text="{Binding Password}"
+               IsPassword="True"
+               BackgroundColor="#f9f9f9"
+               HeightRequest="45"
+               Margin="0,0,0,5"
+               TextColor="#333" />
+
+                    <!-- Button -->
+                    <Button Text="Sign In"
+                Command="{Binding LoginCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                BackgroundColor="#007bff"
+                TextColor="White"
+                HeightRequest="45"
+                FontAttributes="Bold"
+                CornerRadius="10" />
+
+                    <!-- Error message -->
+                    <Label Text="{Binding ErrorMessage}"
+               TextColor="Red"
+               FontSize="14"
+               IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
+                </VerticalStackLayout>
+            </Border>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

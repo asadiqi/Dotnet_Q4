@@ -8,6 +8,11 @@
     Title="MyApp">
 
     <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage" />
+
+    <ShellContent
         Title="Amir's Shop"
         ContentTemplate="{DataTemplate local:MainView}"
         Route="MainView" />
