@@ -211,15 +211,5 @@ public partial class MainViewModel : BaseViewModel
         await Shell.Current.GoToAsync("//LoginPage");
     }
 
-    private async void CheckIfAdmin()
-    {
-        if (Globals.CurrentUser?.Role?.ToLower() != "admin")
-        {
-            await Application.Current.MainPage.DisplayAlert("🚫 Access Denied", "This section is reserved for admins only.", "OK");
-
-            // Rediriger vers la page de login ou une autre page publique
-            await Shell.Current.GoToAsync("//LoginPage");
-        }
-    }
-
+   
 }
