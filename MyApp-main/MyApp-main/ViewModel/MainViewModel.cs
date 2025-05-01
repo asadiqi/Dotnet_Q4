@@ -196,4 +196,11 @@ public partial class MainViewModel : BaseViewModel
         }
     }
 
+    [RelayCommand]
+    private async Task Logout()
+    {
+        Preferences.Remove("IsLoggedIn");
+        await Shell.Current.GoToAsync("//LoginPage");
+    }
+
 }
