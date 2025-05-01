@@ -45,11 +45,12 @@ namespace MyApp.ViewModel
 
         public ICommand LoginCommand { get; }
         public ICommand NavigateToSignupCommand { get; }
-
+        public ICommand NavigateToForgotPasswordCommand { get; }
         public LoginViewModel()
         {
             LoginCommand = new AsyncRelayCommand(OnLogin);
             NavigateToSignupCommand = new AsyncRelayCommand(OnNavigateToSignup);
+            NavigateToForgotPasswordCommand = new AsyncRelayCommand(OnNavigateToForgotPassword);
         }
 
         private async Task OnLogin()
@@ -74,7 +75,13 @@ namespace MyApp.ViewModel
 
         private async Task OnNavigateToSignup()
         {
-await Shell.Current.GoToAsync("SignupPage");
+              await Shell.Current.GoToAsync("SignupPage");
+        }
+
+        private async Task OnNavigateToForgotPassword()
+        {
+            // Naviguer vers la page de réinitialisation du mot de passe
+            await Shell.Current.GoToAsync("ForgotPasswordPage");
         }
 
         private void OnPropertyChanged([CallerMemberName] string name = null)

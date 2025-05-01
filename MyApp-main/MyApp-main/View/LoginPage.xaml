@@ -80,6 +80,23 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
+            
+            <!-- Forgot password link -->
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Forgot your password? " />
+                        <Span Text="Click here"
+                              TextDecorations="Underline"
+                              TextColor="#007bff">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateToForgotPasswordCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
 
 
         </VerticalStackLayout>

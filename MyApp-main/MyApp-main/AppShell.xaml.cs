@@ -11,6 +11,7 @@
             Routing.RegisterRoute("SignupPage", typeof(SignupPage));
             Routing.RegisterRoute("LoginPage", typeof(LoginPage));
             Routing.RegisterRoute("MainView", typeof(MainView));
+            Routing.RegisterRoute("ForgotPasswordPage", typeof(View.ForgotPasswordPage));
 
         }
     }
