@@ -80,3 +80,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.MainView.xaml
 build_metadata.AdditionalFiles.TargetPath = View\MainView.xaml
 build_metadata.AdditionalFiles.RelativePath = View\MainView.xaml
+
+[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/SignupPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.SignupPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\SignupPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\SignupPage.xaml

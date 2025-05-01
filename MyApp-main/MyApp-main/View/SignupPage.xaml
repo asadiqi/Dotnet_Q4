@@ -1,0 +1,70 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
+             x:Class="MyApp.View.SignupPage"
+             x:DataType="viewmodel:SignupViewModel"
+             BackgroundColor="#f0f0f0">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                             Padding="30"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+
+            <Label Text="Sign Up"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333"/>
+
+            <Border Stroke="#ddd"
+                    StrokeThickness="1"
+                    BackgroundColor="White"
+                    WidthRequest="320"
+                    StrokeShape="RoundRectangle 20">
+
+                <VerticalStackLayout Spacing="15" Padding="20">
+                    <!-- Full Name -->
+                    <Entry Placeholder="First Name"
+                           Text="{Binding FirstName}"
+                           BackgroundColor="#f9f9f9"
+                           HeightRequest="45" />
+
+                    <Entry Placeholder="Last Name"
+                           Text="{Binding LastName}"
+                           BackgroundColor="#f9f9f9"
+                           HeightRequest="45" />
+
+                    <!-- Email -->
+                    <Entry Placeholder="Email"
+                           Text="{Binding Email}"
+                           Keyboard="Email"
+                           BackgroundColor="#f9f9f9"
+                           HeightRequest="45" />
+
+                    <!-- Password -->
+                    <Entry Placeholder="Password"
+                           Text="{Binding Password}"
+                           IsPassword="True"
+                           BackgroundColor="#f9f9f9"
+                           HeightRequest="45" />
+
+                    <!-- Register Button -->
+                    <Button Text="Register"
+                            Command="{Binding RegisterCommand}"
+                            BackgroundColor="#28a745"
+                            TextColor="White"
+                            HeightRequest="45"
+                            CornerRadius="10"
+                            FontAttributes="Bold" />
+
+                    <!-- Error Message -->
+                    <Label Text="{Binding ErrorMessage}"
+                           TextColor="Red"
+                           FontSize="14"
+                           IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

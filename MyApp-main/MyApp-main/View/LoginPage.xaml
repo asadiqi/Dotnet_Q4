@@ -66,6 +66,20 @@
                IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
                 </VerticalStackLayout>
             </Border>
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Don't have an account yet? " />
+                        <Span Text="Click here"
+                  TextDecorations="Underline"
+                  TextColor="#007bff">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateToSignupCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
 
         </VerticalStackLayout>

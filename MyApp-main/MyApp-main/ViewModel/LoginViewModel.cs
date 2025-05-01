@@ -44,10 +44,12 @@ namespace MyApp.ViewModel
         }
 
         public ICommand LoginCommand { get; }
+        public ICommand NavigateToSignupCommand { get; }
 
         public LoginViewModel()
         {
             LoginCommand = new AsyncRelayCommand(OnLogin);
+            NavigateToSignupCommand = new AsyncRelayCommand(OnNavigateToSignup);
         }
 
         private async Task OnLogin()
@@ -63,10 +65,15 @@ namespace MyApp.ViewModel
             }
             else
             {
-                ErrorMessage = "Email ou mot de passe incorrect.";
+                ErrorMessage = "Incorrect email or password.";
             }
 
             IsBusy = false;
+        }
+
+        private async Task OnNavigateToSignup()
+        {
+            await Shell.Current.GoToAsync("//signup");
         }
 
         private void OnPropertyChanged([CallerMemberName] string name = null)

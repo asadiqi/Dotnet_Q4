@@ -7,14 +7,22 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MyApp">
 
+    <!-- Route to the Login Page -->
     <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="LoginPage" />
+        Route="login"/>
 
+    <!-- Route to the Signup Page -->
+    <ShellContent
+        Title="Sign Up"
+        ContentTemplate="{DataTemplate local:SignupPage}"
+        Route="signup"/>
+
+    <!-- Route to the MainView Page -->
     <ShellContent
         Title="Amir's Shop"
         ContentTemplate="{DataTemplate local:MainView}"
-        Route="MainView" />
+        Route="mainview"/>
 
 </Shell>

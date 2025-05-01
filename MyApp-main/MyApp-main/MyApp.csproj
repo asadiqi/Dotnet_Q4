@@ -70,11 +70,20 @@ either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\SignupPage.xaml.cs">
+	    <DependentUpon>SignupPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 		<MauiXaml Update="View\DetailsView.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="View\GraphView.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\SignupPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="View\MainView.xaml">
 			<Generator>MSBuild:Compile</Generator>
