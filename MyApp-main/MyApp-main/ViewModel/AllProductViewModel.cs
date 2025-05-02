@@ -126,7 +126,6 @@ public partial class AllProductsViewModel : ObservableObject
     [RelayCommand]
     public async void AddToCart(Product product)
     {
-        // Ajouter ou mettre à jour le produit dans le panier local (Globals.Cart)
         var existingInCart = Globals.Cart.FirstOrDefault(p => p.ProductId == product.Id);
         if (existingInCart != null)
         {
@@ -141,45 +140,11 @@ public partial class AllProductsViewModel : ObservableObject
                 Quantity = 1
             });
         }
+
         SaveCartToPreferences();
 
+        // Supprimer la mise à jour du panier dans la base de données ici
 
-        // Assurer que l'utilisateur actuel (CurrentUser) est bien défini
-        var currentUser = Globals.CurrentUser;
-        if (currentUser != null)
-        {
-            var userService = new UsersService();
-
-            // Mettre à jour le panier de l'utilisateur dans la base de données
-            var user = await userService.GetUserByIdAsync(currentUser.Id);
-            if (user != null)
-            {
-                // Trouver ou ajouter le produit dans le panier de l'utilisateur
-                var existingProductInCart = user.Products.FirstOrDefault(p => p.ProductId == product.Id);
-                if (existingProductInCart != null)
-                {
-                    existingProductInCart.Quantity++;
-                }
-                else
-                {
-                    user.Products.Add(new ProductInCart
-                    {
-                        ProductId = product.Id,
-                        Name = product.Name,
-                        Quantity = 1
-                    });
-                }
-
-
-                // Mise à jour du panier dans la base de données
-                await userService.UpdateUserCartAsync(user.Id, user.Products);
-
-                // Rafraîchir le panier local de l'utilisateur
-                Globals.CurrentUser.Products = user.Products;
-            }
-        }
-
-        // Affichage d'un message de confirmation
         await Application.Current.MainPage.DisplayAlert("✅ Product Added", $"{product.Name} has been added to the cart.", "OK");
     }
 

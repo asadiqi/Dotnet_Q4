@@ -57,15 +57,46 @@ namespace MyApp.ViewModel
                 return;
             }
 
-            // Validation de la commande
+            var currentUser = Globals.CurrentUser;
+            if (currentUser != null)
+            {
+                var userService = new UsersService();
+                var user = await userService.GetUserByIdAsync(currentUser.Id);
+                if (user != null)
+                {
+                    // Remplace le panier existant de l'utilisateur
+                    user.Products = Globals.Cart;
+                    await userService.UpdateUserCartAsync(user.Id, user.Products);
+                    Globals.CurrentUser.Products = user.Products;
+                }
+            }
+
             await Application.Current.MainPage.DisplayAlert("Commande confirmée", "Votre commande a été validée avec succès !", "OK");
 
-            // Vider le panier local et dans les préférences
             Globals.Cart.Clear();
-            SaveCartToPreferences();  // Mise à jour du panier vide dans les préférences
+            SaveCartToPreferences();
             CartItems.Clear();
             OnPropertyChanged(nameof(TotalPriceText));
         }
+
+
+        [RelayCommand]
+        public async Task RemoveFromCart(ProductInCart product)
+        {
+            bool confirm = await Application.Current.MainPage.DisplayAlert(
+                "Remove Product",
+                $"Do you want to remove {product.Name} from your cart?",
+                "Yes", "No");
+
+            if (confirm)
+            {
+                Globals.Cart.Remove(product);
+                CartItems.Remove(product);
+                SaveCartToPreferences();
+                OnPropertyChanged(nameof(TotalPriceText));
+            }
+        }
+
 
         private void SaveCartToPreferences()
         {

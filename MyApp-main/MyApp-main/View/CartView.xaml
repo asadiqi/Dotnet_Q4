@@ -25,12 +25,21 @@
                                 <Label Text="{Binding Name}" 
                                        FontSize="18" 
                                        HorizontalOptions="StartAndExpand" 
-                                       TextColor="#333" />
+                                       TextColor="#333" />  
                                 <Label Text="x" FontSize="18" TextColor="#333"/>
                                 <Label Text="{Binding Quantity}" FontSize="18" TextColor="#333" />
+                                <Button Text="Remove"
+                                        FontSize="14"
+                                        BackgroundColor="#F44336"
+                                        TextColor="White"
+                                        CornerRadius="8"
+                                        Padding="5,2"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}}, Path=RemoveFromCartCommand}"
+                                        CommandParameter="{Binding .}" />
                             </HorizontalStackLayout>
                         </Frame>
                     </DataTemplate>
+
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
