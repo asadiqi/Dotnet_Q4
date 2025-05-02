@@ -79,6 +79,9 @@ either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 	</ItemGroup>
 
 	<ItemGroup>
+		<MauiXaml Update="View\CartView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="View\ForgotPasswordPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

@@ -21,6 +21,7 @@ global using CommunityToolkit.Maui;
 public class Globals
 {
     public static List<Product> MyProducts = new();
+    public static List<ProductInCart> Cart = new();
     public static User? CurrentUser = null;
 
 }

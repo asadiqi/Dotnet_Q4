@@ -4,12 +4,21 @@
              xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
              xmlns:model="clr-namespace:MyApp.Model"
              xmlns:view="clr-namespace:MyApp.View"
+             xmlns:converters="clr-namespace:MyApp.Converters"
              x:Class="MyApp.View.AllProductsView"
              x:DataType="viewmodel:AllProductsViewModel"
              Title="All Products"
              BackgroundColor="#F5F5F5">
 
-    <Grid>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
+<Grid>
         <Image Source="background.png"
                Aspect="AspectFill"
                Opacity="0.2"
@@ -56,7 +65,7 @@
                                     Padding="12"
                                     BackgroundColor="#fff7c9"
                                     Margin="10"
-                                    HeightRequest="350">
+                                    HeightRequest="360">
                                 <Grid>
                                     <VerticalStackLayout Grid.Column="1" Spacing="8" Padding="0,5">
                                         <!-- ID du produit -->
@@ -118,7 +127,28 @@
                                                    VerticalOptions="FillAndExpand"/>        
                                         </Border>
 
+                                        <Grid ColumnDefinitions="*, Auto" Padding="0,10,0,0">
+                                            <!-- Texte "Add to cart" aligné à gauche -->
+                                        <Label Text="Add to cart"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="Center"
+                                               Grid.Column="0" />
 
+                                       <Button Text="+"
+                                                FontSize="16"
+                                                BackgroundColor="#4CAF50"
+                                                TextColor="White"
+                                                CornerRadius="10"
+                                                WidthRequest="20"
+                                                HeightRequest="20"
+                                                HorizontalOptions="End"
+                                                VerticalOptions="Center"
+                                                Grid.Column="1"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.AddToCartCommand}"
+                                                CommandParameter="{Binding .}"
+                                                IsVisible="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.IsAdmin, Converter={StaticResource InverseBoolConverter}}" />
+                                            
+                                        </Grid>
 
                                         <!-- Boutons pour modifier et supprimer le produit -->
                                         <StackLayout Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">

@@ -1,9 +1,11 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 
 namespace MyApp.ViewModel;
 
@@ -118,6 +120,27 @@ public partial class AllProductsViewModel : ObservableObject
     };
 
         await Shell.Current.GoToAsync("DetailsView", parameters);
+    }
+
+    [RelayCommand]
+    public async void AddToCart(Product product)
+    {
+        var existing = Globals.Cart.FirstOrDefault(p => p.ProductId == product.Id);
+        if (existing != null)
+        {
+            existing.Quantity++;
+        }
+        else
+        {
+            Globals.Cart.Add(new ProductInCart
+            {
+                ProductId = product.Id,
+                Name = product.Name,
+                Quantity = 1
+            });
+        }
+
+        await Application.Current.MainPage.DisplayAlert("✅ Product Added", $"{product.Name} has been added to the cart.", "OK");
     }
 
 
