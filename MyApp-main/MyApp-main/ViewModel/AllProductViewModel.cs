@@ -30,6 +30,14 @@ public partial class AllProductsViewModel : ObservableObject
     [RelayCommand]
     public async Task DeleteProduct(string productId)
     {
+
+        if (Globals.CurrentUser?.Role?.ToLower() != "admin")
+        {
+            await Application.Current.MainPage.DisplayAlert("🚫 Access Denied", "This section is reserved for admins only.", "OK");
+            IsBusy = false;
+            return;
+        }
+
         var productToDelete = Globals.MyProducts.FirstOrDefault(p => p.Id == productId);
         if (productToDelete != null)
         {

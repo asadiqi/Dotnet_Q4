@@ -42,7 +42,6 @@ public partial class MainViewModel : BaseViewModel
     {
         IsBusy = true;
 
-        // 🔐 Vérifie si l'utilisateur est admin
         if (Globals.CurrentUser?.Role?.ToLower() != "admin")
         {
             await Application.Current.MainPage.DisplayAlert("🚫 Access Denied", "This section is reserved for admins only.", "OK");
@@ -110,6 +109,13 @@ public partial class MainViewModel : BaseViewModel
     internal async Task LoadFromCSV()
     {
         IsBusy = true;
+
+        if (Globals.CurrentUser?.Role?.ToLower() != "admin")
+        {
+            await Application.Current.MainPage.DisplayAlert("🚫 Access Denied", "This section is reserved for admins only.", "OK");
+            IsBusy = false;
+            return;
+        }
 
         // Charger les nouveaux produits depuis le fichier CSV
         var newProducts = await MyCSVServices.LoadData();
