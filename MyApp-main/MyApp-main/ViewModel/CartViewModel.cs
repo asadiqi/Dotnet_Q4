@@ -8,7 +8,7 @@ namespace MyApp.ViewModel
     public partial class CartViewModel : ObservableObject
     {
         [ObservableProperty]
-        private ObservableCollection<ProductInCart> cartItems = new(Globals.Cart);
+        private ObservableCollection<ProductInCart> cartItems;
 
         public string TotalPriceText => $"Total: {CalculateTotal()} €";
 
@@ -26,25 +26,21 @@ namespace MyApp.ViewModel
 
         public CartViewModel()
         {
-            // Charger le panier depuis les préférences lors de l'initialisation du ViewModel
             LoadCartFromPreferences();
         }
 
-        // Charge le panier depuis les préférences
         public void LoadCartFromPreferences()
         {
             var cartJson = Preferences.Get("Cart", string.Empty);
             if (!string.IsNullOrEmpty(cartJson))
             {
-                // Désérialisation du JSON pour récupérer le panier
                 Globals.Cart = JsonSerializer.Deserialize<List<ProductInCart>>(cartJson) ?? new List<ProductInCart>();
             }
             else
             {
-                Globals.Cart = new List<ProductInCart>();  // Panier vide si aucune donnée n'est trouvée
+                Globals.Cart = new List<ProductInCart>();
             }
 
-            // Mettre à jour la collection d'articles
             CartItems = new ObservableCollection<ProductInCart>(Globals.Cart);
         }
 
@@ -61,56 +57,52 @@ namespace MyApp.ViewModel
             if (currentUser != null)
             {
                 var userService = new UsersService();
-                var user = await userService.GetUserByIdAsync(currentUser.Id);
+                var user = await userService.GetUserByIdAsync(currentUser.Id); // recharge depuis DB
+
                 if (user != null)
                 {
-                    // Cloner le panier actuel
-                    var clonedCart = Globals.Cart.Select(p => new ProductInCart
+                    foreach (var item in Globals.Cart)
                     {
-                        ProductId = p.ProductId,
-                        Name = p.Name,
-                        Quantity = p.Quantity
-                    }).ToList();
+                        var itemId = item.ProductId.Trim();
 
-                    // Ajouter les produits du panier au panier existant de l'utilisateur (sans écraser)
-                    foreach (var item in clonedCart)
-                    {
-                        var existingProduct = user.Products.FirstOrDefault(p => p.ProductId == item.ProductId);
+                        var existingProduct = user.Products
+                            .FirstOrDefault(p => p.ProductId.Trim() == itemId);
+
                         if (existingProduct != null)
                         {
-                            // Si le produit existe déjà, augmente la quantité
                             existingProduct.Quantity += item.Quantity;
                         }
                         else
                         {
-                            // Sinon, ajoute le produit au panier
-                            user.Products.Add(item);
+                            user.Products.Add(new ProductInCart
+                            {
+                                ProductId = item.ProductId,
+                                Name = item.Name,
+                                Quantity = item.Quantity
+                            });
                         }
                     }
 
-                    // Mettre à jour le panier de l'utilisateur dans la base de données
                     await userService.UpdateUserCartAsync(user.Id, user.Products);
-                    Globals.CurrentUser.Products = user.Products;
+                    Globals.CurrentUser.Products = user.Products; // met à jour le cache local
                 }
             }
 
-            await Application.Current.MainPage.DisplayAlert("Order Confirmed", "Your order has been successfully validated!", "OK");
+            await Application.Current.MainPage.DisplayAlert("Commande validée", "Votre commande a été enregistrée avec succès.", "OK");
 
-            // Réinitialiser le panier local
             Globals.Cart.Clear();
             SaveCartToPreferences();
             CartItems.Clear();
             OnPropertyChanged(nameof(TotalPriceText));
         }
 
-
         [RelayCommand]
         public async Task RemoveFromCart(ProductInCart product)
         {
             bool confirm = await Application.Current.MainPage.DisplayAlert(
-                "Remove Product",
-                $"Do you want to remove {product.Name} from your cart?",
-                "Yes", "No");
+                "Retirer le produit",
+                $"Voulez-vous retirer {product.Name} de votre panier ?",
+                "Oui", "Non");
 
             if (confirm)
             {
@@ -121,11 +113,10 @@ namespace MyApp.ViewModel
             }
         }
 
-
         private void SaveCartToPreferences()
         {
             var cartJson = JsonSerializer.Serialize(Globals.Cart);
-            Preferences.Set("Cart", cartJson);  // Sauvegarde du panier vide dans les préférences
+            Preferences.Set("Cart", cartJson);
         }
     }
 }
