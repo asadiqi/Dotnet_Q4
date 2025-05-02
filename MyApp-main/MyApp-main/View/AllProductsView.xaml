@@ -37,7 +37,8 @@
                         TextColor="White"
                         CornerRadius="5"
                         HorizontalOptions="Center"
-                        Command="{Binding DeleteAllProductsCommand}" />
+                        Command="{Binding DeleteAllProductsCommand}"
+                         IsVisible="{Binding IsAdmin}" />
 
                 <CollectionView ItemsSource="{Binding FilteredProducts}"
                                 SelectionMode="None">
@@ -132,7 +133,9 @@
                                                     HorizontalOptions="Center"  
                                                     VerticalOptions="Center"
                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.ConfirmAndDeleteProductCommand}"
-                                                    CommandParameter="{Binding Id}" />
+                                                    CommandParameter="{Binding Id}"
+                                                    IsVisible="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.IsAdmin}" />
+
 
                                             <Button Text="Modify"
                                                     FontSize="16"
@@ -145,7 +148,9 @@
                                                     HorizontalOptions="Center"  
                                                     VerticalOptions="Center"
                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.NavigateToEditCommand}"
-                                                    CommandParameter="{Binding Id}" />
+                                                    CommandParameter="{Binding Id}" 
+                                                    IsVisible="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.IsAdmin}" />
+
                                         </StackLayout>
                                     </VerticalStackLayout>
                                 </Grid>

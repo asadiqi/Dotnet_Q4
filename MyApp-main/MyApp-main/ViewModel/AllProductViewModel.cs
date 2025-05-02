@@ -16,6 +16,9 @@ public partial class AllProductsViewModel : ObservableObject
     [ObservableProperty]
     private ObservableCollection<Product> filteredProducts = new();
 
+    [ObservableProperty]
+    private bool isAdmin = Globals.CurrentUser?.Role == "admin";
+
     private string searchText = string.Empty;
 
 
@@ -30,13 +33,6 @@ public partial class AllProductsViewModel : ObservableObject
     [RelayCommand]
     public async Task DeleteProduct(string productId)
     {
-
-        if (Globals.CurrentUser?.Role?.ToLower() != "admin")
-        {
-            await Application.Current.MainPage.DisplayAlert("🚫 Access Denied", "This section is reserved for admins only.", "OK");
-            IsBusy = false;
-            return;
-        }
 
         var productToDelete = Globals.MyProducts.FirstOrDefault(p => p.Id == productId);
         if (productToDelete != null)
@@ -79,7 +75,7 @@ public partial class AllProductsViewModel : ObservableObject
     public async Task DeleteAllProducts()
     {
         var confirmation = await Application.Current.MainPage.DisplayAlert
- (
+          (
              "Confirmation",
              "Are you sure you want to delete all products?",
              "Yes",
