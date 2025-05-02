@@ -143,10 +143,36 @@ public partial class AllProductsViewModel : ObservableObject
             });
         }
 
+        // Mettre à jour le panier de l'utilisateur dans la base de données
+        var userService = new UsersService();
+        var currentUser = Globals.CurrentUser; // L'utilisateur actuel
+        if (currentUser != null)
+        {
+            var user = await userService.GetUserByIdAsync(currentUser.Id);
+            if (user != null)
+            {
+                // Ajout du produit dans le panier de l'utilisateur (s'il n'existe pas déjà)
+                var productInCart = user.Products.FirstOrDefault(p => p.ProductId == product.Id);
+                if (productInCart != null)
+                {
+                    productInCart.Quantity++;
+                }
+                else
+                {
+                    user.Products.Add(new ProductInCart
+                    {
+                        ProductId = product.Id,
+                        Name = product.Name,
+                        Quantity = 1
+                    });
+                }
+
+                // Met à jour l'utilisateur dans la base de données
+                await userService.UpdateUserAsync(user.Id, user);
+            }
+        }
+
         await Application.Current.MainPage.DisplayAlert("✅ Product Added", $"{product.Name} has been added to the cart.", "OK");
     }
-
-
-
 
 }

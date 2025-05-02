@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -84,6 +85,5 @@ public class JSONServices
         }
     }
 
-    // le données sont accessible via https://185.157.245.38:5000/json?FileName=MyProducts.json
-
+   
 }

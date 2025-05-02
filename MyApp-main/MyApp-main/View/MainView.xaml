@@ -7,7 +7,7 @@
              x:DataType="viewmodel:MainViewModel">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="🛒 Panier" Command="{Binding GoToCartCommand}" />
+        <ToolbarItem Text="🛒 Basket" Command="{Binding GoToCartCommand}" />
     </ContentPage.ToolbarItems>
     
     <Grid>

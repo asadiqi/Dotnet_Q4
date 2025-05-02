@@ -130,8 +130,7 @@
                                         </Border>
 
                                         <Grid ColumnDefinitions="*, Auto" Padding="0,10,0,0">
-                                            <!-- Texte "Add to cart" aligné à gauche -->
-                                        <Label Text="Add to cart"
+                                        <Label Text="Add to Basket"
                                                FontAttributes="Bold"
                                                VerticalOptions="Center"
                                                Grid.Column="0" />

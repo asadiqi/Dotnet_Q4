@@ -1,40 +1,57 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:MyApp.Model"
              xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
              x:Class="MyApp.View.CartView"
              x:DataType="viewmodel:CartViewModel"
-             Title="🛒 Mon Panier">
+             Title="🛒 My Basket">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
-            <Label Text="Votre panier" FontSize="26" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <!-- Title Label -->
+            <Label Text="Your Products"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333" />
 
+            <!-- Product List in Cart -->
             <CollectionView ItemsSource="{Binding CartItems}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:ProductInCart">
-                        <Frame BorderColor="#ddd" Padding="10" Margin="0,5">
+                        <Frame BorderColor="#ddd" Padding="15" Margin="0,5" CornerRadius="10" BackgroundColor="#fff">
                             <HorizontalStackLayout Spacing="20" VerticalOptions="Center">
-                                <Label Text="{Binding Name}" FontSize="18" HorizontalOptions="StartAndExpand" />
-                                <Label Text="x" FontSize="18"/>
-                                <Label Text="{Binding Quantity}" FontSize="18" />
+                                <Label Text="{Binding Name}" 
+                                       FontSize="18" 
+                                       HorizontalOptions="StartAndExpand" 
+                                       TextColor="#333" />
+                                <Label Text="x" FontSize="18" TextColor="#333"/>
+                                <Label Text="{Binding Quantity}" FontSize="18" TextColor="#333" />
                             </HorizontalStackLayout>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Label Text="{Binding TotalPriceText}" FontSize="20" FontAttributes="Bold" TextColor="#333" HorizontalOptions="End"/>
+            <!-- Total Price Display -->
+            <Label Text="{Binding TotalPriceText}" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   TextColor="#333" 
+                   HorizontalOptions="End" />
 
-            <Button Text="Valider la commande"
+            <!-- Confirm Order Button -->
+            <Button Text="Confirm Order"
                     FontSize="18"
                     BackgroundColor="#4CAF50"
                     TextColor="White"
                     CornerRadius="10"
                     HeightRequest="50"
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
                     Command="{Binding ConfirmOrderCommand}" />
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

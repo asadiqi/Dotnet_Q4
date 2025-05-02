@@ -70,6 +70,9 @@ either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\CartView.xaml.cs">
+	    <DependentUpon>CartView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\ForgotPasswordPage.xaml.cs">
 	    <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
 	  </Compile>
