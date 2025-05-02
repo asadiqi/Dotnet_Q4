@@ -217,5 +217,14 @@ public partial class MainViewModel : BaseViewModel
         await Shell.Current.GoToAsync("//LoginPage");
     }
 
-   
+
+    // Commande pour aller à la page du panier
+    [RelayCommand]
+    private async Task GoToCart()
+    {
+        // Naviguer vers la page CartView
+        await Shell.Current.GoToAsync(nameof(CartView));
+    }
+
+
 }

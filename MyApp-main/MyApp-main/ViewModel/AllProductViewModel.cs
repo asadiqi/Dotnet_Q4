@@ -21,6 +21,9 @@ public partial class AllProductsViewModel : ObservableObject
     [ObservableProperty]
     private bool isAdmin = Globals.CurrentUser?.Role == "admin";
 
+    public bool IsNotAdmin => !isAdmin;
+
+
     private string searchText = string.Empty;
 
 

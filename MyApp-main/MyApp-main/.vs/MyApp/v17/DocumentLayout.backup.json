@@ -3,56 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\allproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\allproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\cartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\cartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\allproductsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\allproductsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\model\\productincart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:model\\productincart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\cartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\cartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\service\\mongoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:service\\mongoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\myapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:myapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\stringnotemptyconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:stringnotemptyconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,19 +38,32 @@
       "DocumentGroups": [
         {
           "DockedHeight": 53,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "MauiProgram.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\MauiProgram.cs",
-              "RelativeToolTip": "MauiProgram.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AllProductsView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
+              "RelativeDocumentMoniker": "View\\AllProductsView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
+              "RelativeToolTip": "View\\AllProductsView.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-02T15:58:05.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "AppShell.xaml.cs",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\AppShell.xaml.cs",
+              "RelativeToolTip": "AppShell.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:43:40.089Z",
+              "WhenOpened": "2025-05-02T15:57:01.721Z",
               "EditorCaption": ""
             },
             {
@@ -85,152 +74,61 @@
               "RelativeDocumentMoniker": "AppShell.xaml",
               "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\AppShell.xaml",
               "RelativeToolTip": "AppShell.xaml",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAIwBwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAIwBoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-02T14:40:22.344Z",
+              "WhenOpened": "2025-05-02T15:50:51.625Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AllProductViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\AllProductViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\AllProductViewModel.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\AllProductViewModel.cs",
-              "RelativeToolTip": "ViewModel\\AllProductViewModel.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAAAIwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T11:12:35.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CartViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\CartViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\CartViewModel.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\CartViewModel.cs",
-              "RelativeToolTip": "ViewModel\\CartViewModel.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAuwCgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:37:44.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MyApp",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\MyApp.csproj",
-              "RelativeDocumentMoniker": "MyApp.csproj",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\MyApp.csproj",
-              "RelativeToolTip": "MyApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-02T14:12:51.53Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CartView.xaml",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\CartView.xaml",
-              "RelativeDocumentMoniker": "View\\CartView.xaml",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\CartView.xaml",
-              "RelativeToolTip": "View\\CartView.xaml",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAkwCgAAAAAAAAAAAAAAA==",
+              "Title": "MainView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\MainView.xaml",
+              "RelativeDocumentMoniker": "View\\MainView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\MainView.xaml",
+              "RelativeToolTip": "View\\MainView.xaml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-02T14:37:08.866Z",
+              "WhenOpened": "2025-05-02T15:49:04.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\MainViewModel.cs",
+              "RelativeToolTip": "ViewModel\\MainViewModel.cs",
+              "ViewState": "AgIAANUAAAAAAAAAAAAQwOMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-02T15:48:45.862Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AllProductsView.xaml",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
-              "RelativeDocumentMoniker": "View\\AllProductsView.xaml",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
-              "RelativeToolTip": "View\\AllProductsView.xaml",
-              "ViewState": "AgIAAIgAAAAAAAAAAIAwwJYAAAAvAAAAAAAAAA==",
+              "Title": "CartView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\CartView.xaml",
+              "RelativeDocumentMoniker": "View\\CartView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\CartView.xaml",
+              "RelativeToolTip": "View\\CartView.xaml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAmwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-02T11:14:35.449Z",
+              "WhenOpened": "2025-05-02T15:48:32.271Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Globals.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Globals.cs",
-              "RelativeDocumentMoniker": "Globals.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Globals.cs",
-              "RelativeToolTip": "Globals.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAzAAAAAAAAAA==",
+              "Title": "CartViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\CartViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\CartViewModel.cs",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\CartViewModel.cs",
+              "RelativeToolTip": "ViewModel\\CartViewModel.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAQwCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:32:47.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProductInCart.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Model\\ProductInCart.cs",
-              "RelativeDocumentMoniker": "Model\\ProductInCart.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Model\\ProductInCart.cs",
-              "RelativeToolTip": "Model\\ProductInCart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:33:13.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Model\\Product.cs",
-              "RelativeDocumentMoniker": "Model\\Product.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Model\\Product.cs",
-              "RelativeToolTip": "Model\\Product.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAUwBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:33:06.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MongoService.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Service\\MongoService.cs",
-              "RelativeDocumentMoniker": "Service\\MongoService.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\Service\\MongoService.cs",
-              "RelativeToolTip": "Service\\MongoService.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAqwDsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:32:18.872Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "InverseBoolConverter.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\InverseBoolConverter.cs",
-              "RelativeDocumentMoniker": "InverseBoolConverter.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\InverseBoolConverter.cs",
-              "RelativeToolTip": "InverseBoolConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:13:46.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "StringNotEmptyConverter.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\StringNotEmptyConverter.cs",
-              "RelativeDocumentMoniker": "StringNotEmptyConverter.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\StringNotEmptyConverter.cs",
-              "RelativeToolTip": "StringNotEmptyConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T14:10:57.183Z",
+              "WhenOpened": "2025-05-02T15:48:16.961Z",
               "EditorCaption": ""
             }
           ]

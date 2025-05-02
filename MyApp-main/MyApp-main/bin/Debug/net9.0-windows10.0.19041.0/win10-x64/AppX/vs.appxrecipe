@@ -30,7 +30,7 @@
     <AppXManifest Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-05-02T14:48:47.341</Modified>
+      <Modified>2025-05-02T16:00:33.873</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\MyApp.dll">
       <PackagePath>MyApp.dll</PackagePath>
-      <Modified>2025-05-02T14:48:46.523</Modified>
+      <Modified>2025-05-02T16:00:33.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MyApp.exe</PackagePath>
-      <Modified>2025-05-02T14:48:46.534</Modified>
+      <Modified>2025-05-02T16:00:33.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>

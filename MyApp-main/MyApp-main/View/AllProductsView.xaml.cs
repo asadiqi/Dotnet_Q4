@@ -12,7 +12,7 @@ public partial class AllProductsView : ContentPage
         BindingContext = viewModel;
     }
 
-  
+
     // Gestion du changement de texte dans la barre de recherche
     private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
     {

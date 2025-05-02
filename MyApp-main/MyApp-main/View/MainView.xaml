@@ -6,7 +6,12 @@
              x:Class="MyApp.View.MainView"
              x:DataType="viewmodel:MainViewModel">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="🛒 Panier" Command="{Binding GoToCartCommand}" />
+    </ContentPage.ToolbarItems>
+    
     <Grid>
+
         <Image Source="background.png"
                Aspect="AspectFill"
                Opacity="0.5"/>

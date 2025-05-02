@@ -22,7 +22,9 @@
     ContentTemplate="{DataTemplate local:MainView}"
     Route="MainView"/>
 
-    <ShellContent Route="CartView" ContentTemplate="{DataTemplate local:CartView}" />
+    <ShellContent Title="My Cart"
+                  ContentTemplate="{DataTemplate local:CartView}"
+                  Route="CartView" />
 
 
 </Shell>
