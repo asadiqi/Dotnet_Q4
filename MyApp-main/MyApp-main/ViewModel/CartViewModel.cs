@@ -64,15 +64,39 @@ namespace MyApp.ViewModel
                 var user = await userService.GetUserByIdAsync(currentUser.Id);
                 if (user != null)
                 {
-                    // Remplace le panier existant de l'utilisateur
-                    user.Products = Globals.Cart;
+                    // Cloner le panier actuel
+                    var clonedCart = Globals.Cart.Select(p => new ProductInCart
+                    {
+                        ProductId = p.ProductId,
+                        Name = p.Name,
+                        Quantity = p.Quantity
+                    }).ToList();
+
+                    // Ajouter les produits du panier au panier existant de l'utilisateur (sans écraser)
+                    foreach (var item in clonedCart)
+                    {
+                        var existingProduct = user.Products.FirstOrDefault(p => p.ProductId == item.ProductId);
+                        if (existingProduct != null)
+                        {
+                            // Si le produit existe déjà, augmente la quantité
+                            existingProduct.Quantity += item.Quantity;
+                        }
+                        else
+                        {
+                            // Sinon, ajoute le produit au panier
+                            user.Products.Add(item);
+                        }
+                    }
+
+                    // Mettre à jour le panier de l'utilisateur dans la base de données
                     await userService.UpdateUserCartAsync(user.Id, user.Products);
                     Globals.CurrentUser.Products = user.Products;
                 }
             }
 
-            await Application.Current.MainPage.DisplayAlert("Commande confirmée", "Votre commande a été validée avec succès !", "OK");
+            await Application.Current.MainPage.DisplayAlert("Order Confirmed", "Your order has been successfully validated!", "OK");
 
+            // Réinitialiser le panier local
             Globals.Cart.Clear();
             SaveCartToPreferences();
             CartItems.Clear();
