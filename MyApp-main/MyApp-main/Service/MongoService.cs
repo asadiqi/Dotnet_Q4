@@ -46,10 +46,12 @@ namespace MyApp.Service
             return null;
         }
 
-        public async Task UpdateUserAsync(string id, User updatedUser)
+        public async Task UpdateUserCartAsync(string userId, List<ProductInCart> updatedCart)
         {
-            await _usersCollection.ReplaceOneAsync(u => u.Id == id, updatedUser);
+            var update = Builders<User>.Update.Set(u => u.Products, updatedCart);
+            await _usersCollection.UpdateOneAsync(u => u.Id == userId, update);
         }
+
 
         public async Task DeleteUserAsync(string id)
         {

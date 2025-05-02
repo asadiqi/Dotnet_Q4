@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MyApp.ViewModel;
@@ -20,9 +21,6 @@ public partial class AllProductsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isAdmin = Globals.CurrentUser?.Role == "admin";
-
-    public bool IsNotAdmin => !isAdmin;
-
 
     private string searchText = string.Empty;
 
@@ -128,10 +126,11 @@ public partial class AllProductsViewModel : ObservableObject
     [RelayCommand]
     public async void AddToCart(Product product)
     {
-        var existing = Globals.Cart.FirstOrDefault(p => p.ProductId == product.Id);
-        if (existing != null)
+        // Ajouter ou mettre à jour le produit dans le panier local (Globals.Cart)
+        var existingInCart = Globals.Cart.FirstOrDefault(p => p.ProductId == product.Id);
+        if (existingInCart != null)
         {
-            existing.Quantity++;
+            existingInCart.Quantity++;
         }
         else
         {
@@ -142,20 +141,24 @@ public partial class AllProductsViewModel : ObservableObject
                 Quantity = 1
             });
         }
+        SaveCartToPreferences();
 
-        // Mettre à jour le panier de l'utilisateur dans la base de données
-        var userService = new UsersService();
-        var currentUser = Globals.CurrentUser; // L'utilisateur actuel
+
+        // Assurer que l'utilisateur actuel (CurrentUser) est bien défini
+        var currentUser = Globals.CurrentUser;
         if (currentUser != null)
         {
+            var userService = new UsersService();
+
+            // Mettre à jour le panier de l'utilisateur dans la base de données
             var user = await userService.GetUserByIdAsync(currentUser.Id);
             if (user != null)
             {
-                // Ajout du produit dans le panier de l'utilisateur (s'il n'existe pas déjà)
-                var productInCart = user.Products.FirstOrDefault(p => p.ProductId == product.Id);
-                if (productInCart != null)
+                // Trouver ou ajouter le produit dans le panier de l'utilisateur
+                var existingProductInCart = user.Products.FirstOrDefault(p => p.ProductId == product.Id);
+                if (existingProductInCart != null)
                 {
-                    productInCart.Quantity++;
+                    existingProductInCart.Quantity++;
                 }
                 else
                 {
@@ -167,12 +170,22 @@ public partial class AllProductsViewModel : ObservableObject
                     });
                 }
 
-                // Met à jour l'utilisateur dans la base de données
-                await userService.UpdateUserAsync(user.Id, user);
+
+                // Mise à jour du panier dans la base de données
+                await userService.UpdateUserCartAsync(user.Id, user.Products);
+
+                // Rafraîchir le panier local de l'utilisateur
+                Globals.CurrentUser.Products = user.Products;
             }
         }
 
+        // Affichage d'un message de confirmation
         await Application.Current.MainPage.DisplayAlert("✅ Product Added", $"{product.Name} has been added to the cart.", "OK");
     }
 
+    private void SaveCartToPreferences()
+    {
+        var cartJson = JsonSerializer.Serialize(Globals.Cart);
+        Preferences.Set("Cart", cartJson);  // Stockage du panier dans les préférences
+    }
 }
