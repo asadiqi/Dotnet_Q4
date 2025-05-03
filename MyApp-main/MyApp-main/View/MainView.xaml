@@ -17,7 +17,7 @@
                     StrokeThickness="2"
                     BackgroundColor="White"
                     StrokeShape="RoundRectangle 10"
-                    AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize"
+                    AbsoluteLayout.LayoutBounds="0.98,0,AutoSize,AutoSize"
                     AbsoluteLayout.LayoutFlags="PositionProportional"
                     Padding="5">
 

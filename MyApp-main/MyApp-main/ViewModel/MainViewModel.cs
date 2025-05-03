@@ -234,8 +234,14 @@ public partial class MainViewModel : BaseViewModel
     [RelayCommand]
     private async Task GoToCart()
     {
-        // Naviguer vers la page CartView
-        await Shell.Current.GoToAsync(nameof(CartView));
+        if (Globals.CurrentUser?.Role?.ToLower() == "admin")
+        {
+            await Application.Current.MainPage.DisplayAlert("🛑 Nothing to Show", "As an administrator, you don't need to access the Basket.", "OK");
+        }
+        else
+        {
+            await Shell.Current.GoToAsync(nameof(CartView));
+        }
     }
 
 
