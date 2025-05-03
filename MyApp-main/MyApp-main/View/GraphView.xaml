@@ -50,11 +50,10 @@
                     Background="#F3E5F5" StrokeThickness="0"
                     Margin="10" Padding="10"
                     StrokeShape="RoundRectangle 10">
-                        <microcharts:ChartView Chart="{Binding StockChart}"
+                <microcharts:ChartView Chart="{Binding StockChart}"
                                        HeightRequest="400"
-                                       WidthRequest="300"/> 
+                                       WidthRequest="300"/>
             </Border>
-
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

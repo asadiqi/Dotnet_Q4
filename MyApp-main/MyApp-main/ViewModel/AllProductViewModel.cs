@@ -95,7 +95,7 @@ public partial class AllProductsViewModel : ObservableObject
     [RelayCommand]
     public async Task ConfirmAndDeleteProduct(string productId)
     {
-        bool confirm = await Application.Current.MainPage.DisplayAlert("Confirmation", "Are you sure you want to delete this product?", "Yes", "No");
+        bool confirm = await Application.Current.MainPage.DisplayAlert("ℹ️ Confirmation", "Are you sure you want to delete this product?", "Yes", "No");
 
         if (confirm)
         {

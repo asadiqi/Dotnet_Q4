@@ -130,12 +130,11 @@
                                         </Border>
 
                                         <Grid ColumnDefinitions="*, Auto" Padding="0,10,0,0">
-                                        <Label Text="Add to Basket"
+                                            <Label Text="Add to Basket"
                                                FontAttributes="Bold"
                                                VerticalOptions="Center"
                                                Grid.Column="0"
                                                IsVisible="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.IsAdmin, Converter={StaticResource InverseBoolConverter}}" />
-
 
                                             <Button Text="+"
                                                 FontSize="16"
@@ -150,9 +149,8 @@
                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.AddToCartCommand}"
                                                 CommandParameter="{Binding .}"
                                                 IsVisible="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.IsAdmin, Converter={StaticResource InverseBoolConverter}}" />
-                                            
-                                        </Grid>
 
+                                        </Grid>
                                         <!-- Boutons pour modifier et supprimer le produit -->
                                         <StackLayout Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                                             <Button Text="Delete"
@@ -168,7 +166,6 @@
                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.ConfirmAndDeleteProductCommand}"
                                                     CommandParameter="{Binding Id}"
                                                     IsVisible="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.IsAdmin}" />
-
 
                                             <Button Text="Modify"
                                                     FontSize="16"

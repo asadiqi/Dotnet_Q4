@@ -25,45 +25,45 @@
                    TextColor="#333"/>
 
             <Border Stroke="#ddd"
-        StrokeThickness="1"
-        BackgroundColor="White"
-        WidthRequest="320"
-        StrokeShape="RoundRectangle 20">
+                    StrokeThickness="1"
+                    BackgroundColor="White"
+                    WidthRequest="320"
+                    StrokeShape="RoundRectangle 20">
 
                 <VerticalStackLayout Spacing="15" Padding="20">
                     <!-- Email -->
                     <Entry Placeholder="Email"
-               Text="{Binding Email}"
-               Keyboard="Email"
-               BackgroundColor="#f9f9f9"
-               HeightRequest="45"
-               Margin="0,0,0,5"
-               TextColor="#333" />
+                           Text="{Binding Email}"
+                           Keyboard="Email"
+                           BackgroundColor="#f9f9f9"
+                           HeightRequest="45"
+                           Margin="0,0,0,5"
+                           TextColor="#333" />
 
                     <!-- Password -->
                     <Entry Placeholder="Password"
-               Text="{Binding Password}"
-               IsPassword="True"
-               BackgroundColor="#f9f9f9"
-               HeightRequest="45"
-               Margin="0,0,0,5"
-               TextColor="#333" />
+                           Text="{Binding Password}"
+                           IsPassword="True"
+                           BackgroundColor="#f9f9f9"
+                           HeightRequest="45"
+                           Margin="0,0,0,5"
+                           TextColor="#333" />
 
                     <!-- Button -->
                     <Button Text="Sign In"
-                Command="{Binding LoginCommand}"
-                IsEnabled="{Binding IsNotBusy}"
-                BackgroundColor="#007bff"
-                TextColor="White"
-                HeightRequest="45"
-                FontAttributes="Bold"
-                CornerRadius="10" />
+                            Command="{Binding LoginCommand}"
+                            IsEnabled="{Binding IsNotBusy}"
+                            BackgroundColor="#007bff"
+                            TextColor="White"
+                            HeightRequest="45"
+                            FontAttributes="Bold"
+                            CornerRadius="10" />
 
                     <!-- Error message -->
                     <Label Text="{Binding ErrorMessage}"
-               TextColor="Red"
-               FontSize="14"
-               IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
+                           TextColor="Red"
+                           FontSize="14"
+                           IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" />
                 </VerticalStackLayout>
             </Border>
             <Label HorizontalOptions="Center">
@@ -71,8 +71,8 @@
                     <FormattedString>
                         <Span Text="Don't have an account yet? " />
                         <Span Text="Click here"
-                  TextDecorations="Underline"
-                  TextColor="#007bff">
+                              TextDecorations="Underline"
+                              TextColor="#007bff">  
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding NavigateToSignupCommand}" />
                             </Span.GestureRecognizers>
@@ -96,9 +96,6 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            
-
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

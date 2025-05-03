@@ -7,19 +7,15 @@
              Title="Product Management">
 
     <Grid>
-        <!-- Définition des lignes pour organiser l'affichage -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Image de fond -->
         <Image Source="background.png"
                Aspect="AspectFill"
                Opacity="0.90"
                Grid.RowSpan="2"/>
-
-        <!-- Conteneur principal -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="30" Spacing="15"
                                  BackgroundColor="#F0F0F0" Opacity="0.9"

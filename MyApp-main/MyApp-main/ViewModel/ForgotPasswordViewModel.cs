@@ -55,7 +55,8 @@ namespace MyApp.ViewModel
             }
 
             // Simule un envoi
-            await Task.Delay(500);
+            
+            Task.Delay(500);
 
             StatusMessage = "We send you an email please check your inbox and follow the steps to reset your password.";
         }

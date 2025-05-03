@@ -18,7 +18,9 @@ namespace MyApp.Service
             {
                 var result = await FilePicker.PickAsync(new PickOptions
                 {
-                    PickerTitle = "Sélectionnez un fichier CSV"
+                    PickerTitle = "Select a CSV file"
+
+
                 });
 
                 if (result == null)
