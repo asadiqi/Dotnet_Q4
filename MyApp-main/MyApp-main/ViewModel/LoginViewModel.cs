@@ -62,8 +62,15 @@ namespace MyApp.ViewModel
 
             if (user != null)
             {
+                // Enregistrer l'utilisateur dans les Preferences
                 Preferences.Set("IsLoggedIn", true);
+                Preferences.Set("UserId", user.Id);  // Enregistrer l'ID de l'utilisateur
+                Preferences.Set("UserRole", user.Role);  // Enregistrer le rôle de l'utilisateur
+
+                // Restaurer l'utilisateur dans Globals
                 Globals.CurrentUser = user;
+
+                // Naviguer vers la page principale après la connexion
                 await Shell.Current.GoToAsync("//MainView");
             }
             else

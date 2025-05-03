@@ -5,18 +5,14 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
-
-        // Assurez-vous que le Shell est bien initialisé avant d'y accéder
         MainPage = new AppShell();
-
-        // Appeler la méthode après l'initialisation complète
-        Routing.RegisterRoute("MainView", typeof(View.MainView));
+        Routing.RegisterRoute("MainView", typeof(View.MainView)); // Inscrire la route pour la page principale
     }
 
     protected override void OnStart()
     {
         base.OnStart();
-        CheckIfUserIsLoggedIn(); 
+        CheckIfUserIsLoggedIn();
     }
 
     private async void CheckIfUserIsLoggedIn()
@@ -25,12 +21,32 @@ public partial class App : Application
 
         if (isLoggedIn)
         {
-            // Utiliser la bonne route avec la syntaxe correcte
-            await Shell.Current.GoToAsync("//MainView");
+            // Récupérer les informations de l'utilisateur depuis les préférences
+            string userId = Preferences.Get("UserId", string.Empty);
+            string userRole = Preferences.Get("UserRole", string.Empty);
+
+            // Charger l'utilisateur depuis le service en utilisant l'ID (MongoDB)
+            var userService = new UsersService();
+            var user = await userService.GetUserByIdAsync(userId);
+
+            if (user != null)
+            {
+                // Restaurer l'utilisateur dans Globals
+                Globals.CurrentUser = user;
+
+                // Naviguer vers la page principale si l'utilisateur existe
+                await Shell.Current.GoToAsync("//MainView");
+            }
+            else
+            {
+                // Si l'utilisateur n'est pas trouvé, déconnecter et aller à la page de login
+                Preferences.Remove("IsLoggedIn");
+                await Shell.Current.GoToAsync("//LoginPage");
+            }
         }
         else
         {
-            // Utiliser la bonne route pour LoginPage
+            // Si l'utilisateur n'est pas connecté, aller à la page de login
             await Shell.Current.GoToAsync("//LoginPage");
         }
     }

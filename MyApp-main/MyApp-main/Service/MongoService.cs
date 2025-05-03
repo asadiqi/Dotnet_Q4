@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using BCrypt.Net;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MyApp.Models;
-using BCrypt.Net;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MyApp.Service
 {
@@ -24,7 +25,10 @@ namespace MyApp.Service
 
         public async Task<User?> GetUserByIdAsync(string id)
         {
-            return await _usersCollection.Find(u => u.Id == id).FirstOrDefaultAsync();
+            if (string.IsNullOrWhiteSpace(id) || !ObjectId.TryParse(id, out var objectId))
+                return null;
+
+            return await _usersCollection.Find(u => u.Id == objectId.ToString()).FirstOrDefaultAsync();
         }
 
         public async Task<bool> AddUserAsync(User newUser, string password)

@@ -214,9 +214,18 @@ public partial class MainViewModel : BaseViewModel
     }
 
     [RelayCommand]
+    
     private async Task Logout()
     {
+        // Supprimer les informations de l'utilisateur de Preferences
         Preferences.Remove("IsLoggedIn");
+        Preferences.Remove("UserId");
+        Preferences.Remove("UserRole");
+
+        // Réinitialiser l'utilisateur global
+        Globals.CurrentUser = null;
+
+        // Naviguer vers la page de connexion
         await Shell.Current.GoToAsync("//LoginPage");
     }
 
