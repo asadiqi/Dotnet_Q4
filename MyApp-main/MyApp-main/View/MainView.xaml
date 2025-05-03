@@ -13,13 +13,20 @@
                Opacity="0.5" />
 
         <AbsoluteLayout>
-            <Button Text="🧺 Basket"
-                    FontSize="24"
-                    TextColor="Black"
-                    BackgroundColor="Transparent"
-                    Command="{Binding GoToCartCommand}"
+            <Border Stroke="Gray"
+                    StrokeThickness="2"
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10"
                     AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize"
-                    AbsoluteLayout.LayoutFlags="PositionProportional" />
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Padding="5">
+
+                <Button Text="🧺 Basket"
+                        FontSize="18"
+                        TextColor="Black"
+                        BackgroundColor="Transparent"
+                        Command="{Binding GoToCartCommand}" />
+            </Border>
         </AbsoluteLayout>
 
         <Grid ColumnSpacing="20"
