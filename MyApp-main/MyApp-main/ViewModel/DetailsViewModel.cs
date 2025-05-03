@@ -21,13 +21,14 @@ public partial class DetailsViewModel : ObservableObject
 
     private string? _picture;
 
+    // Propriété Picture qui retourne une image par défaut si aucune image n'est définie
     public string? Picture
     {
         get => string.IsNullOrEmpty(_picture) ? GetDefaultImage() : _picture;
         set => SetProperty(ref _picture, value);
     }
 
-
+    // Retourne une image par défaut selon le groupe du produit
     private string GetDefaultImage()
     {
         if (string.IsNullOrEmpty(Group))
@@ -83,7 +84,7 @@ public partial class DetailsViewModel : ObservableObject
         }
     }
 
-
+    // Rafraîchit les informations du produit selon l'ID
     internal void RefreshPage()
     {
         foreach (var item in Globals.MyProducts)
@@ -106,6 +107,7 @@ public partial class DetailsViewModel : ObservableObject
     }
 
 
+    // Commande pour changer les paramètres d'un objet
     [RelayCommand]
     internal async Task ChangeObjectParameters()
     {
@@ -169,8 +171,6 @@ public partial class DetailsViewModel : ObservableObject
             });
         }
 
-
-
         await new JSONServices().SetProducts(); //envoie les données vers serveur automatique 
     }
 
@@ -186,6 +186,7 @@ public partial class DetailsViewModel : ObservableObject
                Price > 0;                                // Vérifie que le prix est supérieur à 0
     }
 
+    // Commande pour soumettre un produit après validation
     [RelayCommand]
     internal async Task SubmitProduct()
     {
@@ -196,7 +197,8 @@ public partial class DetailsViewModel : ObservableObject
         }
 
         var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
-
+        
+        // Vérifie si le produit existe déjà
         if (existingProduct != null)
         {
             bool replace = await Application.Current.MainPage.DisplayAlert(
@@ -210,6 +212,7 @@ public partial class DetailsViewModel : ObservableObject
                 return;
             }
 
+            // Remplace les informations du produit existant
             existingProduct.Name = Name ?? string.Empty;
             existingProduct.Group = Group ?? string.Empty;
             existingProduct.Stock = Stock;
@@ -218,6 +221,7 @@ public partial class DetailsViewModel : ObservableObject
         }
         else
         {
+            // Ajoute un nouveau produit
             Globals.MyProducts.Add(new Product
             {
                 Id = Id ?? Guid.NewGuid().ToString(),
@@ -229,11 +233,14 @@ public partial class DetailsViewModel : ObservableObject
             });
         }
 
-        await new JSONServices().SetProducts();
+        await new JSONServices().SetProducts();  // Sauvegarde les modifications sur le serveur
 
-        await Shell.Current.GoToAsync(nameof(AllProductsView));
+
+        await Shell.Current.GoToAsync(nameof(AllProductsView)); // Navigation vers la vue des produits
+
     }
 
+    // Commande pour sélectionner une image
     [RelayCommand]
     internal async Task SelectImage()
     {
@@ -254,7 +261,4 @@ public partial class DetailsViewModel : ObservableObject
             await Application.Current.MainPage.DisplayAlert("Error", "An error occurred while selecting the image: " + ex.Message, "OK");
         }
     }
-
-
-
 }
