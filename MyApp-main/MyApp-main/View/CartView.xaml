@@ -20,12 +20,12 @@
             <CollectionView ItemsSource="{Binding CartItems}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:ProductInCart">
-                        <Frame BorderColor="#ddd" Padding="15" Margin="0,5" CornerRadius="10" BackgroundColor="#fff">
+                        <Border Stroke="#ddd" Padding="15" Margin="0,5" BackgroundColor="#fff">
                             <HorizontalStackLayout Spacing="20" VerticalOptions="Center">
                                 <Label Text="{Binding Name}" 
                                        FontSize="18" 
                                        HorizontalOptions="StartAndExpand" 
-                                       TextColor="#333" />  
+                                       TextColor="#333" />
                                 <Label Text="x" FontSize="18" TextColor="#333"/>
                                 <Label Text="{Binding Quantity}" FontSize="18" TextColor="#333" />
                                 <Button Text="Remove"
@@ -37,7 +37,7 @@
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}}, Path=RemoveFromCartCommand}"
                                         CommandParameter="{Binding .}" />
                             </HorizontalStackLayout>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>
