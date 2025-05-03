@@ -49,7 +49,7 @@ namespace MyApp.ViewModel
         {
             if (!CartItems.Any())
             {
-                await Application.Current.MainPage.DisplayAlert("Panier vide", "Ajoutez des produits avant de commander.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Empty Cart", "Please add products before placing an order.", "OK");
                 return;
             }
 
@@ -57,7 +57,7 @@ namespace MyApp.ViewModel
             if (currentUser != null)
             {
                 var userService = new UsersService();
-                var user = await userService.GetUserByIdAsync(currentUser.Id); // recharge depuis DB
+                var user = await userService.GetUserByIdAsync(currentUser.Id); // reload from DB
 
                 if (user != null)
                 {
@@ -84,11 +84,11 @@ namespace MyApp.ViewModel
                     }
 
                     await userService.UpdateUserCartAsync(user.Id, user.Products);
-                    Globals.CurrentUser.Products = user.Products; // met à jour le cache local
+                    Globals.CurrentUser.Products = user.Products; // update local cache
                 }
             }
 
-            await Application.Current.MainPage.DisplayAlert("Commande validée", "Votre commande a été enregistrée avec succès.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Order Confirmed", "Your order has been successfully confirmed.", "OK");
 
             Globals.Cart.Clear();
             SaveCartToPreferences();
@@ -100,9 +100,9 @@ namespace MyApp.ViewModel
         public async Task RemoveFromCart(ProductInCart product)
         {
             bool confirm = await Application.Current.MainPage.DisplayAlert(
-                "Retirer le produit",
-                $"Voulez-vous retirer {product.Name} de votre panier ?",
-                "Oui", "Non");
+                "Remove Product",
+                $"Do you want to remove {product.Name} from your Basket?",
+                "Yes", "No");
 
             if (confirm)
             {
