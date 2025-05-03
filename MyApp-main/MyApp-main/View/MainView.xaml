@@ -6,25 +6,37 @@
              x:Class="MyApp.View.MainView"
              x:DataType="viewmodel:MainViewModel">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="🛒 Basket" Command="{Binding GoToCartCommand}" />
-    </ContentPage.ToolbarItems>
-    
     <Grid>
 
         <Image Source="background.png"
                Aspect="AspectFill"
-               Opacity="0.5"/>
+               Opacity="0.5" />
 
-        <Grid ColumnSpacing="20" RowSpacing="20" Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+        <AbsoluteLayout>
+            <Button Text="🧺 Basket"
+                    FontSize="24"
+                    TextColor="Black"
+                    BackgroundColor="Transparent"
+                    Command="{Binding GoToCartCommand}"
+                    AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize"
+                    AbsoluteLayout.LayoutFlags="PositionProportional" />
+        </AbsoluteLayout>
+
+        <Grid ColumnSpacing="20"
+              RowSpacing="20"
+              Padding="20"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="Center">
+
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <Button Text="Add Product"
@@ -38,7 +50,8 @@
                     CornerRadius="25"
                     FontSize="16"
                     Margin="0,10"
-                    Grid.Row="0" Grid.Column="0"/>
+                    Grid.Row="0"
+                    Grid.Column="0" />
 
             <Button Text="All Products"
                     WidthRequest="250"
@@ -50,7 +63,8 @@
                     CornerRadius="25"
                     FontSize="16"
                     Margin="0,10"
-                    Grid.Row="0" Grid.Column="1"/>
+                    Grid.Row="0"
+                    Grid.Column="1" />
 
             <Button Text="Export to CSV"
                     WidthRequest="250"
@@ -63,7 +77,8 @@
                     CornerRadius="25"
                     FontSize="16"
                     Margin="0,10"
-                    Grid.Row="1" Grid.Column="0"/>
+                    Grid.Row="1"
+                    Grid.Column="0" />
 
             <Button Text="Load from CSV"
                     WidthRequest="250"
@@ -76,7 +91,8 @@
                     CornerRadius="25"
                     FontSize="16"
                     Margin="0,10"
-                    Grid.Row="1" Grid.Column="1"/>
+                    Grid.Row="1"
+                    Grid.Column="1" />
 
             <Button Text="Graph"
                     WidthRequest="250"
@@ -92,7 +108,7 @@
                     Grid.Row="2"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center" />
         </Grid>
 
         <Button Text="Logout"
@@ -105,14 +121,14 @@
                 FontSize="14"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
-                Margin="0,20"/>
+                Margin="0,20" />
 
         <Label Text="Version 2.0"
                HorizontalOptions="End"
                VerticalOptions="End"
                Margin="10"
                FontSize="12"
-               TextColor="Black"/>
+               TextColor="Black" />
     </Grid>
 
 </ContentPage>

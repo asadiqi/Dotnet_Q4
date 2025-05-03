@@ -194,6 +194,9 @@ public partial class MainViewModel : BaseViewModel
         IsBusy = false;
     }
 
+
+
+
     internal async Task RefreshPage()
     {
         MyObservableList.Clear();

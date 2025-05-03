@@ -10,4 +10,6 @@ public partial class MainView : ContentPage
 		BindingContext=viewModel;
 	}
 
+
+
 }
