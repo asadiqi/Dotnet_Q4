@@ -67,7 +67,7 @@
                                     Padding="12"
                                     BackgroundColor="#fff7c9"
                                     Margin="10"
-                                    HeightRequest="360">
+                                    HeightRequest="380">
                                 <Grid>
                                     <VerticalStackLayout Grid.Column="1" Spacing="8" Padding="0,5">
                                         <!-- ID du produit -->
@@ -133,9 +133,11 @@
                                         <Label Text="Add to Basket"
                                                FontAttributes="Bold"
                                                VerticalOptions="Center"
-                                               Grid.Column="0" />
+                                               Grid.Column="0"
+                                               IsVisible="{Binding Source={RelativeSource AncestorType={x:Type view:AllProductsView}}, Path=BindingContext.IsAdmin, Converter={StaticResource InverseBoolConverter}}" />
 
-                                       <Button Text="+"
+
+                                            <Button Text="+"
                                                 FontSize="16"
                                                 BackgroundColor="#4CAF50"
                                                 TextColor="White"
@@ -158,7 +160,7 @@
                                                     BackgroundColor="#F44336"
                                                     TextColor="White"
                                                     CornerRadius="5"
-                                                    WidthRequest="100"
+                                                    WidthRequest="90"
                                                     HeightRequest="40"
                                                     Margin="0,10,10,0"
                                                     HorizontalOptions="Center"  
@@ -173,7 +175,7 @@
                                                     BackgroundColor="#4CAF50"
                                                     TextColor="White"
                                                     CornerRadius="5"
-                                                    WidthRequest="100"
+                                                    WidthRequest="90"
                                                     HeightRequest="40"
                                                     Margin="0,10,10,0"
                                                     HorizontalOptions="Center"  

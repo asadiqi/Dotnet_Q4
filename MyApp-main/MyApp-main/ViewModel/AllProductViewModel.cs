@@ -2,7 +2,6 @@
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.Json;
@@ -12,7 +11,6 @@ namespace MyApp.ViewModel;
 
 public partial class AllProductsViewModel : ObservableObject
 {
-
     [ObservableProperty]
     private ObservableCollection<Product> products = new();
 
@@ -24,7 +22,12 @@ public partial class AllProductsViewModel : ObservableObject
 
     private string searchText = string.Empty;
 
+    public AllProductsViewModel()
+    {
+        LoadProducts();
+    }
 
+    // Chargement des produits
     [RelayCommand]
     public void LoadProducts()
     {
@@ -32,25 +35,7 @@ public partial class AllProductsViewModel : ObservableObject
         FilteredProducts = Products;
     }
 
-    // Commande pour supprimer un produit
-    [RelayCommand]
-    public async Task DeleteProduct(string productId)
-    {
-
-        var productToDelete = Globals.MyProducts.FirstOrDefault(p => p.Id == productId);
-        if (productToDelete != null)
-        {
-            Globals.MyProducts.Remove(productToDelete);
-            Products = new ObservableCollection<Product>(Globals.MyProducts);  // Rafraîchir la liste affichée
-            FilteredProducts = Products;  // Rafraîchir également la liste filtrée
-            await new JSONServices().SetProducts(); // Sauvegarde les changements sur le serveur
-        }
-    }
-
-
-
-
-    // Méthode pour filtrer les produits par nom et groupe
+    // Filtrage des produits par nom, id ou groupe
     public void FilterProducts()
     {
         var filtered = Products.AsEnumerable();
@@ -67,40 +52,46 @@ public partial class AllProductsViewModel : ObservableObject
         FilteredProducts = new ObservableCollection<Product>(filtered);
     }
 
-    // Met à jour le texte de recherche
+    // Mise à jour du texte de recherche
     public void SetSearchText(string text)
     {
         searchText = text;
         FilterProducts();
     }
 
+    // Suppression d'un produit
+    [RelayCommand]
+    public async Task DeleteProduct(string productId)
+    {
+        var productToDelete = Globals.MyProducts.FirstOrDefault(p => p.Id == productId);
+        if (productToDelete != null)
+        {
+            Globals.MyProducts.Remove(productToDelete);
+            UpdateProductLists();
+            await new JSONServices().SetProducts(); // Sauvegarde des changements sur le serveur
+        }
+    }
+
+    // Suppression de tous les produits
     [RelayCommand]
     public async Task DeleteAllProducts()
     {
-        var confirmation = await Application.Current.MainPage.DisplayAlert
-          (
-             "Confirmation",
-             "Are you sure you want to delete all products?",
-             "Yes",
-             "No");
-
+        var confirmation = await Application.Current.MainPage.DisplayAlert(
+            "Confirmation",
+            "Are you sure you want to delete all products?",
+            "Yes", "No"
+        );
 
         if (confirmation)
         {
-            // Vider la liste des produits
             Globals.MyProducts.Clear();
-            Products.Clear();
-            FilteredProducts.Clear();
-
-            // Sauvegarder les changements sur le serveur
+            UpdateProductLists();
             await new JSONServices().SetProducts();
-
-            // Vous pouvez également afficher un message de succès ou rafraîchir la vue
             await Application.Current.MainPage.DisplayAlert("✅ Success", "All products have been deleted.", "OK");
         }
     }
 
-
+    // Confirmation avant suppression d'un produit
     [RelayCommand]
     public async Task ConfirmAndDeleteProduct(string productId)
     {
@@ -112,19 +103,21 @@ public partial class AllProductsViewModel : ObservableObject
         }
     }
 
+    // Navigation vers la vue de modification d'un produit
     [RelayCommand]
     public async Task NavigateToEdit(string productId)
     {
         var parameters = new Dictionary<string, object>
-    {
-        { "selectedProduct", productId }
-    };
+        {
+            { "selectedProduct", productId }
+        };
 
         await Shell.Current.GoToAsync("DetailsView", parameters);
     }
 
+    // Ajouter un produit au panier
     [RelayCommand]
-    public async void AddToCart(Product product)
+    public async Task AddToCart(Product product)
     {
         var existingInCart = Globals.Cart.FirstOrDefault(p => p.ProductId == product.Id);
         if (existingInCart != null)
@@ -142,15 +135,20 @@ public partial class AllProductsViewModel : ObservableObject
         }
 
         SaveCartToPreferences();
-
-        // Supprimer la mise à jour du panier dans la base de données ici
-
         await Application.Current.MainPage.DisplayAlert("✅ Product Added", $"{product.Name} has been added to the cart.", "OK");
     }
 
+    // Sauvegarde du panier dans les préférences
     private void SaveCartToPreferences()
     {
         var cartJson = JsonSerializer.Serialize(Globals.Cart);
         Preferences.Set("Cart", cartJson);  // Stockage du panier dans les préférences
+    }
+
+    // Mise à jour des listes des produits (principalement après des suppressions)
+    private void UpdateProductLists()
+    {
+        Products = new ObservableCollection<Product>(Globals.MyProducts);
+        FilteredProducts = Products;
     }
 }
