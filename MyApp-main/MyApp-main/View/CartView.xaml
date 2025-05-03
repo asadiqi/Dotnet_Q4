@@ -5,7 +5,7 @@
              xmlns:viewmodel="clr-namespace:MyApp.ViewModel"
              x:Class="MyApp.View.CartView"
              x:DataType="viewmodel:CartViewModel"
-             Title="🛒 My Basket">
+             Title="🧺 My Basket">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">

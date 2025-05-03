@@ -19,12 +19,14 @@ namespace MyApp.ViewModel
             set { _email = value; OnPropertyChanged(); }
         }
 
+        // Message affiché à l'utilisateur après validation (erreur ou succès)
         public string StatusMessage
         {
             get => _statusMessage;
             set { _statusMessage = value; OnPropertyChanged(); }
         }
 
+        // Commande liée au bouton de réinitialisation
         public ICommand ResetPasswordCommand { get; }
 
         public ForgotPasswordViewModel()
@@ -32,6 +34,7 @@ namespace MyApp.ViewModel
             ResetPasswordCommand = new AsyncRelayCommand(OnResetPassword);
         }
 
+        // Méthode exécutée lors du clic sur le bouton "Reset Password"
         private async Task OnResetPassword()
         {
             StatusMessage = string.Empty;
@@ -51,7 +54,7 @@ namespace MyApp.ViewModel
                 return;
             }
 
-            // Simule un envoi (attente factice)
+            // Simule un envoi
             await Task.Delay(500);
 
             StatusMessage = "We send you an email please check your inbox and follow the steps to reset your password.";
