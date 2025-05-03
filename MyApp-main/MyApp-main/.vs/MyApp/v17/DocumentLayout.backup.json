@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\forgotpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\forgotpasswordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\detailsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\detailsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\detailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\detailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\allproductsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\allproductsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\cartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\cartview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\view\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:view\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|c:\\users\\sadiq\\desktop\\cours_q4\\.net\\dotnet_q4\\myapp-main\\myapp-main\\viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE35DE9-3D7E-4C2B-9577-4568822A109E}|MyApp.csproj|solutionrelative:viewmodel\\cartviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +35,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ForgotPasswordViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\ForgotPasswordViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\ForgotPasswordViewModel.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\ForgotPasswordViewModel.cs",
-              "RelativeToolTip": "ViewModel\\ForgotPasswordViewModel.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAowD0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T18:41:47.769Z",
+              "Title": "DetailsView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\DetailsView.xaml",
+              "RelativeDocumentMoniker": "View\\DetailsView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\DetailsView.xaml",
+              "RelativeToolTip": "View\\DetailsView.xaml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-03T19:30:59.555Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DetailsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\DetailsViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\DetailsViewModel.cs",
-              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\DetailsViewModel.cs",
-              "RelativeToolTip": "ViewModel\\DetailsViewModel.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAAAAcBAAABAAAAAAAAAA==",
+              "Title": "AllProductsView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
+              "RelativeDocumentMoniker": "View\\AllProductsView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\AllProductsView.xaml",
+              "RelativeToolTip": "View\\AllProductsView.xaml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-03T19:30:46.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\MainView.xaml",
+              "RelativeDocumentMoniker": "View\\MainView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\MainView.xaml",
+              "RelativeToolTip": "View\\MainView.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-03T19:19:35.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CartViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\CartViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\CartViewModel.cs",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\ViewModel\\CartViewModel.cs",
+              "RelativeToolTip": "ViewModel\\CartViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T18:35:20.22Z",
+              "WhenOpened": "2025-05-03T19:17:56.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CartView.xaml",
+              "DocumentMoniker": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\CartView.xaml",
+              "RelativeDocumentMoniker": "View\\CartView.xaml",
+              "ToolTip": "C:\\Users\\sadiq\\Desktop\\Cours_Q4\\.Net\\Dotnet_Q4\\MyApp-main\\MyApp-main\\View\\CartView.xaml",
+              "RelativeToolTip": "View\\CartView.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-03T19:17:15.763Z",
               "EditorCaption": ""
             }
           ]

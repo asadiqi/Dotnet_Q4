@@ -202,6 +202,9 @@
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\background.scale-100.png">
       <PackagePath>background.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\basket.scale-100.png">
+      <PackagePath>basket.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sadiq\Desktop\Cours_Q4\.Net\Dotnet_Q4\MyApp-main\MyApp-main\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\fruit.scale-100.png">
       <PackagePath>fruit.scale-100.png</PackagePath>
     </AppxPackagedFile>

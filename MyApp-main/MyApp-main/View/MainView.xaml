@@ -10,7 +10,7 @@
 
         <Image Source="background.png"
                Aspect="AspectFill"
-               Opacity="0.5" />
+               Opacity="0.90" />
 
         <AbsoluteLayout>
             <Border Stroke="Gray"

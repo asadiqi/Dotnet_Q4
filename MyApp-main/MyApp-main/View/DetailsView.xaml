@@ -16,7 +16,7 @@
         <!-- Image de fond -->
         <Image Source="background.png"
                Aspect="AspectFill"
-               Opacity="0.3"
+               Opacity="0.90"
                Grid.RowSpan="2"/>
 
         <!-- Conteneur principal -->

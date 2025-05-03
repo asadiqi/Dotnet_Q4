@@ -7,60 +7,67 @@
              x:DataType="viewmodel:CartViewModel"
              Title="🧺 My Basket">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
-            <!-- Title Label -->
-            <Label Text="Your Products"
-                   FontSize="26"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   TextColor="#333" />
+    <Grid>
+        <!-- Image de fond -->
+        <Image Source="basket.png"
+               Aspect="AspectFill"
+               Opacity="0.50"/>
 
-            <!-- Product List in Cart -->
-            <CollectionView ItemsSource="{Binding CartItems}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:ProductInCart">
-                        <Border Stroke="#ddd" Padding="15" Margin="0,5" BackgroundColor="#fff">
-                            <HorizontalStackLayout Spacing="20" VerticalOptions="Center">
-                                <Label Text="{Binding Name}" 
-                                       FontSize="18" 
-                                       HorizontalOptions="StartAndExpand" 
-                                       TextColor="#333" />
-                                <Label Text="x" FontSize="18" TextColor="#333"/>
-                                <Label Text="{Binding Quantity}" FontSize="18" TextColor="#333" />
-                                <Button Text="Remove"
-                                        FontSize="14"
-                                        BackgroundColor="#F44336"
-                                        TextColor="White"
-                                        CornerRadius="8"
-                                        Padding="5,2"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}}, Path=RemoveFromCartCommand}"
-                                        CommandParameter="{Binding .}" />
-                            </HorizontalStackLayout>
-                        </Border>
-                    </DataTemplate>
+        <!-- Contenu principal par-dessus -->
+            <ScrollView>
+                <VerticalStackLayout Padding="20" Spacing="20">
+                    <!-- Titre -->
+                    <Label Text="Your Products"
+                       FontSize="26"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#333" />
 
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                    <!-- Liste des produits -->
+                    <CollectionView ItemsSource="{Binding CartItems}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:ProductInCart">
+                            <Border Stroke="#ddd" Padding="15" Margin="0,5" BackgroundColor="Transparent">
+                                <HorizontalStackLayout Spacing="20" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" 
+                                           FontSize="18" 
+                                           HorizontalOptions="StartAndExpand" 
+                                           TextColor="#333" />
+                                        <Label Text="x" FontSize="18" TextColor="#333"/>
+                                        <Label Text="{Binding Quantity}" FontSize="18" TextColor="#333" />
+                                        <Button Text="Remove"
+                                            FontSize="14"
+                                            BackgroundColor="#F44336"
+                                            TextColor="White"
+                                            CornerRadius="8"
+                                            Padding="5,2"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartViewModel}}, Path=RemoveFromCartCommand}"
+                                            CommandParameter="{Binding .}" />
+                                    </HorizontalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
 
-            <!-- Total Price Display -->
-            <Label Text="{Binding TotalPriceText}" 
-                   FontSize="20" 
-                   FontAttributes="Bold" 
-                   TextColor="#333" 
-                   HorizontalOptions="End" />
+                    <!-- Total -->
+                    <Label Text="{Binding TotalPriceText}" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       TextColor="#333" 
+                       HorizontalOptions="End" />
 
-            <!-- Confirm Order Button -->
-            <Button Text="Confirm Order"
-                    FontSize="18"
-                    BackgroundColor="#4CAF50"
-                    TextColor="White"
-                    CornerRadius="10"
-                    HeightRequest="50"
-                    WidthRequest="250"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Command="{Binding ConfirmOrderCommand}" />
-        </VerticalStackLayout>
-    </ScrollView>
+                    <!-- Bouton de confirmation -->
+                    <Button Text="Confirm Order"
+                        FontSize="18"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        WidthRequest="250"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Command="{Binding ConfirmOrderCommand}" />
+                </VerticalStackLayout>
+            </ScrollView>
+    </Grid>
 </ContentPage>
