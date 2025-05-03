@@ -11,7 +11,8 @@ namespace MyApp.ViewModel
         private ObservableCollection<ProductInCart> cartItems;
 
         public string TotalPriceText => $"Total: {CalculateTotal()} €";
-
+        
+        // Méthode pour calculer le total du panier
         private int CalculateTotal()
         {
             var total = 0;
@@ -19,6 +20,8 @@ namespace MyApp.ViewModel
             {
                 var product = Globals.MyProducts.FirstOrDefault(p => p.Id == item.ProductId);
                 if (product != null)
+
+                    // Calcul du total en fonction du prix et de la quantité
                     total += product.Price * item.Quantity;
             }
             return total;
@@ -29,6 +32,7 @@ namespace MyApp.ViewModel
             LoadCartFromPreferences();
         }
 
+        // Méthode pour charger le panier depuis les préférences de l'utilisateur
         public void LoadCartFromPreferences()
         {
             var cartJson = Preferences.Get("Cart", string.Empty);
@@ -44,12 +48,14 @@ namespace MyApp.ViewModel
             CartItems = new ObservableCollection<ProductInCart>(Globals.Cart);
         }
 
+        // Commande pour confirmer une commande
         [RelayCommand]
         public async Task ConfirmOrder()
         {
+            // Si le panier est vide, on affiche une alerte
             if (!CartItems.Any())
             {
-                await Application.Current.MainPage.DisplayAlert("Empty Cart", "Please add products before placing an order.", "OK");
+                await Application.Current.MainPage.DisplayAlert("ℹ Empty Cart", "Please add products before placing an order.", "OK");
                 return;
             }
 
@@ -61,6 +67,7 @@ namespace MyApp.ViewModel
 
                 if (user != null)
                 {
+                    // Parcours des articles du panier pour mettre à jour la commande
                     foreach (var item in Globals.Cart)
                     {
                         var itemId = item.ProductId.Trim();
@@ -83,24 +90,27 @@ namespace MyApp.ViewModel
                         }
                     }
 
+                    // Mise à jour du panier de l'utilisateur dans la base de données
                     await userService.UpdateUserCartAsync(user.Id, user.Products);
                     Globals.CurrentUser.Products = user.Products; // update local cache
                 }
             }
 
-            await Application.Current.MainPage.DisplayAlert("Order Confirmed", "Your order has been successfully confirmed.", "OK");
+            await Application.Current.MainPage.DisplayAlert("✅ Order Confirmed", "Your order has been successfully confirmed.", "OK");
 
+            // Nettoyage du panier après la commande
             Globals.Cart.Clear();
             SaveCartToPreferences();
             CartItems.Clear();
             OnPropertyChanged(nameof(TotalPriceText));
         }
 
+        // Commande pour retirer un produit du panier
         [RelayCommand]
         public async Task RemoveFromCart(ProductInCart product)
         {
             bool confirm = await Application.Current.MainPage.DisplayAlert(
-                "Remove Product",
+                "ℹ️ Remove Product",
                 $"Do you want to remove {product.Name} from your Basket?",
                 "Yes", "No");
 
@@ -113,6 +123,7 @@ namespace MyApp.ViewModel
             }
         }
 
+        // Méthode pour sauvegarder le panier dans les préférences
         private void SaveCartToPreferences()
         {
             var cartJson = JsonSerializer.Serialize(Globals.Cart);
