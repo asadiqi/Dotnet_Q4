@@ -109,6 +109,8 @@ public partial class MainViewModel : BaseViewModel
 
         Globals.CurrentUser = null;
 
+        Globals.Cart.Clear();
+        Preferences.Remove("Cart");
         // Naviguer vers la page de login
         await Shell.Current.GoToAsync("//LoginPage");
     }
