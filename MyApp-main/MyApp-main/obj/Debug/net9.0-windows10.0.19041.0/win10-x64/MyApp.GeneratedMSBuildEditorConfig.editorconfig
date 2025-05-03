@@ -69,11 +69,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.DetailsView.xam
 build_metadata.AdditionalFiles.TargetPath = View\DetailsView.xaml
 build_metadata.AdditionalFiles.RelativePath = View\DetailsView.xaml
 
-[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/ForgotPasswordPage.xaml]
+[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/ForgotPasswordView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.ForgotPasswordPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\ForgotPasswordPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\ForgotPasswordPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.ForgotPasswordView.xaml
+build_metadata.AdditionalFiles.TargetPath = View\ForgotPasswordView.xaml
+build_metadata.AdditionalFiles.RelativePath = View\ForgotPasswordView.xaml
 
 [C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/GraphView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -81,11 +81,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.GraphView.xaml
 build_metadata.AdditionalFiles.TargetPath = View\GraphView.xaml
 build_metadata.AdditionalFiles.RelativePath = View\GraphView.xaml
 
-[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/LoginPage.xaml]
+[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/LoginView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.LoginPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\LoginPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\LoginPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.LoginView.xaml
+build_metadata.AdditionalFiles.TargetPath = View\LoginView.xaml
+build_metadata.AdditionalFiles.RelativePath = View\LoginView.xaml
 
 [C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/MainView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -93,8 +93,8 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.MainView.xaml
 build_metadata.AdditionalFiles.TargetPath = View\MainView.xaml
 build_metadata.AdditionalFiles.RelativePath = View\MainView.xaml
 
-[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/SignupPage.xaml]
+[C:/Users/sadiq/Desktop/Cours_Q4/.Net/Dotnet_Q4/MyApp-main/MyApp-main/View/SignupViewxaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.SignupPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\SignupPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\SignupPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyApp.View.SignupViewxaml
+build_metadata.AdditionalFiles.TargetPath = View\SignupViewxaml
+build_metadata.AdditionalFiles.RelativePath = View\SignupViewxaml

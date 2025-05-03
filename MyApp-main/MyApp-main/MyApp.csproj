@@ -57,6 +57,12 @@ either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Include="View\SignupViewxaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="11.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
@@ -73,11 +79,14 @@ either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 	  <Compile Update="View\CartView.xaml.cs">
 	    <DependentUpon>CartView.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="View\ForgotPasswordPage.xaml.cs">
-	    <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
+	  <Compile Update="View\ForgotPasswordView.xaml.cs">
+	    <DependentUpon>ForgotPasswordView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\LoginView.xaml.cs">
+	    <DependentUpon>LoginView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="View\SignupPage.xaml.cs">
-	    <DependentUpon>SignupPage.xaml</DependentUpon>
+	    <DependentUpon>SignupViewxaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -85,7 +94,7 @@ either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		<MauiXaml Update="View\CartView.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
-		<MauiXaml Update="View\ForgotPasswordPage.xaml">
+		<MauiXaml Update="View\ForgotPasswordView.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="View\DetailsView.xaml">
@@ -93,9 +102,6 @@ either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		</MauiXaml>
 		<MauiXaml Update="View\GraphView.xaml">
 			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="View\SignupPage.xaml">
-		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="View\MainView.xaml">
 			<Generator>MSBuild:Compile</Generator>
