@@ -28,17 +28,23 @@
                         Command="{Binding GoToCartCommand}" />
             </Border>
         </AbsoluteLayout>
-
         <Grid ColumnSpacing="20"
-              RowSpacing="20"
-              Padding="20"
-              VerticalOptions="CenterAndExpand"
-              HorizontalOptions="Center">
+       RowSpacing="20"
+       Padding="20"
+       VerticalOptions="CenterAndExpand"
+       HorizontalOptions="Center">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <!-- 0 -->
                 <RowDefinition Height="Auto" />
+                <!-- 1 -->
                 <RowDefinition Height="Auto" />
+                <!-- 2 -->
+                <RowDefinition Height="Auto" />
+                <!-- 3 -->
+                <RowDefinition Height="Auto" />
+                <!-- 4 -->
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -46,76 +52,102 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
+            <!-- Ligne 0 -->
             <Button Text="Add Product"
-                    WidthRequest="250" 
-                    HeightRequest="50"
-                    Command="{Binding GoToDetailsCommand}"
-                    CommandParameter="0"
-                    IsEnabled="{Binding IsNotBusy}"
-                    BackgroundColor="#4CAF50"
-                    TextColor="White"
-                    CornerRadius="25"
-                    FontSize="16"
-                    Margin="0,10"
-                    Grid.Row="0"
-                    Grid.Column="0" />
+             WidthRequest="250" HeightRequest="50"
+             Command="{Binding GoToDetailsCommand}"
+             CommandParameter="0"
+             IsEnabled="{Binding IsNotBusy}"
+             BackgroundColor="#4CAF50"
+             TextColor="White"
+             CornerRadius="25"
+             FontSize="16"
+             Margin="0,10"
+             Grid.Row="0"
+             Grid.Column="0" />
 
             <Button Text="All Products"
-                    WidthRequest="250"
-                    HeightRequest="50"
-                    Command="{Binding GoToAllProductsCommand}"
-                    IsEnabled="{Binding IsNotBusy}"
-                    BackgroundColor="#2196F3"
-                    TextColor="White"
-                    CornerRadius="25"
-                    FontSize="16"
-                    Margin="0,10"
-                    Grid.Row="0"
-                    Grid.Column="1" />
+             WidthRequest="250" HeightRequest="50"
+             Command="{Binding GoToAllProductsCommand}"
+             IsEnabled="{Binding IsNotBusy}"
+             BackgroundColor="#2196F3"
+             TextColor="White"
+             CornerRadius="25"
+             FontSize="16"
+             Margin="0,10"
+             Grid.Row="0"
+             Grid.Column="1" />
 
+            <!-- Ligne 1 -->
             <Button Text="Export to CSV"
-                    WidthRequest="250"
-                    HeightRequest="50"
-                    Command="{Binding PrintToCSVCommand}"
-                    CommandParameter="0"
-                    IsEnabled="{Binding IsNotBusy}"
-                    BackgroundColor="#FF9800"
-                    TextColor="White"
-                    CornerRadius="25"
-                    FontSize="16"
-                    Margin="0,10"
-                    Grid.Row="1"
-                    Grid.Column="0" />
+             WidthRequest="250" HeightRequest="50"
+             Command="{Binding PrintToCSVCommand}"
+             CommandParameter="0"
+             IsEnabled="{Binding IsNotBusy}"
+             BackgroundColor="#FF9800"
+             TextColor="White"
+             CornerRadius="25"
+             FontSize="16"
+             Margin="0,10"
+             Grid.Row="1"
+             Grid.Column="0" />
 
             <Button Text="Load from CSV"
-                    WidthRequest="250"
-                    HeightRequest="50"
-                    Command="{Binding LoadFromCSVCommand}"
-                    CommandParameter="0"
-                    IsEnabled="{Binding IsNotBusy}"
-                    BackgroundColor="#9E9E9E"
-                    TextColor="White"
-                    CornerRadius="25"
-                    FontSize="16"
-                    Margin="0,10"
-                    Grid.Row="1"
-                    Grid.Column="1" />
+             WidthRequest="250" HeightRequest="50"
+             Command="{Binding LoadFromCSVCommand}"
+             CommandParameter="0"
+             IsEnabled="{Binding IsNotBusy}"
+             BackgroundColor="#9E9E9E"
+             TextColor="White"
+             CornerRadius="25"
+             FontSize="16"
+             Margin="0,10"
+             Grid.Row="1"
+             Grid.Column="1" />
 
+            <!-- Ligne 2 -->
             <Button Text="Graph"
-                    WidthRequest="250"
-                    HeightRequest="50"
-                    Command="{Binding GoToGraphCommand}"
-                    CommandParameter="0"
-                    IsEnabled="{Binding IsNotBusy}"
-                    BackgroundColor="#673AB7"
-                    TextColor="White"
-                    CornerRadius="25"
-                    FontSize="16"
-                    Margin="0,10"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    HorizontalOptions="Center" />
+             WidthRequest="250" HeightRequest="50"
+             Command="{Binding GoToGraphCommand}"
+             CommandParameter="0"
+             IsEnabled="{Binding IsNotBusy}"
+             BackgroundColor="#673AB7"
+             TextColor="White"
+             CornerRadius="25"
+             FontSize="16"
+             Margin="0,10"
+             Grid.Row="2"
+             Grid.Column="0" />
+
+            <Button Text="Test"
+             WidthRequest="250" HeightRequest="50"
+             Command="{Binding GoToTestCommand}"
+             CommandParameter="0"
+             IsEnabled="{Binding IsNotBusy}"
+             BackgroundColor="#009688"
+             TextColor="White"
+             CornerRadius="25"
+             FontSize="16"
+             Margin="0,10"
+             Grid.Row="2"
+             Grid.Column="1" />
+
+            <!-- Ligne 3 -->
+            <Button Text="Test22"
+             WidthRequest="250" HeightRequest="50"
+             Command="{Binding GoToTest2Command}"
+             CommandParameter="0"
+             IsEnabled="{Binding IsNotBusy}"
+             BackgroundColor="#795548"
+             TextColor="White"
+             CornerRadius="25"
+             FontSize="16"
+             Margin="0,10"
+             Grid.Row="3"
+             Grid.Column="0"
+             Grid.ColumnSpan="2"
+             HorizontalOptions="Center" />
+
         </Grid>
 
         <Button Text="Logout"
