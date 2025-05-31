@@ -67,7 +67,7 @@
                                     Padding="12"
                                     BackgroundColor="#fff7c9"
                                     Margin="10"
-                                    HeightRequest="380">
+                                    HeightRequest="420">
                                 <Grid>
                                     <VerticalStackLayout Grid.Column="1" Spacing="8" Padding="0,5">
                                         <!-- ID du produit -->
@@ -116,6 +116,15 @@
                                                 <FormattedString>
                                                     <Span Text="Price: " FontAttributes="Bold" />
                                                     <Span Text="{Binding Path=Price, StringFormat='{0} €'}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Description: " FontAttributes="Bold" />
+                                                    <Span Text="{Binding Path=Description, StringFormat='{0:S10}'}" />
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>

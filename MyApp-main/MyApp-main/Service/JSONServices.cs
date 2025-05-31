@@ -1,4 +1,6 @@
-﻿using MongoDB.Driver;
+﻿using CommunityToolkit.Maui.Storage;
+using CommunityToolkit.Mvvm.Input;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +11,7 @@ using FilePicker = Microsoft.Maui.Storage.FilePicker;
 
 namespace MyApp.Service;
 
-public class JSONServices
+public partial  class JSONServices
 {
     private const string BaseUrl = "https://185.157.245.38:5000/json";
     private const string FileName = "MyProducts.json";
@@ -140,7 +142,42 @@ public class JSONServices
         }
 
         return new List<Product>();
+
+
     }
 
+
+    [RelayCommand]
+    public async Task PrintToJSON(List<Product> products)
+    {
+        try
+        {
+            if (products == null || products.Count == 0)
+            {
+                await Shell.Current.DisplayAlert("⚠️ Alert", "No data to export.", "OK");
+                return;
+            }
+
+            var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
+            var jsonString = JsonSerializer.Serialize(products, jsonOptions);
+            var jsonBytes = Encoding.UTF8.GetBytes(jsonString);
+
+            using var stream = new MemoryStream(jsonBytes);
+
+            var fileSaverResult = await FileSaver.Default.SaveAsync("Products.json", stream);
+
+            if (!fileSaverResult.IsSuccessful)
+            {
+                await Shell.Current.DisplayAlert("❌ Error", "Failed to save the JSON file.", "OK");
+                return;
+            }
+
+            await Shell.Current.DisplayAlert("✅ Success", "The JSON file has been successfully exported.", "OK");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("❌ Error", $"Error saving the JSON file: {ex.Message}", "OK");
+        }
+    }
 
 }

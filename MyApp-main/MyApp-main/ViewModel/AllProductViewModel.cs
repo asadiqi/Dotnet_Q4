@@ -45,7 +45,8 @@ public partial class AllProductsViewModel : ObservableObject
             filtered = filtered.Where(p =>
                 p.Id.ToLower().Contains(searchText.ToLower()) ||
                 p.Name.ToLower().Contains(searchText.ToLower()) ||
-                p.Group.ToLower().Contains(searchText.ToLower())
+                p.Group.ToLower().Contains(searchText.ToLower()) ||
+                p.Description.ToLower().Contains(searchText.ToLower())
             );
         }
 
@@ -130,7 +131,8 @@ public partial class AllProductsViewModel : ObservableObject
             {
                 ProductId = product.Id,
                 Name = product.Name,
-                Quantity = 1
+                Quantity = 1,
+                Description = product.Description
             });
         }
 

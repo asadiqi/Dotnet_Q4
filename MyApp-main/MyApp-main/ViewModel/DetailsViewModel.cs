@@ -19,12 +19,18 @@ public partial class DetailsViewModel : ObservableObject
 
     [ObservableProperty]
     public partial string? Name { get; set; }
+
     [ObservableProperty]
     public partial string? Group { get; set; }
+
     [ObservableProperty]
     public partial int Stock { get; set; }
+
     [ObservableProperty]
     public partial int Price { get; set; }
+
+    [ObservableProperty]
+    public partial string? Description { get; set; }
 
     private string? _picture;
 
@@ -112,6 +118,7 @@ public partial class DetailsViewModel : ObservableObject
             Group = product.Group;
             Stock = product.Stock;
             Price = product.Price;
+            Description= product.Description;
             Picture = product.Picture;
         }
     }
@@ -166,6 +173,16 @@ public partial class DetailsViewModel : ObservableObject
             return;
         }
 
+
+
+        if (string.IsNullOrWhiteSpace(Description))
+        {
+            await Application.Current.MainPage.DisplayAlert("❌ Error", "The Description field cannot be empty.", "OK");
+            return;
+        }
+
+
+
         var existingProduct = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
 
         if (existingProduct != null)
@@ -174,6 +191,9 @@ public partial class DetailsViewModel : ObservableObject
             existingProduct.Group = Group ?? string.Empty;
             existingProduct.Stock = Stock;
             existingProduct.Price = Price;
+            existingProduct.Description = Description;
+
+
         }
         else
         {
@@ -183,7 +203,8 @@ public partial class DetailsViewModel : ObservableObject
                 Name = Name ?? string.Empty,
                 Group = Group ?? string.Empty,
                 Stock = Stock,
-                Price = Price
+                Price = Price,
+                Description = Description
             });
         }
 
@@ -198,8 +219,9 @@ public partial class DetailsViewModel : ObservableObject
                Id.All(char.IsDigit) &&                   // Vérifie que l'ID contient uniquement des chiffres
                !string.IsNullOrWhiteSpace(Name) &&       // Vérifie que le nom n'est pas vide
                !string.IsNullOrWhiteSpace(Group) &&      // Vérifie que le groupe n'est pas vide
-               Stock > 0 &&                               // Vérifie que le stock est supérieur à 0
-               Price > 0;                                // Vérifie que le prix est supérieur à 0
+               Stock > 0 &&                                // Vérifie que le stock est supérieur à 0
+               Price > 0 &&                            // Vérifie que le prix est supérieur à 0
+              !string.IsNullOrWhiteSpace(Description);
     }
 
     // Commande pour soumettre un produit après validation
@@ -219,7 +241,7 @@ public partial class DetailsViewModel : ObservableObject
         {
             bool replace = await Application.Current.MainPage.DisplayAlert(
                 "⚠️ Duplicate Product",
-                $"A product with the ID {Id} already exists:\n\nName: {existingProduct.Name}\nGroup: {existingProduct.Group}\nPrice: {existingProduct.Price} €\nStock: {existingProduct.Stock}\n\nDo you want to replace it with the new data?",
+                $"A product with the ID {Id} already exists:\n\nName: {existingProduct.Name}\nGroup: {existingProduct.Group}\nPrice: {existingProduct.Price} €\nStock: {existingProduct.Stock}\nStock: {existingProduct.Description}\n\nDo you want to replace it with the new data?",
                 "Yes, replace",
                 "No, cancel");
 
@@ -233,6 +255,7 @@ public partial class DetailsViewModel : ObservableObject
             existingProduct.Group = Group ?? string.Empty;
             existingProduct.Stock = Stock;
             existingProduct.Price = Price;
+            existingProduct.Description = Description ?? string.Empty;
             existingProduct.Picture = Picture;
         }
         else
@@ -245,6 +268,7 @@ public partial class DetailsViewModel : ObservableObject
                 Group = Group ?? string.Empty,
                 Stock = Stock,
                 Price = Price,
+                Description = Description ?? string.Empty,
                 Picture = Picture
             });
         }

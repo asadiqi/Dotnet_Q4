@@ -1,37 +1,44 @@
 [
   {
-    "Id": "001",
-    "Name": "Clavier Mécanique",
-    "Group": "Informatique",
-    "Stock": 50,
-    "Price": 89
-  },
-  {
-    "Id": "002",
-    "Name": "Souris Optique",
-    "Group": "Informatique",
+    "Id": "1",
+    "Name": "Banane",
+    "Group": "Fruit",
     "Stock": 120,
-    "Price": 25
+    "Price": 1,
+    "Description": "Riche en potassium",
+    "Picture": ""
   },
   {
-    "Id": "003",
-    "Name": "Écran 24 pouces",
-    "Group": "Informatique",
-    "Stock": 30,
-    "Price": 150
+    "Id": "2",
+    "Name": "Carotte",
+    "Group": "Légume",
+    "Stock": 80,
+    "Price": 2,
+    "Picture": ""
   },
   {
-    "Id": "004",
-    "Name": "Chaise de bureau",
-    "Group": "Mobilier",
-    "Stock": 15,
-    "Price": 199
+    "Id": "3",
+    "Name": "Pomme",
+    "Group": "Fruit",
+    "Stock": 60,
+    "Price": 3,
+    "Description": "Bonne pour la santé",
+    "Picture": ""
   },
   {
-    "Id": "005",
-    "Name": "Disque SSD 1To",
-    "Group": "Stockage",
-    "Stock": 75,
-    "Price": 109
+    "Id": "4",
+    "Name": "Télévision",
+    "Group": "Electronic",
+    "Stock": 10,
+    "Price": 300,
+    "Picture": ""
+  },
+  {
+    "Id": "5",
+    "Name": "Tomate",
+    "Group": "Légume",
+    "Stock": 90,
+    "Price": 2,
+    "Picture": ""
   }
 ]

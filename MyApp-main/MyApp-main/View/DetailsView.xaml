@@ -20,7 +20,7 @@
             <VerticalStackLayout Padding="30" Spacing="15"
                                  BackgroundColor="#F0F0F0" Opacity="0.9"
                                  WidthRequest="500"
-                                 HeightRequest="700"
+                                 HeightRequest="1000"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
 
@@ -29,7 +29,7 @@
                        FontAttributes="Bold"
                        HorizontalOptions="Center"/>
 
-                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="5">
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="5">
                     <!-- Id -->
                     <Label Text="Id * :" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Id}" Grid.Column="1" Grid.Row="0" WidthRequest="250" Margin="0,0,0,5"/>
@@ -50,11 +50,15 @@
                     <Label Text="Price * :" Grid.Row="4" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
                     <Entry Text="{Binding Price}" Grid.Column="1" Grid.Row="4" Keyboard="Numeric" WidthRequest="250" Margin="0,0,0,5"/>
 
+                    <!-- Description -->
+                    <Label Text="Description * :" Grid.Row="5" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Entry Text="{Binding Description }" Grid.Column="1" Grid.Row="5" WidthRequest="250" Margin="0,0,0,5"/>
+
                     <!-- Label Image (déjà existant) -->
-                    <Label Text="Clickable Image:" Grid.Row="5" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
+                    <Label Text="Clickable Image:" Grid.Row="6" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,5"/>
 
                     <!-- Border cliquable autour de l'image -->
-                    <Border Grid.Row="5" Grid.Column="1" WidthRequest="200" HeightRequest="100" Stroke="Black" StrokeThickness="1" Background="White" Margin="0,0,0,20" HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 10">
+                    <Border Grid.Row="6" Grid.Column="1" WidthRequest="200" HeightRequest="100" Stroke="Black" StrokeThickness="1" Background="White" Margin="0,0,0,20" HorizontalOptions="Center" VerticalOptions="Center" StrokeShape="RoundRectangle 10">
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SelectImageCommand}" />
                         </Border.GestureRecognizers>

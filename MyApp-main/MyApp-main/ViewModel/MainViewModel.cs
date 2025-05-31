@@ -198,6 +198,17 @@ public partial class MainViewModel : BaseViewModel
 
 
 
+    [RelayCommand]
+    private async Task PrintToJSON()
+    {
+        IsBusy = true;
+        await MyJSONService.PrintToJSON(Globals.MyProducts);
+        IsBusy = false;
+
+    }
+
+
+
     // Méthode pour rafraîchir la liste des produits
     internal async Task RefreshPage()
     {
@@ -241,7 +252,7 @@ public partial class MainViewModel : BaseViewModel
         // Créer une chaîne pour afficher les doublons
         var duplicateInfo = new StringBuilder();
         foreach (var p in duplicateProducts)
-            duplicateInfo.AppendLine($"ID: {p.Id}, Name: {p.Name}");
+            duplicateInfo.AppendLine($"ID: {p.Id}, Name: {p.Name}, Description: { p.Description}");
 
         // Demander à l'utilisateur s'il souhaite remplacer les doublons
         bool replace = await Application.Current.MainPage.DisplayAlert(
@@ -259,6 +270,7 @@ public partial class MainViewModel : BaseViewModel
                 existing.Group = dp.Group;
                 existing.Stock = dp.Stock;
                 existing.Price = dp.Price;
+                existing.Description = dp.Description;
             }
 
             await ShowAlert("✅ Success", "The product(s) have been successfully replaced.");

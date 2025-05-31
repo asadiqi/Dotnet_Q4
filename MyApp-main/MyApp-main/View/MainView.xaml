@@ -29,10 +29,10 @@
             </Border>
         </AbsoluteLayout>
         <Grid ColumnSpacing="20"
-       RowSpacing="20"
-       Padding="20"
-       VerticalOptions="CenterAndExpand"
-       HorizontalOptions="Center">
+               RowSpacing="20"
+               Padding="20"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center">  
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -133,9 +133,9 @@
              Grid.Column="1" />
 
             <!-- Ligne 3 -->
-            <Button Text="Test22"
+            <Button Text="Export To Json"
              WidthRequest="250" HeightRequest="50"
-             Command="{Binding GoToTest2Command}"
+             Command="{Binding PrintToJSONCommand}"
              CommandParameter="0"
              IsEnabled="{Binding IsNotBusy}"
              BackgroundColor="#795548"

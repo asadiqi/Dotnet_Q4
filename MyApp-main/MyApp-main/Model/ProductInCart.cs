@@ -11,6 +11,8 @@ namespace MyApp.Model
         public string ProductId { get; set; }   // ID du produit
         public string Name { get; set; }        // Nom du produit
         public int Quantity { get; set; }       // Quantité de ce produit dans le panier
+        public string Description { get; set; }        // Nom du produit
+
     }
 
 }
