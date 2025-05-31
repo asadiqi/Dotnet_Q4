@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using FilePicker = Microsoft.Maui.Storage.FilePicker;
 
 namespace MyApp.Service;
 
@@ -85,5 +86,61 @@ public class JSONServices
         }
     }
 
-   
+
+    public async Task<List<Product>> LoadFromLocalJsonAsync()
+    {
+        try
+        {
+            var result = await FilePicker.Default.PickAsync(new PickOptions
+            {
+                PickerTitle = "Select a JSON file",
+                FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+            {
+                { DevicePlatform.WinUI, new[] { ".json" } },
+                { DevicePlatform.macOS, new[] { ".json" } },
+                { DevicePlatform.iOS, new[] { "public.json" } },
+                { DevicePlatform.Android, new[] { "application/json" } }
+            })
+            });
+
+            if (result != null)
+            {
+                using var stream = await result.OpenReadAsync();
+                var products = await JsonSerializer.DeserializeAsync<List<Product>>(stream);
+                products ??= new List<Product>();
+
+                // 🔁 Appliquer une image par défaut si Picture est vide
+                foreach (var product in products)
+                {
+                    if (string.IsNullOrEmpty(product.Picture))
+                    {
+                        var group = product.Group?.ToLower();
+                        if (group != null)
+                        {
+                            if (group.Contains("fruit"))
+                                product.Picture = "fruit.png";
+                            else if (group.Contains("légume") || group.Contains("legume"))
+                                product.Picture = "vegetable.png";
+                            else
+                                product.Picture = "other.png";
+                        }
+                        else
+                        {
+                            product.Picture = "other.png";
+                        }
+                    }
+                }
+
+                return products;
+            }
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("❌ Error", $"Failed to load JSON: {ex.Message}", "OK");
+        }
+
+        return new List<Product>();
+    }
+
+
 }

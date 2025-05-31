@@ -119,9 +119,9 @@
              Grid.Row="2"
              Grid.Column="0" />
 
-            <Button Text="Test"
+            <Button Text="Load From Json"
              WidthRequest="250" HeightRequest="50"
-             Command="{Binding GoToTestCommand}"
+             Command="{Binding LoadFromJsonCommand}"
              CommandParameter="0"
              IsEnabled="{Binding IsNotBusy}"
              BackgroundColor="#009688"

@@ -161,6 +161,43 @@ public partial class MainViewModel : BaseViewModel
         IsBusy = false;
     }
 
+    [RelayCommand]
+    private async Task LoadFromJson()
+    {
+        if (!IsAdmin())
+        {
+            await ShowAccessDenied();
+            return;
+        }
+
+        IsBusy = true;
+
+        var newProducts = await MyJSONService.LoadFromLocalJsonAsync();
+        var duplicateProducts = new List<Product>();
+
+        foreach (var product in newProducts)
+        {
+            var existing = Globals.MyProducts.FirstOrDefault(p => p.Id == product.Id);
+            if (existing != null)
+                duplicateProducts.Add(product);
+            else
+                Globals.MyProducts.Add(product);
+        }
+
+        await HandleDuplicates(duplicateProducts);
+        await RefreshPage();
+
+        bool success = await MyJSONService.SetProducts();
+        if (!success)
+        {
+            await ShowAlert("❌ Error", "Failed to sync with server.");
+        }
+
+        IsBusy = false;
+    }
+
+
+
     // Méthode pour rafraîchir la liste des produits
     internal async Task RefreshPage()
     {

@@ -1,0 +1,37 @@
+[
+  {
+    "Id": "001",
+    "Name": "Clavier Mécanique",
+    "Group": "Informatique",
+    "Stock": 50,
+    "Price": 89
+  },
+  {
+    "Id": "002",
+    "Name": "Souris Optique",
+    "Group": "Informatique",
+    "Stock": 120,
+    "Price": 25
+  },
+  {
+    "Id": "003",
+    "Name": "Écran 24 pouces",
+    "Group": "Informatique",
+    "Stock": 30,
+    "Price": 150
+  },
+  {
+    "Id": "004",
+    "Name": "Chaise de bureau",
+    "Group": "Mobilier",
+    "Stock": 15,
+    "Price": 199
+  },
+  {
+    "Id": "005",
+    "Name": "Disque SSD 1To",
+    "Group": "Stockage",
+    "Stock": 75,
+    "Price": 109
+  }
+]

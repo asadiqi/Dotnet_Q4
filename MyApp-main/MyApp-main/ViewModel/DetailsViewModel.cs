@@ -10,6 +10,13 @@ public partial class DetailsViewModel : ObservableObject
 {
     [ObservableProperty]
     public partial string? Id { get; set; }
+
+    partial void OnIdChanged(string? value)
+    {
+        RefreshPage();
+    }
+
+
     [ObservableProperty]
     public partial string? Name { get; set; }
     [ObservableProperty]
@@ -22,9 +29,20 @@ public partial class DetailsViewModel : ObservableObject
     private string? _picture;
 
     // Propriété Picture qui retourne une image par défaut si aucune image n'est définie
-    public string? Picture
+    public string Picture
     {
-        get => string.IsNullOrEmpty(_picture) ? GetDefaultImage() : _picture;
+        get
+        {
+            if (string.IsNullOrEmpty(_picture))
+                return GetDefaultImage();
+
+            // Vérifie si le fichier image existe réellement
+            var imagePath = Path.Combine(FileSystem.AppDataDirectory, _picture);
+            if (File.Exists(imagePath))
+                return _picture;
+
+            return GetDefaultImage(); // si l'image n'existe pas physiquement
+        }
         set => SetProperty(ref _picture, value);
     }
 
@@ -87,16 +105,14 @@ public partial class DetailsViewModel : ObservableObject
     // Rafraîchit les informations du produit selon l'ID
     internal void RefreshPage()
     {
-        foreach (var item in Globals.MyProducts)
+        var product = Globals.MyProducts.FirstOrDefault(p => p.Id == Id);
+        if (product != null)
         {
-            if (Id == item.Id)
-            {
-                Name = item.Name;
-                Group = item.Group;
-                Stock = item.Stock;
-                Price = item.Price;
-                break;
-            }
+            Name = product.Name;
+            Group = product.Group;
+            Stock = product.Stock;
+            Price = product.Price;
+            Picture = product.Picture;
         }
     }
 
@@ -246,7 +262,7 @@ public partial class DetailsViewModel : ObservableObject
     {
         try
         {
-            // Demander à l'utilisateur de choisir une image
+            // Demander à l'utilisateur de choisir une image<
             var result = await MediaPicker.PickPhotoAsync();
 
             if (result != null)

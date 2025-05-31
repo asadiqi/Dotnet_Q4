@@ -1,0 +1,68 @@
+
+*pour tester la version 
+ dotnet --version  
+
+*pour voir workout liste faut rendre dans chemin de dossier puis 
+dotnet workload list 
+
+*pour voir tous les SDKs 
+dotnet --list-sdks
+
+*pour ajouter package Mvvm
+dotnet add package CommunityToolkit.Mvvm
+
+*il faut changer aussi cproj et avoir meme nom de projet 
+
+* pour ajouter un bouton de test dans menu il faut 
+1) cree testview  et mettre de dans  x:Class="MyApp.View.TestView2" x:DataType="viewmodel:TestViewModel2"
+
+2) cree testviewmodel et avoir de dans 
+		
+namespace MyApp.ViewModel
+{
+    public class TestViewModel2
+    {
+    }
+
+3) il faut ajouter le bouton dans l'interface qu'on veut par example dans XAML de main
+et il faut definit bindinig Command="{Binding GoToTestCommand}"
+
+3.5) il faut definir dans viewmodel de l'interface la method goto 
+
+
+        [RelayCommand]
+        private async Task GoToTest2()
+        {
+
+            await Shell.Current.GoToAsync("TestView2", true);
+
+        }
+
+
+4) il faut ecrire le nom par tout dans fichier XAML.cs
+
+
+namespace MyApp.View;
+
+public partial class TestView2 : ContentPage
+{
+	public TestView2(TestViewModel2 viewModel)
+	{
+		InitializeComponent();
+		BindingContext=viewModel;
+	}
+
+
+
+}
+
+5) il faut definir la route dans Appshell.xaml.cs 
+ Routing.RegisterRoute(nameof(TestView2), typeof(TestView2));
+
+6) il faut aussi definir dans mauiprogramme 
+
+            builder.Services.AddTransient<TestView2>();
+            builder.Services.AddTransient<TestViewModel2>();
+
+
+
